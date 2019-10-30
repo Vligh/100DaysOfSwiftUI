@@ -20,6 +20,7 @@
 		345C53ED23658B3A00081D96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 345C53EB23658B3A00081D96 /* LaunchScreen.storyboard */; };
 		345C53F5236593F900081D96 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C53F4236593F900081D96 /* CircleImage.swift */; };
 		345C53F72365966D00081D96 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C53F62365966D00081D96 /* MapView.swift */; };
+		34B0B38723696744006352CB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0B38623696744006352CB /* UserData.swift */; };
 		34E214082366D7C3000CE295 /* twinlake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E213FC2366D7C2000CE295 /* twinlake.jpg */; };
 		34E214092366D7C3000CE295 /* silversalmoncreek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E213FD2366D7C3000CE295 /* silversalmoncreek.jpg */; };
 		34E2140A2366D7C3000CE295 /* umbagog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E213FE2366D7C3000CE295 /* umbagog.jpg */; };
@@ -50,6 +51,7 @@
 		345C53EE23658B3A00081D96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		345C53F4236593F900081D96 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		345C53F62365966D00081D96 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		34B0B38623696744006352CB /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		34E213FC2366D7C2000CE295 /* twinlake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twinlake.jpg; sourceTree = "<group>"; };
 		34E213FD2366D7C3000CE295 /* silversalmoncreek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silversalmoncreek.jpg; sourceTree = "<group>"; };
 		34E213FE2366D7C3000CE295 /* umbagog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = umbagog.jpg; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		344E85952366C0DB00C210CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				34B0B38623696744006352CB /* UserData.swift */,
 				344E85962366C0DB00C210CA /* Landmarks.swift */,
 				344E859E2366D5C300C210CA /* Data.swift */,
 			);
@@ -248,6 +251,7 @@
 				345C53E323658B3900081D96 /* SceneDelegate.swift in Sources */,
 				344E859D2366C23700C210CA /* LandmarkRow.swift in Sources */,
 				345C53E523658B3900081D96 /* LandmarkDetail.swift in Sources */,
+				34B0B38723696744006352CB /* UserData.swift in Sources */,
 				344E859F2366D5C300C210CA /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
