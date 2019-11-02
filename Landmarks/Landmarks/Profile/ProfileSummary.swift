@@ -37,26 +37,25 @@ struct ProfileSummary: View {
             
             HikeBadge(name: "Earth Day")
               .hueRotation(Angle(degrees: 90))
-            
             HikeBadge(name: "Tenth Hike")
               .grayscale(0.5)
               .hueRotation(Angle(degrees: 45))
           }
         }
         .frame(height: 140)
+      }
+      
+      VStack(alignment: .leading) {
+        Text("Recent Hikes")
+          .font(.headline)
         
-        VStack(alignment: .leading) {
-          Text("Recent Hikes")
-            .font(.headline)
-          
-          HikeView(hike: hikeData[0])
-        }
+        HikeView(hike: hikeData[0])
       }
     }
   }
 }
 
-struct ProfileSumamry_Previews: PreviewProvider {
+struct ProfileSummary_Previews: PreviewProvider {
   static var previews: some View {
     ProfileSummary(profile: Profile.default)
   }
