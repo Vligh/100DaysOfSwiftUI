@@ -95,6 +95,7 @@
 		34E214112366D7C3000CE295 /* chincoteague.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E214052366D7C3000CE295 /* chincoteague.jpg */; };
 		34E214122366D7C3000CE295 /* stmarylake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34E214062366D7C3000CE295 /* stmarylake.jpg */; };
 		34E2141423681545000CE295 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2141323681545000CE295 /* LandmarkList.swift */; };
+		34EEBF5423715DCD00653B6F /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2141323681545000CE295 /* LandmarkList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -555,6 +556,7 @@
 				34A5CD522371544E008098D4 /* WatchMapView.swift in Sources */,
 				34DC0364236FFD5D00687BE1 /* Profile.swift in Sources */,
 				343419E5236FF823006A5E37 /* ContentView.swift in Sources */,
+				34EEBF5423715DCD00653B6F /* LandmarkList.swift in Sources */,
 				34DC0367236FFD5D00687BE1 /* CircleImage.swift in Sources */,
 				343419EB236FF823006A5E37 /* NotificationController.swift in Sources */,
 				34DC0363236FFD5D00687BE1 /* UserData.swift in Sources */,

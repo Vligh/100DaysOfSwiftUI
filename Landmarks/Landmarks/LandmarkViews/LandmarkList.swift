@@ -32,9 +32,7 @@ typealias PreviewDetailView = LandmarkDetail
 
 struct LandmarkList_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
-      LandmarkList { PreviewDetailView(landmark: $0) }
-        .environmentObject(UserData())
-    }
+    LandmarkList { PreviewDetailView(landmark: $0) }
+      .environmentObject(UserData())
   }
 }
