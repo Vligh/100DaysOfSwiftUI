@@ -12,9 +12,20 @@ struct ContentView: View {
   let temperatureUnits = ["Celsius", "Fahrenheit", "Kelvin"]
   
   @State private var sourceValue = "0"
-  @State private var targetValue = "0"
+  
   @State private var sourceUnit = 0
   @State private var targetUnit = 1
+  
+  var currentSourceUnit: String {
+    return self.temperatureUnits[self.sourceUnit]
+  }
+  var currentTargetUnit: String {
+    return self.temperatureUnits[self.targetUnit]
+  }
+  
+  var targetValue: Double {
+    return Double(self.sourceValue) ?? 0
+  }
   
   var body: some View {
     NavigationView {
@@ -41,7 +52,7 @@ struct ContentView: View {
         }
         
         Section {
-          Text("0 Celsius is 32 Fahrenheit")
+          Text("\(self.sourceValue) \(self.currentSourceUnit) is \(self.targetValue, specifier: "%.2f") \(self.currentTargetUnit)")
         }
       }
 
