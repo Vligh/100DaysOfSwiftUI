@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
+  let celsius = "Celsius"
+  let fahrenheit = "Fahrenheit"
+  let kelvin = "Kelvin"
   let temperatureUnits = ["Celsius", "Fahrenheit", "Kelvin"]
   
   @State private var sourceValue = "0"
@@ -24,7 +27,45 @@ struct ContentView: View {
   }
   
   var targetValue: Double {
-    return Double(self.sourceValue) ?? 0
+    let source = Double(self.sourceValue) ?? 0
+    
+    var result = source
+    
+    if currentSourceUnit == celsius {
+      if currentTargetUnit == fahrenheit {
+        // Celsius to Fahrenheit
+        result = (source * 9 / 5) + 32
+      } else if currentTargetUnit == kelvin {
+        // Celsius to Kelvin
+        result = source + 273.15
+      }
+    } else if currentSourceUnit == fahrenheit {
+      if currentTargetUnit == celsius {
+        // Fahrenheit to Celsius
+        result = convertFahrenheitToCelsuis(source)
+      } else if currentTargetUnit == kelvin {
+        // Fahrenheit to Kelvin
+        result = convertFahrenheitToCelsuis(source) + 273.15
+      }
+    } else {
+      if currentTargetUnit == celsius {
+        // Kelvin to Celsius
+        result = convertKelvinToCelsius(source)
+      } else if currentTargetUnit == fahrenheit {
+        // Kelvin to Fahrenheit
+        result = convertFahrenheitToCelsuis( convertFahrenheitToCelsuis(source))
+      }
+    }
+    
+    return result
+  }
+  
+  func convertFahrenheitToCelsuis(_ source: Double) -> Double {
+    return (source - 32) * 5 / 9
+  }
+  
+  func convertKelvinToCelsius(_ source: Double) -> Double {
+    return source - 273.15
   }
   
   var body: some View {
