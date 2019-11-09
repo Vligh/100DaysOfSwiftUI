@@ -43,6 +43,11 @@ struct ContentView: View {
           }
         }
         
+        VStack {
+          Text("Your score is \(self.score)")
+            .foregroundColor(.white)
+        }
+        
         Spacer()
       }
     }
