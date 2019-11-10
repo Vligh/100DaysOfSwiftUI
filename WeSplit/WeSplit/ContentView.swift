@@ -15,8 +15,11 @@ struct ContentView: View {
   
   let tipPercentages = [10, 15, 20, 25, 0]
   
+  var tipSelection: Double {
+    return Double(tipPercentages[tipPercentage])
+  }
+  
   var totalAmount: Double {
-    let tipSelection = Double(tipPercentages[tipPercentage])
     let orderAmount = Double(checkAmount) ?? 0
 
     let tipValue = orderAmount / 100 * tipSelection
@@ -59,6 +62,7 @@ struct ContentView: View {
         
         Section(header: Text("Total amount")) {
           Text("$\(totalAmount, specifier: "%.2f")")
+            .foregroundColor(tipSelection == 0 ? .red : .primary)
         }
       }
     .navigationBarTitle("WeSplit")
