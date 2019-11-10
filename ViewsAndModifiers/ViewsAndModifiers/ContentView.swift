@@ -8,9 +8,24 @@
 
 import SwiftUI
 
+extension View {
+  func titleStyle() -> some View {
+    self.modifier(Title())
+  }
+}
+
+struct Title: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.title)
+      .foregroundColor(.blue)
+  }
+}
+
 struct ContentView: View {
   var body: some View {
     Text("Hello World")
+      .titleStyle()
   }
 }
 
