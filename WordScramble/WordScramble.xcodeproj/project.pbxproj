@@ -13,6 +13,7 @@
 		34B90CA0237E937C00FFF46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B90C9F237E937C00FFF46B /* Assets.xcassets */; };
 		34B90CA3237E937C00FFF46B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B90CA2237E937C00FFF46B /* Preview Assets.xcassets */; };
 		34B90CA6237E937C00FFF46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B90CA4237E937C00FFF46B /* LaunchScreen.storyboard */; };
+		34B90CAE237E9C3400FFF46B /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 34B90CAD237E9C3400FFF46B /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		34B90CA2237E937C00FFF46B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34B90CA5237E937C00FFF46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34B90CA7237E937C00FFF46B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B90CAD237E9C3400FFF46B /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.txt; path = "../../../../../Downloads/SwiftUI Tutorials/HackingWithSwift-master/SwiftUI/project5-files/start.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				34B90C9F237E937C00FFF46B /* Assets.xcassets */,
 				34B90CA4237E937C00FFF46B /* LaunchScreen.storyboard */,
 				34B90CA7237E937C00FFF46B /* Info.plist */,
+				34B90CAD237E9C3400FFF46B /* start.txt */,
 				34B90CA1237E937C00FFF46B /* Preview Content */,
 			);
 			path = WordScramble;
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B90CA6237E937C00FFF46B /* LaunchScreen.storyboard in Resources */,
+				34B90CAE237E9C3400FFF46B /* start.txt in Resources */,
 				34B90CA3237E937C00FFF46B /* Preview Assets.xcassets in Resources */,
 				34B90CA0237E937C00FFF46B /* Assets.xcassets in Resources */,
 			);
