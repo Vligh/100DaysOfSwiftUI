@@ -17,6 +17,10 @@ struct ContentView: View {
   @State private var errorMessage = ""
   @State private var showingError = false
 
+  private var currentScore: Int {
+    usedWords.map({ $0.count }).reduce(0, +)
+  }
+
   var body: some View {
     NavigationView {
       VStack {
@@ -29,6 +33,8 @@ struct ContentView: View {
           Image(systemName: "\($0.count).circle")
           Text($0)
         }
+
+        Text("Score: \(self.currentScore)")
       }
       .navigationBarTitle(rootWord)
       .navigationBarItems(trailing: Button(action: startGame) { Image(systemName: "arrow.clockwise") })
