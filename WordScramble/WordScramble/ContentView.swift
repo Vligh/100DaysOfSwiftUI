@@ -31,6 +31,7 @@ struct ContentView: View {
         }
       }
       .navigationBarTitle(rootWord)
+      .navigationBarItems(trailing: Button(action: startGame) { Image(systemName: "arrow.clockwise") })
       .onAppear(perform: startGame)
       .alert(isPresented: $showingError) {
         Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
