@@ -13,6 +13,7 @@
 		3432C209237FD9EB0067750C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3432C208237FD9EB0067750C /* Assets.xcassets */; };
 		3432C20C237FD9EB0067750C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3432C20B237FD9EB0067750C /* Preview Assets.xcassets */; };
 		3432C20F237FD9EB0067750C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3432C20D237FD9EB0067750C /* LaunchScreen.storyboard */; };
+		3432C217238135860067750C /* ExamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432C216238135860067750C /* ExamplesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3432C20B237FD9EB0067750C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3432C20E237FD9EB0067750C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3432C210237FD9EB0067750C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3432C216238135860067750C /* ExamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3432C20D237FD9EB0067750C /* LaunchScreen.storyboard */,
 				3432C210237FD9EB0067750C /* Info.plist */,
 				3432C20A237FD9EB0067750C /* Preview Content */,
+				3432C216238135860067750C /* ExamplesView.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3432C217238135860067750C /* ExamplesView.swift in Sources */,
 				3432C203237FD9EA0067750C /* AppDelegate.swift in Sources */,
 				3432C205237FD9EA0067750C /* SceneDelegate.swift in Sources */,
 				3432C207237FD9EA0067750C /* ContentView.swift in Sources */,
