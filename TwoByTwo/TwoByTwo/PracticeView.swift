@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct PracticeView: View {
+  @EnvironmentObject var settings: PracticeSettings
+
   var body: some View {
     VStack {
       HStack {
         Spacer()
 
         Button("X") {
-
+          self.settings.isPracticeStarted = false
         }
         .frame(width: 25, height: 25)
         .padding(5)

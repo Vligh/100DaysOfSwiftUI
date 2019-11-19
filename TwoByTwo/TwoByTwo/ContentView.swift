@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var isPracticeStarted = false
+  @EnvironmentObject var settings: PracticeSettings
 
   var body: some View {
     VStack {
-      if isPracticeStarted {
-        PracticeView()
+      if self.settings.isPracticeStarted {
+        PracticeView().environmentObject(self.settings)
       } else {
-        StartView()
+        StartView().environmentObject(self.settings)
       }
     }
   }

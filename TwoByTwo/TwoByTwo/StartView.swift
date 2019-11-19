@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct StartView: View {
+  @EnvironmentObject var settings: PracticeSettings
+
   let numberOfQuestions = ["5", "10", "20", "All"]
 
   @State private var practiceRange = 4
@@ -66,7 +68,7 @@ struct StartView: View {
       Spacer()
 
       Button("Start") {
-
+        self.settings.isPracticeStarted = true
       }
       .frame(width: 330)
       .padding(20)
