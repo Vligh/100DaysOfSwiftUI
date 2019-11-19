@@ -14,6 +14,7 @@
 		346FEF2523827ABE00F0F7A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346FEF2423827ABE00F0F7A9 /* Preview Assets.xcassets */; };
 		346FEF2823827ABE00F0F7A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346FEF2623827ABE00F0F7A9 /* LaunchScreen.storyboard */; };
 		34E0BB182383DA6800260EB1 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0BB172383DA6800260EB1 /* StartView.swift */; };
+		34E0BB1A2383DC6100260EB1 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0BB192383DC6100260EB1 /* PracticeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		346FEF2723827ABE00F0F7A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		346FEF2923827ABE00F0F7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E0BB172383DA6800260EB1 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		34E0BB192383DC6100260EB1 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				346FEF2923827ABE00F0F7A9 /* Info.plist */,
 				346FEF2323827ABE00F0F7A9 /* Preview Content */,
 				34E0BB172383DA6800260EB1 /* StartView.swift */,
+				34E0BB192383DC6100260EB1 /* PracticeView.swift */,
 			);
 			path = TwoByTwo;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				346FEF1C23827ABD00F0F7A9 /* AppDelegate.swift in Sources */,
+				34E0BB1A2383DC6100260EB1 /* PracticeView.swift in Sources */,
 				346FEF1E23827ABD00F0F7A9 /* SceneDelegate.swift in Sources */,
 				346FEF2023827ABD00F0F7A9 /* ContentView.swift in Sources */,
 				34E0BB182383DA6800260EB1 /* StartView.swift in Sources */,

@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var isPracticeStarted = false
 
   var body: some View {
-    StartView()
+    VStack {
+      if isPracticeStarted {
+        PracticeView()
+      } else {
+        StartView()
+      }
+    }
   }
 }
 
