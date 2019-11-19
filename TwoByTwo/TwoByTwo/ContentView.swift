@@ -25,7 +25,9 @@ struct ContentView: View {
 
         HStack(alignment: .center) {
           ForEach(2 ..< 11) { numbersRange in
-            Text("\(numbersRange)")
+            Button("\(numbersRange)") {
+              self.practiceRange = numbersRange
+            }
               .frame(width: 20)
               .padding(7)
               .background(numbersRange <= self.practiceRange ? Color.orange : Color.gray)
