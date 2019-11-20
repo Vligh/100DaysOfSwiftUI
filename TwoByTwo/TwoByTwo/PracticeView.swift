@@ -8,6 +8,24 @@
 
 import SwiftUI
 
+struct AnswerButton: View {
+  var value: Int
+  var isCorrectAnswer: Bool
+
+  var body: some View {
+    Button("\(value)") {
+
+    }
+    .font(.title)
+    .frame(width: 40)
+    .padding(35)
+    .background(Color.orange)
+    .foregroundColor(.white)
+    .clipShape(RoundedRectangle(cornerRadius: 5))
+    .animation(.easeInOut)
+  }
+}
+
 struct PracticeView: View {
   let questionsPerTable = 11
 
@@ -42,10 +60,33 @@ struct PracticeView: View {
       }
       .padding(20)
 
-      Text("Practice screen")
-      Text("Practice range: \(self.settings.practiceRange)")
-      Text("Selected number of questions \(self.settings.selectedNumberOfQuestions)")
-      Text("That makes \(self.totalQuestions) questions in total")
+      Spacer()
+
+      Group {
+        VStack {
+          Text("2 x 2 = ?")
+            .font(.largeTitle)
+            .padding(.bottom, 50)
+            .padding(.top, -150)
+
+          HStack {
+            Spacer()
+            AnswerButton(value: 2, isCorrectAnswer: false)
+            Spacer()
+            AnswerButton(value: 3, isCorrectAnswer: false)
+            Spacer()
+          }
+          .padding(.bottom, 50)
+
+          HStack {
+            Spacer()
+            AnswerButton(value: 4, isCorrectAnswer: true)
+            Spacer()
+            AnswerButton(value: 5, isCorrectAnswer: false)
+            Spacer()
+          }
+        }
+      }
 
       Spacer()
 
