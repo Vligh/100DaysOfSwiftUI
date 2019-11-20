@@ -11,4 +11,6 @@ import Combine
 
 final class PracticeSettings: ObservableObject {
   @Published var isPracticeStarted = false
+  @Published var practiceRange = 4
+  @Published var selectedNumberOfQuestions = "10"
 }

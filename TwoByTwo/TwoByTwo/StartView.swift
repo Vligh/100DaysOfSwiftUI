@@ -69,6 +69,8 @@ struct StartView: View {
 
       Button("Start") {
         self.settings.isPracticeStarted = true
+        self.settings.practiceRange = self.practiceRange
+        self.settings.selectedNumberOfQuestions = self.selectedNumberOfQuestions
       }
       .frame(width: 330)
       .padding(20)

@@ -9,11 +9,26 @@
 import SwiftUI
 
 struct PracticeView: View {
+  let questionsPerTable = 11
+
   @EnvironmentObject var settings: PracticeSettings
+
+  @State private var questionsAnswered = 0
+
+  var totalQuestions: Int {
+    let numberOfQuestions = Int(self.settings.selectedNumberOfQuestions) ?? 0
+
+    return numberOfQuestions == 0
+      ? questionsPerTable * self.settings.practiceRange
+      : numberOfQuestions
+  }
 
   var body: some View {
     VStack {
       HStack {
+        Text("\(self.questionsAnswered)/\(self.totalQuestions)")
+          .font(.headline)
+
         Spacer()
 
         Button("X") {
@@ -28,6 +43,9 @@ struct PracticeView: View {
       .padding(20)
 
       Text("Practice screen")
+      Text("Practice range: \(self.settings.practiceRange)")
+      Text("Selected number of questions \(self.settings.selectedNumberOfQuestions)")
+      Text("That makes \(self.totalQuestions) questions in total")
 
       Spacer()
 
