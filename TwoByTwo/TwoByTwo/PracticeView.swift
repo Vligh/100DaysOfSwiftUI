@@ -11,10 +11,11 @@ import SwiftUI
 struct AnswerButton: View {
   var value: Int
   var isCorrectAnswer: Bool
+  var action: () -> Void
 
   var body: some View {
     Button("\(value)") {
-
+      self.action()
     }
     .font(.title)
     .frame(width: 40)
@@ -26,12 +27,32 @@ struct AnswerButton: View {
   }
 }
 
+struct Question {
+  var multiplier: Int
+  var multiplicant: Int
+
+  var product: Int {
+    multiplier * multiplicant
+  }
+
+  var toString: String {
+    "\(multiplier) X \(multiplicant) = ?"
+  }
+}
+
 struct PracticeView: View {
   let questionsPerTable = 11
 
   @EnvironmentObject var settings: PracticeSettings
 
   @State private var questionsAnswered = 0
+  @State private var currentQuestion = Question(multiplier: 2, multiplicant: 2)
+  @State private var questions = [
+    Question(multiplier: 2, multiplicant: 2),
+    Question(multiplier: 3, multiplicant: 4),
+    Question(multiplier: 2, multiplicant: 1),
+    Question(multiplier: 0, multiplicant: 5)
+  ].shuffled()
 
   var totalQuestions: Int {
     let numberOfQuestions = Int(self.settings.selectedNumberOfQuestions) ?? 0
@@ -64,25 +85,37 @@ struct PracticeView: View {
 
       Group {
         VStack {
-          Text("2 x 2 = ?")
+          Text(self.currentQuestion.toString)
             .font(.largeTitle)
             .padding(.bottom, 50)
             .padding(.top, -150)
 
           HStack {
             Spacer()
-            AnswerButton(value: 2, isCorrectAnswer: false)
+            AnswerButton(value: 2, isCorrectAnswer: false, action: {
+              self.questionsAnswered += 1
+              self.currentQuestion = self.pickNewQuestion()
+            })
             Spacer()
-            AnswerButton(value: 3, isCorrectAnswer: false)
+            AnswerButton(value: 3, isCorrectAnswer: false, action: {
+              self.questionsAnswered += 1
+              self.currentQuestion = self.pickNewQuestion()
+            })
             Spacer()
           }
           .padding(.bottom, 50)
 
           HStack {
             Spacer()
-            AnswerButton(value: 4, isCorrectAnswer: true)
+            AnswerButton(value: 4, isCorrectAnswer: false, action: {
+              self.questionsAnswered += 1
+              self.currentQuestion = self.pickNewQuestion()
+            })
             Spacer()
-            AnswerButton(value: 5, isCorrectAnswer: false)
+            AnswerButton(value: 5, isCorrectAnswer: false, action: {
+              self.questionsAnswered += 1
+              self.currentQuestion = self.pickNewQuestion()
+            })
             Spacer()
           }
         }
@@ -91,6 +124,12 @@ struct PracticeView: View {
       Spacer()
 
     }
+  }
+
+  func pickNewQuestion() -> Question {
+    self.questions.shuffle()
+
+    return self.questions.popLast() ?? Question(multiplier: 0, multiplicant: 0)
   }
 }
 
