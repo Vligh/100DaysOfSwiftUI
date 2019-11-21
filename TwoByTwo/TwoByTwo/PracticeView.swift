@@ -48,6 +48,7 @@ struct PracticeView: View {
   @State private var questionsAnswered = 0
   @State private var currentQuestion = Question(multiplier: 2, multiplicant: 2)
   @State private var questions: [Question] = []
+  @State private var nextButtonDisabled = true
 
   var totalQuestions: Int {
     let numberOfQuestions = Int(self.settings.selectedNumberOfQuestions) ?? 0
@@ -83,18 +84,16 @@ struct PracticeView: View {
           Text(self.currentQuestion.toString)
             .font(.largeTitle)
             .padding(.bottom, 50)
-            .padding(.top, -150)
+            .padding(.top, -10)
 
           HStack {
             Spacer()
             AnswerButton(value: 2, isCorrectAnswer: false, action: {
-              self.questionsAnswered += 1
-              self.currentQuestion = self.pickNewQuestion()
+              self.nextButtonDisabled = false
             })
             Spacer()
             AnswerButton(value: 3, isCorrectAnswer: false, action: {
-              self.questionsAnswered += 1
-              self.currentQuestion = self.pickNewQuestion()
+              self.nextButtonDisabled = false
             })
             Spacer()
           }
@@ -103,13 +102,11 @@ struct PracticeView: View {
           HStack {
             Spacer()
             AnswerButton(value: 4, isCorrectAnswer: false, action: {
-              self.questionsAnswered += 1
-              self.currentQuestion = self.pickNewQuestion()
+              self.nextButtonDisabled = false
             })
             Spacer()
             AnswerButton(value: 5, isCorrectAnswer: false, action: {
-              self.questionsAnswered += 1
-              self.currentQuestion = self.pickNewQuestion()
+              self.nextButtonDisabled = false
             })
             Spacer()
           }
@@ -118,6 +115,17 @@ struct PracticeView: View {
 
       Spacer()
 
+      Button("Next") {
+        self.questionsAnswered += 1
+        self.currentQuestion = self.pickNewQuestion()
+        self.nextButtonDisabled = true
+      }
+      .frame(width: 330)
+      .padding(20)
+      .background(self.nextButtonDisabled ? Color.gray : Color.blue)
+      .foregroundColor(.white)
+      .clipShape(RoundedRectangle(cornerRadius: 15))
+      .disabled(self.nextButtonDisabled)
     }
     .onAppear(perform: {
       self.generateQuestions()
