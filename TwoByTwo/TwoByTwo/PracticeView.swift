@@ -13,14 +13,18 @@ struct AnswerButton: View {
   var isCorrectAnswer: Bool
   var action: () -> Void
 
+  @State private var color = Color.orange
+
   var body: some View {
     Button("\(value)") {
       self.action()
+
+      self.color = self.isCorrectAnswer ? Color.green : Color.red
     }
     .font(.title)
     .frame(width: 40)
     .padding(35)
-    .background(Color.orange)
+    .background(self.color)
     .foregroundColor(.white)
     .clipShape(RoundedRectangle(cornerRadius: 5))
     .animation(.easeInOut)
@@ -47,6 +51,12 @@ struct PracticeView: View {
 
   @State private var questionsAnswered = 0
   @State private var currentQuestion = Question(multiplier: 2, multiplicant: 2)
+  @State private var currentAnswerSuggestions = [
+    (value: 0, isCorrect: false),
+    (value: 0, isCorrect: false),
+    (value: 0, isCorrect: false),
+    (value: 0, isCorrect: false)
+  ]
   @State private var questions: [Question] = []
   @State private var nextButtonDisabled = true
 
@@ -88,11 +98,11 @@ struct PracticeView: View {
 
           HStack {
             Spacer()
-            AnswerButton(value: 2, isCorrectAnswer: false, action: {
+            AnswerButton(value: self.currentAnswerSuggestions[0].value, isCorrectAnswer: self.currentAnswerSuggestions[0].isCorrect, action: {
               self.nextButtonDisabled = false
             })
             Spacer()
-            AnswerButton(value: 3, isCorrectAnswer: false, action: {
+            AnswerButton(value: self.currentAnswerSuggestions[1].value, isCorrectAnswer: self.currentAnswerSuggestions[1].isCorrect, action: {
               self.nextButtonDisabled = false
             })
             Spacer()
@@ -101,11 +111,11 @@ struct PracticeView: View {
 
           HStack {
             Spacer()
-            AnswerButton(value: 4, isCorrectAnswer: false, action: {
+            AnswerButton(value: self.currentAnswerSuggestions[2].value, isCorrectAnswer: self.currentAnswerSuggestions[2].isCorrect, action: {
               self.nextButtonDisabled = false
             })
             Spacer()
-            AnswerButton(value: 5, isCorrectAnswer: false, action: {
+            AnswerButton(value: self.currentAnswerSuggestions[3].value, isCorrectAnswer: self.currentAnswerSuggestions[3].isCorrect, action: {
               self.nextButtonDisabled = false
             })
             Spacer()
@@ -118,6 +128,7 @@ struct PracticeView: View {
       Button("Next") {
         self.questionsAnswered += 1
         self.currentQuestion = self.pickNewQuestion()
+        self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
         self.nextButtonDisabled = true
       }
       .frame(width: 330)
@@ -130,6 +141,7 @@ struct PracticeView: View {
     .onAppear(perform: {
       self.generateQuestions()
       self.currentQuestion = self.pickNewQuestion()
+      self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
     })
   }
 
@@ -148,6 +160,20 @@ struct PracticeView: View {
 
     self.questions.shuffle()
   }
+
+  func generateAnswerSuggestions(question: Question) -> [(value: Int, isCorrect: Bool)] {
+    var answers = [
+      (value: question.product, isCorrect: true),
+      (value: Question(multiplier: question.multiplier - 1, multiplicant: question.multiplicant).product, isCorrect: false),
+      (value: Question(multiplier: question.multiplier + 1, multiplicant: question.multiplicant).product, isCorrect: false),
+      (value: Question(multiplier: question.multiplier + 1, multiplicant: question.multiplicant - 1).product, isCorrect: false)
+    ]
+
+    answers.shuffle()
+
+    return answers
+  }
+
 }
 
 struct PracticeView_Previews: PreviewProvider {
