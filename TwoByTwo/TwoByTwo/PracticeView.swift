@@ -47,12 +47,7 @@ struct PracticeView: View {
 
   @State private var questionsAnswered = 0
   @State private var currentQuestion = Question(multiplier: 2, multiplicant: 2)
-  @State private var questions = [
-    Question(multiplier: 2, multiplicant: 2),
-    Question(multiplier: 3, multiplicant: 4),
-    Question(multiplier: 2, multiplicant: 1),
-    Question(multiplier: 0, multiplicant: 5)
-  ].shuffled()
+  @State private var questions: [Question] = []
 
   var totalQuestions: Int {
     let numberOfQuestions = Int(self.settings.selectedNumberOfQuestions) ?? 0
@@ -124,12 +119,26 @@ struct PracticeView: View {
       Spacer()
 
     }
+    .onAppear(perform: {
+      self.generateQuestions()
+      self.currentQuestion = self.pickNewQuestion()
+    })
   }
 
   func pickNewQuestion() -> Question {
     self.questions.shuffle()
 
-    return self.questions.popLast() ?? Question(multiplier: 0, multiplicant: 0)
+    return self.questions.popLast() ?? Question(multiplier: 2, multiplicant: 2)
+  }
+
+  func generateQuestions() {
+    for multiplier in 1...self.settings.practiceRange {
+      for multiplicant in 0..<self.questionsPerTable {
+        self.questions.append(Question(multiplier: multiplier, multiplicant: multiplicant))
+      }
+    }
+
+    self.questions.shuffle()
   }
 }
 
