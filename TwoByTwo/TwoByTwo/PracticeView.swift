@@ -50,6 +50,7 @@ struct PracticeView: View {
   @State private var nextButtonDisabled = true
   @State private var buttonColors = Array(repeating: Color.orange, count: 4)
   @State private var buttonDidTap = false
+  @State private var isPracticeFinished = false
 
   var totalQuestions: Int {
     let numberOfQuestions = Int(self.settings.selectedNumberOfQuestions) ?? 0
@@ -132,20 +133,45 @@ struct PracticeView: View {
 
       Spacer()
 
-      Button("Next") {
-        self.questionsAnswered += 1
-        self.currentQuestion = self.pickNewQuestion()
-        self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
-        self.nextButtonDisabled = true
-        self.buttonDidTap = false
-        self.buttonColors = Array(repeating: Color.orange, count: 4)
+      VStack {
+        if !self.isPracticeFinished {
+          Button("Next") {
+            self.questionsAnswered += 1
+
+            if self.questionsAnswered < self.totalQuestions {
+              self.currentQuestion = self.pickNewQuestion()
+              self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
+              self.nextButtonDisabled = true
+              self.buttonDidTap = false
+              self.buttonColors = Array(repeating: Color.orange, count: 4)
+            } else {
+              self.isPracticeFinished = true
+            }
+          }
+          .frame(width: 330)
+          .padding(20)
+          .background(self.nextButtonDisabled ? Color.gray : Color.blue)
+          .foregroundColor(.white)
+          .clipShape(RoundedRectangle(cornerRadius: 15))
+          .disabled(self.nextButtonDisabled)
+        } else {
+          VStack {
+            Text("Good job!")
+              .font(.title)
+              .foregroundColor(.green)
+              .padding()
+
+            Button("Finish") {
+              self.settings.isPracticeStarted = false
+            }
+            .frame(width: 330)
+            .padding(20)
+            .background(Color.green)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+          }
+        }
       }
-      .frame(width: 330)
-      .padding(20)
-      .background(self.nextButtonDisabled ? Color.gray : Color.blue)
-      .foregroundColor(.white)
-      .clipShape(RoundedRectangle(cornerRadius: 15))
-      .disabled(self.nextButtonDisabled)
     }
     .onAppear(perform: {
       self.generateQuestions()
