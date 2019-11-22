@@ -8,26 +8,15 @@
 
 import SwiftUI
 
-struct AnswerButton: View {
-  var value: Int
-  var isCorrectAnswer: Bool
-  var action: () -> Void
-
-  @State private var color = Color.orange
-
-  var body: some View {
-    Button("\(value)") {
-      self.action()
-
-      self.color = self.isCorrectAnswer ? Color.green : Color.red
-    }
-    .font(.title)
-    .frame(width: 40)
-    .padding(35)
-    .background(self.color)
-    .foregroundColor(.white)
-    .clipShape(RoundedRectangle(cornerRadius: 5))
-    .animation(.easeInOut)
+struct AnswerButton: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.title)
+      .frame(width: 40)
+      .padding(35)
+      .foregroundColor(.white)
+      .clipShape(RoundedRectangle(cornerRadius: 5))
+      .animation(.easeInOut)
   }
 }
 
@@ -59,6 +48,8 @@ struct PracticeView: View {
   ]
   @State private var questions: [Question] = []
   @State private var nextButtonDisabled = true
+  @State private var buttonColors = Array(repeating: Color.orange, count: 4)
+  @State private var buttonDidTap = false
 
   var totalQuestions: Int {
     let numberOfQuestions = Int(self.settings.selectedNumberOfQuestions) ?? 0
@@ -98,26 +89,42 @@ struct PracticeView: View {
 
           HStack {
             Spacer()
-            AnswerButton(value: self.currentAnswerSuggestions[0].value, isCorrectAnswer: self.currentAnswerSuggestions[0].isCorrect, action: {
-              self.nextButtonDisabled = false
-            })
+
+            Button("\(self.currentAnswerSuggestions[0].value)") {
+              self.tapAnswerButton(index: 0)
+            }
+            .modifier(AnswerButton())
+            .background(self.buttonColors[0])
+
             Spacer()
-            AnswerButton(value: self.currentAnswerSuggestions[1].value, isCorrectAnswer: self.currentAnswerSuggestions[1].isCorrect, action: {
-              self.nextButtonDisabled = false
-            })
+
+            Button("\(self.currentAnswerSuggestions[1].value)") {
+              self.tapAnswerButton(index: 1)
+            }
+            .modifier(AnswerButton())
+            .background(self.buttonColors[1])
+
             Spacer()
           }
           .padding(.bottom, 50)
 
           HStack {
             Spacer()
-            AnswerButton(value: self.currentAnswerSuggestions[2].value, isCorrectAnswer: self.currentAnswerSuggestions[2].isCorrect, action: {
-              self.nextButtonDisabled = false
-            })
+
+            Button("\(self.currentAnswerSuggestions[2].value)") {
+              self.tapAnswerButton(index: 2)
+            }
+            .modifier(AnswerButton())
+            .background(self.buttonColors[2])
+
             Spacer()
-            AnswerButton(value: self.currentAnswerSuggestions[3].value, isCorrectAnswer: self.currentAnswerSuggestions[3].isCorrect, action: {
-              self.nextButtonDisabled = false
-            })
+
+            Button("\(self.currentAnswerSuggestions[3].value)") {
+              self.tapAnswerButton(index: 3)
+            }
+            .modifier(AnswerButton())
+            .background(self.buttonColors[3])
+
             Spacer()
           }
         }
@@ -130,6 +137,8 @@ struct PracticeView: View {
         self.currentQuestion = self.pickNewQuestion()
         self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
         self.nextButtonDisabled = true
+        self.buttonDidTap = false
+        self.buttonColors = Array(repeating: Color.orange, count: 4)
       }
       .frame(width: 330)
       .padding(20)
@@ -162,11 +171,13 @@ struct PracticeView: View {
   }
 
   func generateAnswerSuggestions(question: Question) -> [(value: Int, isCorrect: Bool)] {
+    let diff = question.multiplier == 0 ? 1 : question.multiplier
+
     var answers = [
       (value: question.product, isCorrect: true),
-      (value: Question(multiplier: question.multiplier - 1, multiplicant: question.multiplicant).product, isCorrect: false),
-      (value: Question(multiplier: question.multiplier + 1, multiplicant: question.multiplicant).product, isCorrect: false),
-      (value: Question(multiplier: question.multiplier + 1, multiplicant: question.multiplicant - 1).product, isCorrect: false)
+      (value: question.product + diff, isCorrect: false),
+      (value: question.product - diff, isCorrect: false),
+      (value: question.product + diff + 1, isCorrect: false)
     ]
 
     answers.shuffle()
@@ -174,6 +185,19 @@ struct PracticeView: View {
     return answers
   }
 
+  func calculateButtonColor(buttonIndex: Int) -> Color {
+    guard self.buttonDidTap else { return Color.orange }
+
+    guard self.currentAnswerSuggestions[buttonIndex].isCorrect else { return Color.red }
+
+    return Color.green
+  }
+
+  func tapAnswerButton(index: Int) {
+    self.nextButtonDisabled = false
+    self.buttonDidTap = true
+    self.buttonColors[index] = self.calculateButtonColor(buttonIndex: index)
+  }
 }
 
 struct PracticeView_Previews: PreviewProvider {
