@@ -15,6 +15,7 @@ struct AddView: View {
   @State private var name = ""
   @State private var type = "Personal"
   @State private var amount = ""
+  @State private var validationErrorShown = false
 
   static let types = ["Business", "Personal"]
 
@@ -40,9 +41,14 @@ struct AddView: View {
             self.expenses.items.append(item)
 
             self.presentationMode.wrappedValue.dismiss()
+          } else {
+            self.validationErrorShown = true
           }
         }
       )
+      .alert(isPresented: $validationErrorShown) {
+        Alert(title: Text("Validation error"), message: Text("Amount can be numbers only"), dismissButton: .default(Text("OK")))
+      }
     }
   }
 }
