@@ -17,6 +17,7 @@
 		34648026238BBE2E0029E66B /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 34648024238BBE2E0029E66B /* missions.json */; };
 		34648028238BBEA70029E66B /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34648027238BBEA70029E66B /* Astronaut.swift */; };
 		3464802A238BBF180029E66B /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34648029238BBF180029E66B /* Bundle-Decodable.swift */; };
+		3464802C238BC1080029E66B /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464802B238BC1080029E66B /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		34648024238BBE2E0029E66B /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = missions.json; path = "../../../../../Downloads/SwiftUI Tutorials/HackingWithSwift-master/SwiftUI/project8-files/missions.json"; sourceTree = "<group>"; };
 		34648027238BBEA70029E66B /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		34648029238BBF180029E66B /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		3464802B238BC1080029E66B /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				34648017238BB9C40029E66B /* Preview Content */,
 				34648027238BBEA70029E66B /* Astronaut.swift */,
 				34648029238BBF180029E66B /* Bundle-Decodable.swift */,
+				3464802B238BC1080029E66B /* Mission.swift */,
 			);
 			path = Moonshot;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3464802C238BC1080029E66B /* Mission.swift in Sources */,
 				34648010238BB9C40029E66B /* AppDelegate.swift in Sources */,
 				34648012238BB9C40029E66B /* SceneDelegate.swift in Sources */,
 				3464802A238BBF180029E66B /* Bundle-Decodable.swift in Sources */,
