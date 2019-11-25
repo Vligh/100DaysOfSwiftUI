@@ -13,6 +13,8 @@
 		34648016238BB9C40029E66B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34648015238BB9C40029E66B /* Assets.xcassets */; };
 		34648019238BB9C40029E66B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34648018238BB9C40029E66B /* Preview Assets.xcassets */; };
 		3464801C238BB9C40029E66B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3464801A238BB9C40029E66B /* LaunchScreen.storyboard */; };
+		34648025238BBE2E0029E66B /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 34648023238BBE2D0029E66B /* astronauts.json */; };
+		34648026238BBE2E0029E66B /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 34648024238BBE2E0029E66B /* missions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		34648018238BB9C40029E66B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3464801B238BB9C40029E66B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3464801D238BB9C40029E66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34648023238BBE2D0029E66B /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = astronauts.json; path = "../../../../../Downloads/SwiftUI Tutorials/HackingWithSwift-master/SwiftUI/project8-files/astronauts.json"; sourceTree = "<group>"; };
+		34648024238BBE2E0029E66B /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = missions.json; path = "../../../../../Downloads/SwiftUI Tutorials/HackingWithSwift-master/SwiftUI/project8-files/missions.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				34648015238BB9C40029E66B /* Assets.xcassets */,
 				3464801A238BB9C40029E66B /* LaunchScreen.storyboard */,
 				3464801D238BB9C40029E66B /* Info.plist */,
+				34648023238BBE2D0029E66B /* astronauts.json */,
+				34648024238BBE2E0029E66B /* missions.json */,
 				34648017238BB9C40029E66B /* Preview Content */,
 			);
 			path = Moonshot;
@@ -134,8 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3464801C238BB9C40029E66B /* LaunchScreen.storyboard in Resources */,
+				34648026238BBE2E0029E66B /* missions.json in Resources */,
 				34648019238BB9C40029E66B /* Preview Assets.xcassets in Resources */,
 				34648016238BB9C40029E66B /* Assets.xcassets in Resources */,
+				34648025238BBE2E0029E66B /* astronauts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
