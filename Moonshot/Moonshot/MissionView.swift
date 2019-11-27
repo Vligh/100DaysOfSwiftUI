@@ -57,29 +57,14 @@ struct MissionView: View {
       }
     }
   }
-
-  init(mission: Mission, astronauts: [Astronaut]) {
-    self.mission = mission
-
-    var matches = [Mission.CrewMember]()
-
-    for member in mission.crew {
-      if let match = astronauts.first(where: { $0.id == member.name }) {
-        matches.append(Mission.CrewMember(role: member.role, astronaut: match))
-      } else {
-        fatalError("Missing \(member)")
-      }
-    }
-
-    self.astronauts = matches
-  }
 }
 
 struct MissionView_Previews: PreviewProvider {
   static let missions: [Mission] = Bundle.main.decode("missions.json")
   static let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
+  static let crew = Mission.missionCrew(mission: missions[0], astronauts: astronauts)
 
   static var previews: some View {
-    MissionView(mission: missions[0], astronauts: astronauts)
+    MissionView(mission: missions[0], astronauts: crew)
   }
 }

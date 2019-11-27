@@ -41,4 +41,18 @@ struct Mission: Codable, Identifiable {
       return "N/A"
     }
   }
+
+  static func missionCrew(mission: Mission, astronauts: [Astronaut]) -> [Mission.CrewMember] {
+    var matches = [Mission.CrewMember]()
+
+    for member in mission.crew {
+      if let match = astronauts.first(where: { $0.id == member.name }) {
+        matches.append(Mission.CrewMember(role: member.role, astronaut: match))
+      } else {
+        fatalError("Missing \(member)")
+      }
+    }
+
+    return matches
+  }
 }

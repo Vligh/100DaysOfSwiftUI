@@ -15,7 +15,7 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List(missions) { mission in
-        NavigationLink(destination: MissionView(mission: mission, astronauts: self.astronauts)) {
+        NavigationLink(destination: MissionView(mission: mission, astronauts: self.missionCrew(mission))) {
           Image(mission.image)
             .resizable()
             .scaledToFit()
@@ -30,6 +30,10 @@ struct ContentView: View {
       }
       .navigationBarTitle("Moonshot")
     }
+  }
+
+  func missionCrew(_ mission: Mission) -> [Mission.CrewMember] {
+    return Mission.missionCrew(mission: mission, astronauts: self.astronauts)
   }
 }
 
