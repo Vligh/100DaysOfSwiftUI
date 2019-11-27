@@ -9,13 +9,8 @@
 import SwiftUI
 
 struct MissionView: View {
-  struct CrewMember {
-    let role: String
-    let astronaut: Astronaut
-  }
-
   let mission: Mission
-  let astronauts: [CrewMember]
+  let astronauts: [Mission.CrewMember]
 
   var body: some View {
     GeometryReader { geometry in
@@ -66,11 +61,11 @@ struct MissionView: View {
   init(mission: Mission, astronauts: [Astronaut]) {
     self.mission = mission
 
-    var matches = [CrewMember]()
+    var matches = [Mission.CrewMember]()
 
     for member in mission.crew {
       if let match = astronauts.first(where: { $0.id == member.name }) {
-        matches.append(CrewMember(role: member.role, astronaut: match))
+        matches.append(Mission.CrewMember(role: member.role, astronaut: match))
       } else {
         fatalError("Missing \(member)")
       }
