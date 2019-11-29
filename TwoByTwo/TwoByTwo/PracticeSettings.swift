@@ -11,6 +11,27 @@ import Combine
 
 final class PracticeSettings: ObservableObject {
   @Published var isPracticeStarted = false
-  @Published var practiceRange = 4
-  @Published var selectedNumberOfQuestions = "10"
+  @Published var practiceRange: Int {
+    didSet {
+      UserDefaults.standard.set(practiceRange, forKey: "practiceRange")
+    }
+  }
+  @Published var selectedNumberOfQuestions: String {
+    didSet {
+      UserDefaults.standard.set(selectedNumberOfQuestions, forKey: "selectedNumberOfQuestions")
+    }
+  }
+
+  init() {
+    self.practiceRange = 4
+    self.selectedNumberOfQuestions = "10"
+
+    if let practiceRange = UserDefaults.standard.integer(forKey: "practiceRange") as Int? {
+      self.practiceRange = practiceRange == 0 ? 4 : practiceRange
+    }
+
+    if let selectedNumberOfQuestions = UserDefaults.standard.string(forKey: "selectedNumberOfQuestions") {
+      self.selectedNumberOfQuestions = selectedNumberOfQuestions
+    }
+  }
 }

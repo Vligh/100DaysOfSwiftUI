@@ -78,6 +78,10 @@ struct StartView: View {
       .foregroundColor(.white)
       .clipShape(RoundedRectangle(cornerRadius: 15))
     }
+    .onAppear(perform: {
+      self.practiceRange = self.settings.practiceRange
+      self.selectedNumberOfQuestions = self.settings.selectedNumberOfQuestions
+    })
   }
 }
 
