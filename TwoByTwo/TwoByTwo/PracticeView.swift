@@ -70,14 +70,15 @@ struct PracticeView: View {
 
         Spacer()
 
-        Button("X") {
+        Button(action: {
           self.presentationMode.wrappedValue.dismiss()
+        }) {
+          Image(systemName: "xmark")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 20)
         }
-        .frame(width: 25, height: 25)
-        .padding(5)
-        .background(Color.red)
-        .foregroundColor(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 15))
+          .foregroundColor(.red)
       }
       .padding(20)
 
