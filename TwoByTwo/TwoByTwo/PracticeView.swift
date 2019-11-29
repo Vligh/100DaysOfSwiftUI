@@ -34,6 +34,8 @@ struct Question {
 }
 
 struct PracticeView: View {
+  @Environment(\.presentationMode) var presentationMode
+
   let questionsPerTable = 11
 
   @EnvironmentObject var settings: PracticeSettings
@@ -69,7 +71,7 @@ struct PracticeView: View {
         Spacer()
 
         Button("X") {
-          self.settings.isPracticeStarted = false
+          self.presentationMode.wrappedValue.dismiss()
         }
         .frame(width: 25, height: 25)
         .padding(5)
@@ -162,7 +164,7 @@ struct PracticeView: View {
               .padding()
 
             Button("Finish") {
-              self.settings.isPracticeStarted = false
+              self.presentationMode.wrappedValue.dismiss()
             }
             .frame(width: 330)
             .padding(20)

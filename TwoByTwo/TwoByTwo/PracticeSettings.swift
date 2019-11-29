@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 final class PracticeSettings: ObservableObject {
-  @Published var isPracticeStarted = false
   @Published var practiceRange: Int {
     didSet {
       UserDefaults.standard.set(practiceRange, forKey: "practiceRange")
