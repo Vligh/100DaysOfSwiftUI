@@ -12,39 +12,35 @@ struct HabitDetailsView: View {
   let habit: Habit
 
   var body: some View {
-    GeometryReader { geometry in
-      VStack {
-        Text("But instead of \(self.habit.minStep) I will")
-          .padding(.bottom)
+    VStack {
+      Text("Having urge of \(self.habit.name)?")
+        .font(.title)
+        .padding(.bottom)
 
-        VStack {
+      Form {
+        Section(header: Text("Instead of \(self.habit.minStep) try")) {
           ForEach(self.habit.alternativeHabits) { alternativeHabit in
             Button(alternativeHabit.minStep) {
 
             }
-            .padding()
-            .frame(width: geometry.size.width * 0.9)
-            .foregroundColor(.green)
-            .overlay(
-              RoundedRectangle(cornerRadius: 5)
-                .stroke(Color.green, lineWidth: 1)
-            )
           }
-          .padding(.bottom)
         }
 
-        Button("Nah! I'll \(self.habit.minStep) anyway") {
+        Section(header: Text("or")) {
+          Button("Suggest an alternative action") {
 
+          }
         }
-        .padding()
-        .frame(width: geometry.size.width * 0.9)
-        .background(Color.red)
-        .foregroundColor(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 5))
 
-        Spacer()
+        Section {
+          Button("Nah! I'll \(self.habit.minStep) anyway") {
+
+          }
+          .foregroundColor(.red)
+        }
       }
     }
+
   }
 }
 
