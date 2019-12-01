@@ -24,6 +24,8 @@ struct ContentView: View {
     Habit(name: "Play video games", minStep: "play for 30 minutes", alternativeHabits: gameHabitAlternatives)
   ]
 
+  @State private var addBadHabitViewVisible = false
+
   var body: some View {
     NavigationView {
       List(badHabits) { habit in
@@ -33,7 +35,15 @@ struct ContentView: View {
           }
         }
       }
-      .navigationBarTitle("I have an urge ...")
+      .navigationBarTitle("I have an urge of ...")
+      .navigationBarItems(trailing: Button(action: {
+        self.addBadHabitViewVisible = true
+      }) {
+        Image(systemName: "plus")
+      })
+      .sheet(isPresented: $addBadHabitViewVisible) {
+        AddBadHabitView()
+      }
     }
   }
 }
