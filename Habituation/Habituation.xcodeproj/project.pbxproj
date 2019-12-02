@@ -17,6 +17,8 @@
 		34077639239263590061798B /* HabitDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34077638239263590061798B /* HabitDetailsView.swift */; };
 		3407763B2393BC630061798B /* AddBadHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3407763A2393BC630061798B /* AddBadHabitView.swift */; };
 		3407763D2394FCB00061798B /* AddGoodHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3407763C2394FCB00061798B /* AddGoodHabitView.swift */; };
+		3407763F2395031C0061798B /* GoodHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3407763E2395031C0061798B /* GoodHabitsView.swift */; };
+		34077641239503430061798B /* GoodHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34077640239503430061798B /* GoodHabit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		34077638239263590061798B /* HabitDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsView.swift; sourceTree = "<group>"; };
 		3407763A2393BC630061798B /* AddBadHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBadHabitView.swift; sourceTree = "<group>"; };
 		3407763C2394FCB00061798B /* AddGoodHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodHabitView.swift; sourceTree = "<group>"; };
+		3407763E2395031C0061798B /* GoodHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsView.swift; sourceTree = "<group>"; };
+		34077640239503430061798B /* GoodHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				34077638239263590061798B /* HabitDetailsView.swift */,
 				3407763A2393BC630061798B /* AddBadHabitView.swift */,
 				3407763C2394FCB00061798B /* AddGoodHabitView.swift */,
+				3407763E2395031C0061798B /* GoodHabitsView.swift */,
+				34077640239503430061798B /* GoodHabit.swift */,
 			);
 			path = Habituation;
 			sourceTree = "<group>";
@@ -163,7 +169,9 @@
 				34077639239263590061798B /* HabitDetailsView.swift in Sources */,
 				3407762323925E540061798B /* SceneDelegate.swift in Sources */,
 				340776352392603E0061798B /* Habit.swift in Sources */,
+				34077641239503430061798B /* GoodHabit.swift in Sources */,
 				3407762523925E540061798B /* ContentView.swift in Sources */,
+				3407763F2395031C0061798B /* GoodHabitsView.swift in Sources */,
 				3407763B2393BC630061798B /* AddBadHabitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
