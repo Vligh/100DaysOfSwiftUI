@@ -15,6 +15,10 @@ struct AddBadHabitView: View {
   @State private var name = ""
   @State private var minStep = ""
 
+  var isValid: Bool {
+    self.name != "" && self.minStep != ""
+  }
+
   var body: some View {
     NavigationView {
       Form {
@@ -48,7 +52,8 @@ struct AddBadHabitView: View {
         self.badHabits.items.append(habit)
 
         self.presentationMode.wrappedValue.dismiss()
-      })
+      }
+      .disabled(!isValid))
     }
   }
 }
