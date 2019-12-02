@@ -11,6 +11,8 @@ import SwiftUI
 struct HabitDetailsView: View {
   let habit: Habit
 
+  @State private var addAlternativeHabitViewVisible = false
+
   var body: some View {
     VStack {
       Text("Having urge of \(self.habit.name)?")
@@ -28,7 +30,7 @@ struct HabitDetailsView: View {
 
         Section(header: Text("or")) {
           Button("Suggest an alternative action") {
-
+            self.addAlternativeHabitViewVisible = true
           }
         }
 
@@ -40,7 +42,9 @@ struct HabitDetailsView: View {
         }
       }
     }
-
+    .sheet(isPresented: $addAlternativeHabitViewVisible) {
+      AddGoodHabitView()
+    }
   }
 }
 

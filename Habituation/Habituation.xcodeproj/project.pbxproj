@@ -16,6 +16,7 @@
 		340776352392603E0061798B /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340776342392603E0061798B /* Habit.swift */; };
 		34077639239263590061798B /* HabitDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34077638239263590061798B /* HabitDetailsView.swift */; };
 		3407763B2393BC630061798B /* AddBadHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3407763A2393BC630061798B /* AddBadHabitView.swift */; };
+		3407763D2394FCB00061798B /* AddGoodHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3407763C2394FCB00061798B /* AddGoodHabitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		340776342392603E0061798B /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		34077638239263590061798B /* HabitDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsView.swift; sourceTree = "<group>"; };
 		3407763A2393BC630061798B /* AddBadHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBadHabitView.swift; sourceTree = "<group>"; };
+		3407763C2394FCB00061798B /* AddGoodHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodHabitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				340776342392603E0061798B /* Habit.swift */,
 				34077638239263590061798B /* HabitDetailsView.swift */,
 				3407763A2393BC630061798B /* AddBadHabitView.swift */,
+				3407763C2394FCB00061798B /* AddGoodHabitView.swift */,
 			);
 			path = Habituation;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3407762123925E540061798B /* AppDelegate.swift in Sources */,
+				3407763D2394FCB00061798B /* AddGoodHabitView.swift in Sources */,
 				34077639239263590061798B /* HabitDetailsView.swift in Sources */,
 				3407762323925E540061798B /* SceneDelegate.swift in Sources */,
 				340776352392603E0061798B /* Habit.swift in Sources */,

@@ -46,7 +46,7 @@ struct AddBadHabitView: View {
           Text("Instead of \(self.minStep == "" ? "<...>" : self.minStep) I can do something else")
         }
       }
-      .navigationBarTitle("Add habit")
+      .navigationBarTitle("Add bad habit")
       .navigationBarItems(trailing: Button("Save") {
         let habit = Habit(name: self.name, minStep: self.minStep)
         self.badHabits.items.append(habit)
