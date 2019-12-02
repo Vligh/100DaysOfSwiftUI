@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+class BadHabits: ObservableObject {
+  @Published var items = [Habit]()
+}
+
 struct ContentView: View {
   static let beerHabitAlternatives: [Habit] = [
     Habit(name: "Drinking tea", minStep: "drink 1 cup of tea"),
@@ -19,16 +23,17 @@ struct ContentView: View {
     Habit(name: "Practice German", minStep: "make a German exercise"),
     Habit(name: "Reading with a kid", minStep: "read a book with my kid for 10 minutes")
   ]
-  let badHabits: [Habit] = [
+  var badHabitList: [Habit] = [
     Habit(name: "Drinking beer", minStep: "drink 1 bottle", alternativeHabits: beerHabitAlternatives),
     Habit(name: "Play video games", minStep: "play for 30 minutes", alternativeHabits: gameHabitAlternatives)
   ]
 
   @State private var addBadHabitViewVisible = false
+  @ObservedObject var badHabits = BadHabits()
 
   var body: some View {
     NavigationView {
-      List(badHabits) { habit in
+      List(badHabits.items) { habit in
         NavigationLink(destination: HabitDetailsView(habit: habit)) {
           VStack(alignment: .leading) {
             Text(habit.name)
@@ -45,6 +50,9 @@ struct ContentView: View {
         AddBadHabitView()
       }
     }
+    .onAppear(perform: {
+      self.badHabits.items = self.badHabitList
+    })
   }
 }
 
