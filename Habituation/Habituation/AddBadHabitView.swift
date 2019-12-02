@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AddBadHabitView: View {
   @Environment(\.presentationMode) var presentationMode
+  @ObservedObject var badHabits: BadHabits
 
   @State private var name = ""
   @State private var minStep = ""
@@ -43,6 +44,9 @@ struct AddBadHabitView: View {
       }
       .navigationBarTitle("Add habit")
       .navigationBarItems(trailing: Button("Save") {
+        let habit = Habit(name: self.name, minStep: self.minStep)
+        self.badHabits.items.append(habit)
+
         self.presentationMode.wrappedValue.dismiss()
       })
     }
@@ -51,6 +55,6 @@ struct AddBadHabitView: View {
 
 struct AddBadHabitView_Previews: PreviewProvider {
   static var previews: some View {
-    AddBadHabitView()
+    AddBadHabitView(badHabits: BadHabits())
   }
 }

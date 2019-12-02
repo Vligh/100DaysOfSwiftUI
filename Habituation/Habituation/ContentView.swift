@@ -47,7 +47,7 @@ struct ContentView: View {
         Image(systemName: "plus")
       })
       .sheet(isPresented: $addBadHabitViewVisible) {
-        AddBadHabitView()
+        AddBadHabitView(badHabits: self.badHabits)
       }
     }
     .onAppear(perform: {
