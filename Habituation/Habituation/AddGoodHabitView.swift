@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AddGoodHabitView: View {
   @Environment(\.presentationMode) var presentationMode
+  @ObservedObject var goodHabits: GoodHabits
 
   @State private var name = ""
   @State private var minStep = ""
@@ -48,6 +49,9 @@ struct AddGoodHabitView: View {
           Image(systemName: "xmark")
         },
         trailing: Button("Save") {
+          let goodHabit = GoodHabit(name: self.name, minSteps: self.minSteps)
+          self.goodHabits.items.append(goodHabit)
+
           self.presentationMode.wrappedValue.dismiss()
         }
           .disabled(!isValid)
@@ -58,6 +62,6 @@ struct AddGoodHabitView: View {
 
 struct AddGoodHabitView_Previews: PreviewProvider {
   static var previews: some View {
-    AddGoodHabitView()
+    AddGoodHabitView(goodHabits: GoodHabits())
   }
 }

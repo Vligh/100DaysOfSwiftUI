@@ -35,7 +35,7 @@ struct GoodHabitsView: View {
       })
     }
     .sheet(isPresented: $addGoodHabitViewVisible) {
-      AddGoodHabitView()
+      AddGoodHabitView(goodHabits: self.goodHabits)
     }
   }
 }
