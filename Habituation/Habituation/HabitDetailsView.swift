@@ -22,8 +22,10 @@ struct HabitDetailsView: View {
       Form {
         Section(header: Text("Instead of \(self.habit.minStep) try")) {
           ForEach(self.habit.alternativeHabits) { alternativeHabit in
-            Button(alternativeHabit.minStep) {
+            ForEach(alternativeHabit.minSteps, id: \.self) { minStep in
+              Button(minStep) {
 
+              }
             }
           }
         }
@@ -49,10 +51,11 @@ struct HabitDetailsView: View {
 }
 
 struct HabitDetailsView_Previews: PreviewProvider {
-  static let alternativeHabits: [Habit] = [
-    Habit(name: "Drinking tea", minStep: "drink 1 cup of tea"),
-    Habit(name: "Drinking juice", minStep: "drink 1 glass of juice"),
-    Habit(name: "Drinking water", minStep: "drink 1 glass of water")
+  static let alternativeHabits: [GoodHabit] = [
+    GoodHabit(
+      name: "Drinking alcohol free drinks",
+      minSteps: ["drink a cup of tea", "drink a glass of juice", "drink a glass of water"]
+    )
   ]
   static let habit = Habit(name: "Drinking Beer", minStep: "drink 1 bottle of beer", alternativeHabits: alternativeHabits)
 

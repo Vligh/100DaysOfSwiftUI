@@ -12,5 +12,5 @@ struct Habit: Identifiable {
   let id = UUID()
   var name: String
   var minStep: String
-  var alternativeHabits = [Habit]()
+  var alternativeHabits = [GoodHabit]()
 }
