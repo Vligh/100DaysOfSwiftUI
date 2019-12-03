@@ -41,10 +41,16 @@ struct AddGoodHabitView: View {
         }
       }
       .navigationBarTitle("Add good habit")
-      .navigationBarItems(trailing: Button("Save") {
-        self.presentationMode.wrappedValue.dismiss()
-      }
-      .disabled(!isValid)
+      .navigationBarItems(
+        leading: Button(action: {
+          self.presentationMode.wrappedValue.dismiss()
+        }) {
+          Image(systemName: "xmark")
+        },
+        trailing: Button("Save") {
+          self.presentationMode.wrappedValue.dismiss()
+        }
+          .disabled(!isValid)
       )
     }
   }

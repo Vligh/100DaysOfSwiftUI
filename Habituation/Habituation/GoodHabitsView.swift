@@ -14,11 +14,14 @@ struct GoodHabitsView: View {
     GoodHabit(name: "Reading books", minSteps: ["read a chapter", "read for 10 minutes"])
   ]
 
+  @State private var addGoodHabitViewVisible = false
+
   var body: some View {
     NavigationView {
       List(self.goodHabits) { goodHabit in
         VStack(alignment: .leading) {
           Text(goodHabit.name)
+            .padding(.bottom, 3)
 
           ForEach(goodHabit.minSteps, id: \.self) { minStep in
             Text(minStep)
@@ -28,6 +31,14 @@ struct GoodHabitsView: View {
         }
       }
       .navigationBarTitle("Good Habits")
+      .navigationBarItems(trailing: Button(action: {
+        self.addGoodHabitViewVisible = true
+      }) {
+        Image(systemName: "plus")
+      })
+    }
+    .sheet(isPresented: $addGoodHabitViewVisible) {
+      AddGoodHabitView()
     }
   }
 }
