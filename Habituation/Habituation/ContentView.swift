@@ -12,6 +12,10 @@ class BadHabits: ObservableObject {
   @Published var items = [Habit]()
 }
 
+class GoodHabits: ObservableObject {
+  @Published var items = [GoodHabit]()
+}
+
 struct ContentView: View {
   static let beerHabitAlternatives: [GoodHabit] = [
     GoodHabit(
@@ -28,14 +32,24 @@ struct ContentView: View {
     Habit(name: "Drinking beer", minStep: "drink 1 bottle", alternativeHabits: beerHabitAlternatives),
     Habit(name: "Play video games", minStep: "play for 30 minutes", alternativeHabits: gameHabitAlternatives)
   ]
+  var goodHabitList: [GoodHabit] = [
+    GoodHabit(
+      name: "Drinking alcohol free drinks",
+      minSteps: ["drink a cup of tea", "drink a glass of juice", "drink a glass of water"]
+    ),
+    GoodHabit(name: "Reading a book", minSteps: ["read a book for 15 minutes"]),
+    GoodHabit(name: "Practice German", minSteps: ["make a German exercise"]),
+    GoodHabit(name: "Reading with a kid", minSteps: ["read a book with my kid for 10 minutes"])
+  ]
 
   @State private var addBadHabitViewVisible = false
   @ObservedObject var badHabits = BadHabits()
+  @ObservedObject var goodHabits = GoodHabits()
 
   var body: some View {
     NavigationView {
       List(badHabits.items) { habit in
-        NavigationLink(destination: HabitDetailsView(habit: habit)) {
+        NavigationLink(destination: HabitDetailsView(habit: habit, goodHabits: self.goodHabits)) {
           VStack(alignment: .leading) {
             Text(habit.name)
           }
@@ -52,6 +66,7 @@ struct ContentView: View {
       }
     }
     .onAppear(perform: {
+      self.goodHabits.items = self.goodHabitList
       self.badHabits.items = self.badHabitList
     })
   }
