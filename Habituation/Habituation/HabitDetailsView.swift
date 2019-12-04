@@ -46,7 +46,7 @@ struct HabitDetailsView: View {
       }
     }
     .sheet(isPresented: $addAlternativeHabitViewVisible) {
-      GoodHabitsView(goodHabits: self.goodHabits)
+      GoodHabitsView(goodHabits: self.goodHabits, badHabit: self.habit)
     }
   }
 }

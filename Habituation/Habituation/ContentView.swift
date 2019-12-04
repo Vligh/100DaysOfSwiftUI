@@ -32,15 +32,7 @@ struct ContentView: View {
     Habit(name: "Drinking beer", minStep: "drink 1 bottle", alternativeHabits: beerHabitAlternatives),
     Habit(name: "Play video games", minStep: "play for 30 minutes", alternativeHabits: gameHabitAlternatives)
   ]
-  var goodHabitList: [GoodHabit] = [
-    GoodHabit(
-      name: "Drinking alcohol free drinks",
-      minSteps: ["drink a cup of tea", "drink a glass of juice", "drink a glass of water"]
-    ),
-    GoodHabit(name: "Reading a book", minSteps: ["read a book for 15 minutes"]),
-    GoodHabit(name: "Practice German", minSteps: ["make a German exercise"]),
-    GoodHabit(name: "Reading with a kid", minSteps: ["read a book with my kid for 10 minutes"])
-  ]
+  var goodHabitList: [GoodHabit] = beerHabitAlternatives + gameHabitAlternatives
 
   @State private var addBadHabitViewVisible = false
   @ObservedObject var badHabits = BadHabits()
