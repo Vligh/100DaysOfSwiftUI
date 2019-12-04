@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HabitDetailsView: View {
-  let habit: Habit
+  var habit: Habit
   let goodHabits: GoodHabits
 
   @State private var addAlternativeHabitViewVisible = false

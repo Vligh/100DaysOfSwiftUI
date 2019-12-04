@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct GoodHabitsView: View {
+  @Environment(\.presentationMode) var presentationMode
   @ObservedObject var goodHabits: GoodHabits
   var badHabit: Habit
 
@@ -48,10 +49,17 @@ struct GoodHabitsView: View {
         }
       }
       .navigationBarTitle("Good Habits")
-      .navigationBarItems(trailing: Button(action: {
-        self.addGoodHabitViewVisible = true
-      }) {
-        Image(systemName: "plus")
+      .navigationBarItems(
+        leading: Button(action: {
+          self.badHabit.alternativeHabits = self.goodHabits.items.filter { self.selectedHabitIds.contains($0.id.uuidString) }
+          self.presentationMode.wrappedValue.dismiss()
+        }) {
+          Text("Save")
+        },
+        trailing: Button(action: {
+          self.addGoodHabitViewVisible = true
+        }) {
+          Image(systemName: "plus")
       })
       .onAppear(perform: {
         self.selectedHabitIds = self.badHabit.alternativeHabits.map { $0.id.uuidString }
