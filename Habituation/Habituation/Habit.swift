@@ -8,9 +8,21 @@
 
 import Foundation
 
-struct Habit: Identifiable {
+class Habit: Identifiable {
   let id = UUID()
   var name: String
   var minStep: String
-  var alternativeHabits = [GoodHabit]()
+  var alternativeHabits: [GoodHabit]
+
+  init(name: String, minStep: String, alternativeHabits: [GoodHabit]) {
+    self.name = name
+    self.minStep = minStep
+    self.alternativeHabits = alternativeHabits
+  }
+
+  init(name: String, minStep: String) {
+    self.name = name
+    self.minStep = minStep
+    self.alternativeHabits = [GoodHabit]()
+  }
 }
