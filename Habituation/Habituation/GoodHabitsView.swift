@@ -19,35 +19,38 @@ struct GoodHabitsView: View {
 
   var body: some View {
     NavigationView {
-      List(self.goodHabits.items) { goodHabit in
-        HStack {
-          VStack(alignment: .leading) {
-            Text(goodHabit.name)
-              .padding(.bottom, 3)
+      List {
+        ForEach(self.goodHabits.items) { goodHabit in
+          HStack {
+            VStack(alignment: .leading) {
+              Text(goodHabit.name)
+                .padding(.bottom, 3)
 
-            ForEach(goodHabit.minSteps, id: \.self) { minStep in
-              Text(minStep)
-                .font(.footnote)
-                .padding(.leading)
+              ForEach(goodHabit.minSteps, id: \.self) { minStep in
+                Text(minStep)
+                  .font(.footnote)
+                  .padding(.leading)
+              }
+            }
+
+            Spacer()
+
+            if self.selectedHabitNames.contains(goodHabit.name) {
+              Image(systemName: "checkmark")
+                .padding(.trailing, 5)
             }
           }
-
-          Spacer()
-
-          if self.selectedHabitNames.contains(goodHabit.name) {
-            Image(systemName: "checkmark")
-              .padding(.trailing, 5)
-          }
-        }
-        .onTapGesture {
-          withAnimation {
-            if let index = self.selectedHabitNames.firstIndex(of: goodHabit.name) {
-              self.selectedHabitNames.remove(at: index)
-            } else {
-              self.selectedHabitNames.append(goodHabit.name)
+          .onTapGesture {
+            withAnimation {
+              if let index = self.selectedHabitNames.firstIndex(of: goodHabit.name) {
+                self.selectedHabitNames.remove(at: index)
+              } else {
+                self.selectedHabitNames.append(goodHabit.name)
+              }
             }
           }
         }
+        .onDelete(perform: removeItems)
       }
       .navigationBarTitle("Good Habits")
       .navigationBarItems(
@@ -77,6 +80,10 @@ struct GoodHabitsView: View {
     .sheet(isPresented: $addGoodHabitViewVisible) {
       AddGoodHabitView(goodHabits: self.goodHabits)
     }
+  }
+
+  func removeItems(at offsets: IndexSet) {
+    self.goodHabits.items.remove(atOffsets: offsets)
   }
 }
 
