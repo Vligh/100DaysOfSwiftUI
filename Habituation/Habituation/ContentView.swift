@@ -66,12 +66,15 @@ struct ContentView: View {
 
   var body: some View {
     NavigationView {
-      List(badHabits.items) { habit in
-        NavigationLink(destination: HabitDetailsView(habit: habit, badHabits: self.badHabits, goodHabits: self.goodHabits)) {
-          VStack(alignment: .leading) {
-            Text(habit.name)
+      List {
+        ForEach(badHabits.items) { habit in
+          NavigationLink(destination: HabitDetailsView(habit: habit, badHabits: self.badHabits, goodHabits: self.goodHabits)) {
+            VStack(alignment: .leading) {
+              Text(habit.name)
+            }
           }
         }
+        .onDelete(perform: removeItems)
       }
       .navigationBarTitle("I have an urge of ...")
       .navigationBarItems(trailing: Button(action: {
@@ -83,6 +86,10 @@ struct ContentView: View {
         AddBadHabitView(badHabits: self.badHabits)
       }
     }
+  }
+
+  func removeItems(at offsets: IndexSet) {
+    self.badHabits.items.remove(atOffsets: offsets)
   }
 }
 
