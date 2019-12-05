@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Habit: Identifiable {
+class Habit: Identifiable, Codable {
   let id = UUID()
   var name: String
   var minStep: String

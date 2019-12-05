@@ -9,30 +9,56 @@
 import SwiftUI
 
 class BadHabits: ObservableObject {
-  @Published var items = [Habit]()
+  @Published var items = [Habit]() {
+    didSet {
+      let encoder = JSONEncoder()
+
+      if let encoded = try? encoder.encode(items) {
+        UserDefaults.standard.set(encoded, forKey: "BadHabits")
+      }
+    }
+  }
+
+  init() {
+    if let items = UserDefaults.standard.data(forKey: "BadHabits") {
+      let decoder = JSONDecoder()
+
+      if let decoded = try? decoder.decode([Habit].self, from: items) {
+        self.items = decoded
+        return
+      }
+    }
+
+    self.items = []
+  }
 }
 
 class GoodHabits: ObservableObject {
-  @Published var items = [GoodHabit]()
+  @Published var items = [GoodHabit]() {
+    didSet {
+      let encoder = JSONEncoder()
+
+      if let encoded = try? encoder.encode(items) {
+        UserDefaults.standard.set(encoded, forKey: "GoodHabits")
+      }
+    }
+  }
+
+  init() {
+    if let items = UserDefaults.standard.data(forKey: "GoodHabits") {
+      let decoder = JSONDecoder()
+
+      if let decoded = try? decoder.decode([GoodHabit].self, from: items) {
+        self.items = decoded
+        return
+      }
+    }
+
+    self.items = []
+  }
 }
 
 struct ContentView: View {
-  static let beerHabitAlternatives: [GoodHabit] = [
-    GoodHabit(
-      name: "Drinking alcohol free drinks",
-      minSteps: ["drink a cup of tea", "drink a glass of juice", "drink a glass of water"]
-    )
-  ]
-  static let gameHabitAlternatives: [GoodHabit] = [
-    GoodHabit(name: "Reading a book", minSteps: ["read a book for 15 minutes"]),
-    GoodHabit(name: "Practice German", minSteps: ["make a German exercise"]),
-    GoodHabit(name: "Reading with a kid", minSteps: ["read a book with my kid for 10 minutes"])
-  ]
-  var badHabitList: [Habit] = [
-    Habit(name: "Drinking beer", minStep: "drink 1 bottle", alternativeHabits: beerHabitAlternatives),
-    Habit(name: "Play video games", minStep: "play for 30 minutes", alternativeHabits: gameHabitAlternatives)
-  ]
-  var goodHabitList: [GoodHabit] = beerHabitAlternatives + gameHabitAlternatives
 
   @State private var addBadHabitViewVisible = false
   @ObservedObject var badHabits = BadHabits()
@@ -41,7 +67,7 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List(badHabits.items) { habit in
-        NavigationLink(destination: HabitDetailsView(habit: habit, goodHabits: self.goodHabits)) {
+        NavigationLink(destination: HabitDetailsView(habit: habit, badHabits: self.badHabits, goodHabits: self.goodHabits)) {
           VStack(alignment: .leading) {
             Text(habit.name)
           }
@@ -57,10 +83,6 @@ struct ContentView: View {
         AddBadHabitView(badHabits: self.badHabits)
       }
     }
-    .onAppear(perform: {
-      self.goodHabits.items = self.goodHabitList
-      self.badHabits.items = self.badHabitList
-    })
   }
 }
 

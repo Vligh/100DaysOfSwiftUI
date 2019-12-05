@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GoodHabit: Identifiable {
+struct GoodHabit: Identifiable, Codable {
   let id = UUID()
   var name: String
   var minSteps = [String]()

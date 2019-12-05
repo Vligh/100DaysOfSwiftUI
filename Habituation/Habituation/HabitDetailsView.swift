@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HabitDetailsView: View {
   var habit: Habit
+  let badHabits: BadHabits
   let goodHabits: GoodHabits
 
   @State private var addAlternativeHabitViewVisible = false
@@ -46,7 +47,7 @@ struct HabitDetailsView: View {
       }
     }
     .sheet(isPresented: $addAlternativeHabitViewVisible) {
-      GoodHabitsView(goodHabits: self.goodHabits, badHabit: self.habit)
+      GoodHabitsView(goodHabits: self.goodHabits, badHabits: self.badHabits, badHabit: self.habit)
     }
   }
 }
@@ -61,6 +62,6 @@ struct HabitDetailsView_Previews: PreviewProvider {
   static let habit = Habit(name: "Drinking Beer", minStep: "drink 1 bottle of beer", alternativeHabits: alternativeHabits)
 
   static var previews: some View {
-    HabitDetailsView(habit: habit, goodHabits: GoodHabits())
+    HabitDetailsView(habit: habit, badHabits: BadHabits(), goodHabits: GoodHabits())
   }
 }

@@ -11,10 +11,11 @@ import SwiftUI
 struct GoodHabitsView: View {
   @Environment(\.presentationMode) var presentationMode
   @ObservedObject var goodHabits: GoodHabits
+  @ObservedObject var badHabits: BadHabits
   var badHabit: Habit
 
   @State private var addGoodHabitViewVisible = false
-  @State private var selectedHabitIds = [String]()
+  @State private var selectedHabitNames = [String]()
 
   var body: some View {
     NavigationView {
@@ -33,17 +34,17 @@ struct GoodHabitsView: View {
 
           Spacer()
 
-          if self.selectedHabitIds.contains(goodHabit.id.uuidString) {
+          if self.selectedHabitNames.contains(goodHabit.name) {
             Image(systemName: "checkmark")
               .padding(.trailing, 5)
           }
         }
         .onTapGesture {
           withAnimation {
-            if let index = self.selectedHabitIds.firstIndex(of: goodHabit.id.uuidString) {
-              self.selectedHabitIds.remove(at: index)
+            if let index = self.selectedHabitNames.firstIndex(of: goodHabit.name) {
+              self.selectedHabitNames.remove(at: index)
             } else {
-              self.selectedHabitIds.append(goodHabit.id.uuidString)
+              self.selectedHabitNames.append(goodHabit.name)
             }
           }
         }
@@ -51,7 +52,15 @@ struct GoodHabitsView: View {
       .navigationBarTitle("Good Habits")
       .navigationBarItems(
         leading: Button(action: {
-          self.badHabit.alternativeHabits = self.goodHabits.items.filter { self.selectedHabitIds.contains($0.id.uuidString) }
+          self.badHabit.alternativeHabits = self.goodHabits.items.filter { self.selectedHabitNames.contains($0.name) }
+
+          // I don't know how to trigger an update of BadHabits on a habit update
+          // So I will remove and re-insert an item into the collection
+          if let index = self.badHabits.items.firstIndex(where: { $0.name == self.badHabit.name }) {
+            self.badHabits.items.remove(at: index)
+            self.badHabits.items.insert(self.badHabit, at: index)
+          }
+
           self.presentationMode.wrappedValue.dismiss()
         }) {
           Text("Save")
@@ -62,7 +71,7 @@ struct GoodHabitsView: View {
           Image(systemName: "plus")
       })
       .onAppear(perform: {
-        self.selectedHabitIds = self.badHabit.alternativeHabits.map { $0.id.uuidString }
+        self.selectedHabitNames = self.badHabit.alternativeHabits.map { $0.name }
       })
     }
     .sheet(isPresented: $addGoodHabitViewVisible) {
@@ -82,6 +91,6 @@ struct GoodHabitsView_Previews: PreviewProvider {
 
     let badHabit = Habit(name: "Playing video games", minStep: "play for 30 minutes", alternativeHabits: [practiceGerman])
 
-    return GoodHabitsView(goodHabits: goodHabits, badHabit: badHabit)
+    return GoodHabitsView(goodHabits: goodHabits, badHabits: BadHabits(), badHabit: badHabit)
   }
 }
