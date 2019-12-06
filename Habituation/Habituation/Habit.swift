@@ -13,6 +13,8 @@ class Habit: Identifiable, Codable {
   var name: String
   var minStep: String
   var alternativeHabits: [GoodHabit]
+  var avoidedTimes = 0
+  var fellBackTimes = 0
 
   init(name: String, minStep: String, alternativeHabits: [GoodHabit]) {
     self.name = name
@@ -24,5 +26,13 @@ class Habit: Identifiable, Codable {
     self.name = name
     self.minStep = minStep
     self.alternativeHabits = [GoodHabit]()
+  }
+
+  func avoid() {
+    self.avoidedTimes += 1
+  }
+
+  func fallback() {
+    self.fellBackTimes += 1
   }
 }
