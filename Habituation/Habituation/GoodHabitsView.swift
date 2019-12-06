@@ -56,13 +56,7 @@ struct GoodHabitsView: View {
       .navigationBarItems(
         leading: Button(action: {
           self.badHabit.alternativeHabits = self.goodHabits.items.filter { self.selectedHabitNames.contains($0.name) }
-
-          // I don't know how to trigger an update of BadHabits on a habit update
-          // So I will remove and re-insert an item into the collection
-          if let index = self.badHabits.items.firstIndex(where: { $0.name == self.badHabit.name }) {
-            self.badHabits.items.remove(at: index)
-            self.badHabits.items.insert(self.badHabit, at: index)
-          }
+          self.badHabit.reinsert(into: self.badHabits)
 
           self.presentationMode.wrappedValue.dismiss()
         }) {

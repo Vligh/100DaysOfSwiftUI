@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct HabitDetailsView: View {
+  @Environment(\.presentationMode) var presentationMode
+
   var habit: Habit
   let badHabits: BadHabits
   let goodHabits: GoodHabits
@@ -26,7 +28,10 @@ struct HabitDetailsView: View {
           ForEach(self.habit.alternativeHabits) { alternativeHabit in
             ForEach(alternativeHabit.minSteps, id: \.self) { minStep in
               Button(minStep) {
+                self.habit.avoid()
+                self.habit.reinsert(into: self.badHabits)
 
+                self.presentationMode.wrappedValue.dismiss()
               }
             }
           }
@@ -40,7 +45,10 @@ struct HabitDetailsView: View {
 
         Section {
           Button("Nah! I'll \(self.habit.minStep) anyway") {
+            self.habit.fallback()
+            self.habit.reinsert(into: self.badHabits)
 
+            self.presentationMode.wrappedValue.dismiss()
           }
           .foregroundColor(.red)
         }

@@ -35,4 +35,13 @@ class Habit: Identifiable, Codable {
   func fallback() {
     self.fellBackTimes += 1
   }
+
+  func reinsert(into badHabits: BadHabits) {
+    // I don't know how to trigger an update of BadHabits on a habit update
+    // So I will remove and re-insert an item into the collection
+    if let index = badHabits.items.firstIndex(where: { $0.name == self.name }) {
+      badHabits.items.remove(at: index)
+      badHabits.items.insert(self, at: index)
+    }
+  }
 }
