@@ -15,6 +15,7 @@
 		347DFB85239F81BF0057723E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347DFB84239F81BF0057723E /* Preview Assets.xcassets */; };
 		347DFB88239F81BF0057723E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347DFB86239F81BF0057723E /* LaunchScreen.storyboard */; };
 		347DFB9023A0CF130057723E /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DFB8F23A0CF130057723E /* AddBookView.swift */; };
+		347DFB9223A0D5100057723E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DFB9123A0D5100057723E /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		347DFB87239F81BF0057723E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		347DFB89239F81BF0057723E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		347DFB8F23A0CF130057723E /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		347DFB9123A0D5100057723E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				347DFB7C239F81BF0057723E /* Bookworm.xcdatamodeld */,
 				347DFB83239F81BF0057723E /* Preview Content */,
 				347DFB8F23A0CF130057723E /* AddBookView.swift */,
+				347DFB9123A0D5100057723E /* RatingView.swift */,
 			);
 			path = Bookworm;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				347DFB79239F81BF0057723E /* AppDelegate.swift in Sources */,
 				347DFB7E239F81BF0057723E /* Bookworm.xcdatamodeld in Sources */,
 				347DFB80239F81BF0057723E /* ContentView.swift in Sources */,
+				347DFB9223A0D5100057723E /* RatingView.swift in Sources */,
 				347DFB7B239F81BF0057723E /* SceneDelegate.swift in Sources */,
 				347DFB9023A0CF130057723E /* AddBookView.swift in Sources */,
 			);
