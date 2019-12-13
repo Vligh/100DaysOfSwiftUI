@@ -20,17 +20,19 @@ struct DetailView: View {
     GeometryReader { geometry in
       VStack {
         ZStack(alignment: .bottomTrailing) {
-          Image(self.book.genre ?? "Fantasy")
+          Image(self.book.genre!.isEmpty ? "Poetry" : self.book.genre!)
             .frame(maxWidth: geometry.size.width)
 
-          Text(self.book.genre?.uppercased() ?? "FANTASY")
-            .font(.caption)
-            .fontWeight(.black)
-            .padding(8)
-            .foregroundColor(.white)
-            .background(Color.black.opacity(0.75))
-            .clipShape(Capsule())
-            .offset(x: -5, y: -5)
+          if self.book.genre!.isEmpty == false {
+            Text(self.book.genre?.uppercased() ?? "FANTASY")
+              .font(.caption)
+              .fontWeight(.black)
+              .padding(8)
+              .foregroundColor(.white)
+              .background(Color.black.opacity(0.75))
+              .clipShape(Capsule())
+              .offset(x: -5, y: -5)
+          }
         }
 
         Text(self.book.author ?? "Unknown author")
