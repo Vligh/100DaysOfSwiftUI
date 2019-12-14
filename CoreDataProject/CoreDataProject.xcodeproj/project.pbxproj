@@ -14,6 +14,8 @@
 		34880DFA23A4C8A200358918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34880DF923A4C8A200358918 /* Assets.xcassets */; };
 		34880DFD23A4C8A200358918 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34880DFC23A4C8A200358918 /* Preview Assets.xcassets */; };
 		34880E0023A4C8A200358918 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34880DFE23A4C8A200358918 /* LaunchScreen.storyboard */; };
+		34880E0923A4CB1F00358918 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34880E0723A4CB1F00358918 /* Movie+CoreDataClass.swift */; };
+		34880E0A23A4CB1F00358918 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34880E0823A4CB1F00358918 /* Movie+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		34880DFC23A4C8A200358918 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34880DFF23A4C8A200358918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34880E0123A4C8A200358918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34880E0723A4CB1F00358918 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		34880E0823A4CB1F00358918 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		34880DEF23A4C8A000358918 /* CoreDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				34880E0723A4CB1F00358918 /* Movie+CoreDataClass.swift */,
+				34880E0823A4CB1F00358918 /* Movie+CoreDataProperties.swift */,
 				34880DF023A4C8A000358918 /* AppDelegate.swift */,
 				34880DF223A4C8A000358918 /* SceneDelegate.swift */,
 				34880DF723A4C8A000358918 /* ContentView.swift */,
@@ -152,6 +158,8 @@
 				34880DF123A4C8A000358918 /* AppDelegate.swift in Sources */,
 				34880DF323A4C8A000358918 /* SceneDelegate.swift in Sources */,
 				34880DF823A4C8A000358918 /* ContentView.swift in Sources */,
+				34880E0923A4CB1F00358918 /* Movie+CoreDataClass.swift in Sources */,
+				34880E0A23A4CB1F00358918 /* Movie+CoreDataProperties.swift in Sources */,
 				34880DF623A4C8A000358918 /* CoreDataProject.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
