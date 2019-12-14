@@ -39,6 +39,10 @@ struct DetailView: View {
           .font(.title)
           .foregroundColor(.secondary)
 
+        if self.book.publishedAt != nil {
+          Text("Publish date: \(self.formattedPublishDate(book: self.book))")
+        }
+
         Text(self.book.review ?? "No review")
         .padding()
 
@@ -70,6 +74,15 @@ struct DetailView: View {
     // try? self.moc.save()
 
     presentationMode.wrappedValue.dismiss()
+  }
+
+  func formattedPublishDate(book: Book) -> String {
+    guard book.publishedAt != nil else { return "" }
+
+    let formatter = DateFormatter()
+    formatter.dateStyle = .long
+
+    return formatter.string(from: book.publishedAt ?? Date())
   }
 }
 
