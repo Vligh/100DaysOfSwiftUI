@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		342CA0E023A60D7A00520375 /* ShipExampleVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA0DF23A60D7900520375 /* ShipExampleVIew.swift */; };
+		342CA0E323A610E800520375 /* Singer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA0E123A610E800520375 /* Singer+CoreDataClass.swift */; };
+		342CA0E423A610E800520375 /* Singer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA0E223A610E800520375 /* Singer+CoreDataProperties.swift */; };
+		342CA0E623A6116C00520375 /* SingerExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA0E523A6116C00520375 /* SingerExampleView.swift */; };
+		342CA0E823A6131A00520375 /* SingerFilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA0E723A6131A00520375 /* SingerFilteredList.swift */; };
 		34880DF123A4C8A000358918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34880DF023A4C8A000358918 /* AppDelegate.swift */; };
 		34880DF323A4C8A000358918 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34880DF223A4C8A000358918 /* SceneDelegate.swift */; };
 		34880DF623A4C8A000358918 /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34880DF423A4C8A000358918 /* CoreDataProject.xcdatamodeld */; };
@@ -21,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		342CA0DF23A60D7900520375 /* ShipExampleVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipExampleVIew.swift; sourceTree = "<group>"; };
+		342CA0E123A610E800520375 /* Singer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		342CA0E223A610E800520375 /* Singer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		342CA0E523A6116C00520375 /* SingerExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerExampleView.swift; sourceTree = "<group>"; };
+		342CA0E723A6131A00520375 /* SingerFilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerFilteredList.swift; sourceTree = "<group>"; };
 		34880DED23A4C8A000358918 /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34880DF023A4C8A000358918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34880DF223A4C8A000358918 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +72,8 @@
 		34880DEF23A4C8A000358918 /* CoreDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				342CA0E123A610E800520375 /* Singer+CoreDataClass.swift */,
+				342CA0E223A610E800520375 /* Singer+CoreDataProperties.swift */,
 				34880E0723A4CB1F00358918 /* Movie+CoreDataClass.swift */,
 				34880E0823A4CB1F00358918 /* Movie+CoreDataProperties.swift */,
 				34880DF023A4C8A000358918 /* AppDelegate.swift */,
@@ -75,6 +85,8 @@
 				34880DF423A4C8A000358918 /* CoreDataProject.xcdatamodeld */,
 				34880DFB23A4C8A200358918 /* Preview Content */,
 				342CA0DF23A60D7900520375 /* ShipExampleVIew.swift */,
+				342CA0E523A6116C00520375 /* SingerExampleView.swift */,
+				342CA0E723A6131A00520375 /* SingerFilteredList.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -159,10 +171,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				342CA0E023A60D7A00520375 /* ShipExampleVIew.swift in Sources */,
+				342CA0E423A610E800520375 /* Singer+CoreDataProperties.swift in Sources */,
+				342CA0E323A610E800520375 /* Singer+CoreDataClass.swift in Sources */,
+				342CA0E823A6131A00520375 /* SingerFilteredList.swift in Sources */,
 				34880DF123A4C8A000358918 /* AppDelegate.swift in Sources */,
 				34880DF323A4C8A000358918 /* SceneDelegate.swift in Sources */,
 				34880DF823A4C8A000358918 /* ContentView.swift in Sources */,
 				34880E0923A4CB1F00358918 /* Movie+CoreDataClass.swift in Sources */,
+				342CA0E623A6116C00520375 /* SingerExampleView.swift in Sources */,
 				34880E0A23A4CB1F00358918 /* Movie+CoreDataProperties.swift in Sources */,
 				34880DF623A4C8A000358918 /* CoreDataProject.xcdatamodeld in Sources */,
 			);
