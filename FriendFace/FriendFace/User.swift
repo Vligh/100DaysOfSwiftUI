@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Identifiable {
   var id = UUID()
   var isActive: Bool
   var name: String
@@ -17,7 +17,7 @@ struct User: Codable {
   var email: String
   var address: String
   var about: String
-  var registered: Date
+  var registered: String
   var tags: [String]
   var friends: [Friend]
 }
