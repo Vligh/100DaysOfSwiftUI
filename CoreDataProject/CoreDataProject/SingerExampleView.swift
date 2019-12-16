@@ -14,7 +14,11 @@ struct SingerExampleView: View {
 
   var body: some View {
     VStack {
-      SingerFilteredList(filterKey: "lastName", filterValue: lastNameFilter) { (singer: Singer) in
+      SingerFilteredList(
+        filterKey: "lastName",
+        filterValue: lastNameFilter,
+        sortDescriptors: [NSSortDescriptor(keyPath: \Singer.firstName, ascending: false)]
+      ) { (singer: Singer) in
         Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
       }
 
