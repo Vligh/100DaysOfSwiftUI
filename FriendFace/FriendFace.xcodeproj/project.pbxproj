@@ -15,6 +15,7 @@
 		342CA10C23A75B5100520375 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342CA10B23A75B5100520375 /* Preview Assets.xcassets */; };
 		342CA10F23A75B5100520375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342CA10D23A75B5100520375 /* LaunchScreen.storyboard */; };
 		342CA11723A75C3000520375 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA11623A75C3000520375 /* Friend.swift */; };
+		342CA11923A75D1B00520375 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA11823A75D1B00520375 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		342CA10E23A75B5100520375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		342CA11023A75B5100520375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		342CA11623A75C3000520375 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		342CA11823A75D1B00520375 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				342CA10323A75B4F00520375 /* FriendFace.xcdatamodeld */,
 				342CA10A23A75B5100520375 /* Preview Content */,
 				342CA11623A75C3000520375 /* Friend.swift */,
+				342CA11823A75D1B00520375 /* User.swift */,
 			);
 			path = FriendFace;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				342CA10523A75B4F00520375 /* FriendFace.xcdatamodeld in Sources */,
 				342CA10023A75B4F00520375 /* AppDelegate.swift in Sources */,
+				342CA11923A75D1B00520375 /* User.swift in Sources */,
 				342CA11723A75C3000520375 /* Friend.swift in Sources */,
 				342CA10723A75B4F00520375 /* ContentView.swift in Sources */,
 				342CA10223A75B4F00520375 /* SceneDelegate.swift in Sources */,
