@@ -15,7 +15,9 @@ struct ContentView: View {
     NavigationView {
       List {
         ForEach(users) { user in
-          Text("\(user.name)")
+          NavigationLink(destination: UserDetailView(user: user)) {
+            Text("\(user.name)")
+          }
         }
       }
       .navigationBarTitle("Friend Face")
