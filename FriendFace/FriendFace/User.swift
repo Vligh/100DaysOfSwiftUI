@@ -20,4 +20,8 @@ struct User: Codable, Identifiable {
   var registered: String
   var tags: [String]
   var friends: [Friend]
+
+  var initials: String {
+    return name.split(separator: " ").map { $0.prefix(1) }.joined(separator: "")
+  }
 }

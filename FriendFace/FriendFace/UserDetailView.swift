@@ -14,7 +14,7 @@ struct UserDetailView: View {
   var body: some View {
     GeometryReader { geometry in
       VStack {
-        Text("JD")
+        Text(self.user.initials)
         Text(self.user.isActive ? "active" : "inactive")
           .foregroundColor(self.user.isActive ? Color.green : Color.red)
 
@@ -47,10 +47,8 @@ struct UserDetailView: View {
 
 
         Section(header: Text("Friends")) {
-          List {
-            ForEach(self.user.friends) { friend in
-              Text(friend.name)
-            }
+          ForEach(self.user.friends) { friend in
+            Text(friend.name)
           }
         }
       }

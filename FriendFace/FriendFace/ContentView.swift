@@ -16,7 +16,12 @@ struct ContentView: View {
       List {
         ForEach(users) { user in
           NavigationLink(destination: UserDetailView(user: user)) {
-            Text("\(user.name)")
+            HStack {
+              Text(user.initials)
+              Text("\(user.name)")
+              Spacer()
+            }
+
           }
         }
       }
