@@ -15,8 +15,14 @@ struct UserDetailView: View {
     GeometryReader { geometry in
       VStack {
         Text(self.user.initials)
-        Text(self.user.isActive ? "active" : "inactive")
-          .foregroundColor(self.user.isActive ? Color.green : Color.red)
+          .font(.largeTitle)
+          .bold()
+          .frame(width: 50, height: 50)
+          .padding(30)
+          .background(self.user.isActive ? Color.green : Color.red)
+          .foregroundColor(.white)
+          .clipShape(Circle())
+          .shadow(color: Color.black, radius: 1)
 
         VStack(alignment: .leading) {
           Section {
