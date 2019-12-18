@@ -18,6 +18,13 @@ struct ContentView: View {
           NavigationLink(destination: UserDetailView(user: user)) {
             HStack {
               Text(user.initials)
+                .bold()
+                .frame(width: 35, height: 35)
+                .padding(10)
+                .background(Color.gray)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+                .shadow(color: Color.black, radius: 1)
 
               VStack(alignment: .leading) {
                 Text("\(user.name)")
@@ -33,8 +40,6 @@ struct ContentView: View {
                 .font(.footnote)
                 .foregroundColor(.secondary)
               }
-
-              Spacer()
             }
 
           }
