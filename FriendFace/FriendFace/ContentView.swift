@@ -18,7 +18,22 @@ struct ContentView: View {
           NavigationLink(destination: UserDetailView(user: user)) {
             HStack {
               Text(user.initials)
-              Text("\(user.name)")
+
+              VStack(alignment: .leading) {
+                Text("\(user.name)")
+
+                HStack {
+                  Image(systemName: "person.3")
+                  Text("\(user.friends.count)")
+                    .padding(.trailing, 10)
+
+                  Image(systemName: "envelope")
+                  Text(user.email)
+                }
+                .font(.footnote)
+                .foregroundColor(.secondary)
+              }
+
               Spacer()
             }
 
