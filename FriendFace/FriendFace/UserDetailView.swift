@@ -45,10 +45,30 @@ struct UserDetailView: View {
             }
             .padding()
 
+
             Section {
-              Text(self.user.tags.joined(separator: ", "))
+              HStack {
+                Image(systemName: "tag")
+                Text("Tags")
+              }
+              .font(.headline)
+
+              ScrollView(.horizontal) {
+                HStack {
+                  ForEach(self.user.tags, id: \.self) { tag in
+                    Text(tag)
+                      .font(.subheadline)
+                      .padding(8)
+                      .padding(.horizontal, 10)
+                      .background(Color.purple)
+                      .foregroundColor(.white)
+                      .clipShape(RoundedRectangle(cornerRadius: 15))
+                  }
+                }
+                .padding(.bottom, 10)
+              }
             }
-            .padding()
+            .padding([.leading, .bottom, .trailing])
 
             Section {
               HStack {
@@ -93,7 +113,7 @@ struct UserDetailView_Previews: PreviewProvider {
     address: "Unknown",
     about: "That is Joe",
     registered: "2015-11-10T01:47:18-00:00",
-    tags: ["tag1", "tag2"],
+    tags: ["tag1", "tag2", "tag333", "tag4", "tag5555555", "tag6", "tag7"],
     friends: [
       Friend(name: "Bob Doe"),
       Friend(name: "Alice Undoe"),
