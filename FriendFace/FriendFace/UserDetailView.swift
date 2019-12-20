@@ -8,6 +8,25 @@
 
 import SwiftUI
 
+struct LabeledText: View {
+  var label: String
+  var text: String
+  var icon: String? = nil
+
+  var body: some View {
+    Section {
+      HStack {
+        if icon != nil {
+          Image(systemName: icon!)
+        }
+        Text(self.label).font(.subheadline)
+      }
+      Text(self.text)
+      Divider()
+    }
+  }
+}
+
 struct UserDetailView: View {
   let user: User
 
@@ -27,24 +46,14 @@ struct UserDetailView: View {
 
           VStack(alignment: .leading) {
             Section {
-              HStack {
-                Image(systemName: "envelope")
-                Text(self.user.email)
-                Spacer()
-              }
-
-              Text("\(self.user.age) years old")
-              Text("Works at \(self.user.company)")
-              Text("Lives in \(self.user.address)")
-              Text("Registered at \(self.user.registered)")
+              LabeledText(label: "Email", text: self.user.email, icon: "envelope")
+              LabeledText(label: "Age", text: "\(self.user.age)")
+              LabeledText(label: "Company", text: self.user.company)
+              LabeledText(label: "Address", text: self.user.address)
+              LabeledText(label: "Registration date", text: self.user.registered)
+              LabeledText(label: "About", text: self.user.about)
             }
             .padding(.horizontal)
-
-            Section {
-              Text(self.user.about)
-            }
-            .padding()
-
 
             Section {
               HStack {
