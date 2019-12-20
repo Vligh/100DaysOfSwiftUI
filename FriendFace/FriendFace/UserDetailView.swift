@@ -27,6 +27,20 @@ struct LabeledText: View {
   }
 }
 
+struct Tag: View {
+  var text: String
+
+  var body: some View {
+    Text(self.text)
+      .font(.subheadline)
+      .padding(8)
+      .padding(.horizontal, 10)
+      .background(Color.purple)
+      .foregroundColor(.white)
+      .clipShape(RoundedRectangle(cornerRadius: 15))
+  }
+}
+
 struct UserDetailView: View {
   let user: User
 
@@ -53,7 +67,6 @@ struct UserDetailView: View {
               LabeledText(label: "Registration date", text: self.user.registered)
               LabeledText(label: "About", text: self.user.about)
             }
-            .padding(.horizontal)
 
             Section {
               HStack {
@@ -62,22 +75,14 @@ struct UserDetailView: View {
               }
               .font(.headline)
 
-              ScrollView(.horizontal) {
-                HStack {
-                  ForEach(self.user.tags, id: \.self) { tag in
-                    Text(tag)
-                      .font(.subheadline)
-                      .padding(8)
-                      .padding(.horizontal, 10)
-                      .background(Color.purple)
-                      .foregroundColor(.white)
-                      .clipShape(RoundedRectangle(cornerRadius: 15))
-                  }
+              VStack(alignment: .leading) {
+                ForEach(self.user.tags, id: \.self) { tag in
+                  Tag(text: tag)
                 }
-                .padding(.bottom, 10)
+                .padding(.bottom, 5)
               }
+              .padding(.bottom, 10)
             }
-            .padding([.leading, .bottom, .trailing])
 
             Section {
               HStack {
@@ -103,10 +108,10 @@ struct UserDetailView: View {
                 .padding(.bottom, 5)
               }
             }
-            .padding(.horizontal)
           }
         }
       }
+      .padding()
     }
     .navigationBarTitle(Text(self.user.name), displayMode: .inline)
   }
