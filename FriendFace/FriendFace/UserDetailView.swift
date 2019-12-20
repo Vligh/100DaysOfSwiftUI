@@ -64,7 +64,7 @@ struct UserDetailView: View {
               LabeledText(label: "Age", text: "\(self.user.age)")
               LabeledText(label: "Company", text: self.user.company)
               LabeledText(label: "Address", text: self.user.address)
-              LabeledText(label: "Registration date", text: self.user.registered)
+              LabeledText(label: "Registration date", text: self.user.formattedRegistrationDate)
               LabeledText(label: "About", text: self.user.about)
             }
 
