@@ -15,7 +15,7 @@ struct ContentView: View {
     NavigationView {
       List {
         ForEach(users) { user in
-          NavigationLink(destination: UserDetailView(user: user)) {
+          NavigationLink(destination: UserDetailView(user: user, users: self.users)) {
             HStack {
               Text(user.initials)
                 .bold()

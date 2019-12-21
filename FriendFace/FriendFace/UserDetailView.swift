@@ -43,6 +43,7 @@ struct Tag: View {
 
 struct UserDetailView: View {
   let user: User
+  let users: [User]
 
   var body: some View {
     GeometryReader { geometry in
@@ -92,20 +93,23 @@ struct UserDetailView: View {
               .font(.headline)
 
               ForEach(self.user.friends) { friend in
-                HStack {
-                  Text(friend.initials)
-                    .font(.footnote)
-                    .bold()
-                    .frame(width: 30, height: 30)
-                    .padding(5)
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .clipShape(Circle())
-                    .shadow(color: Color.black, radius: 1)
+                NavigationLink(destination: UserDetailView(user: self.findUserByFiendId(friend.id), users: self.users)) {
+                  HStack {
+                    Text(friend.initials)
+                      .font(.footnote)
+                      .bold()
+                      .frame(width: 30, height: 30)
+                      .padding(5)
+                      .background(Color.gray)
+                      .foregroundColor(.white)
+                      .clipShape(Circle())
+                      .shadow(color: Color.black, radius: 1)
 
-                  Text(friend.name)
+                    Text(friend.name)
+                      .foregroundColor(.primary)
+                  }
+                  .padding(.bottom, 5)
                 }
-                .padding(.bottom, 5)
               }
             }
           }
@@ -114,6 +118,10 @@ struct UserDetailView: View {
       .padding()
     }
     .navigationBarTitle(Text(self.user.name), displayMode: .inline)
+  }
+
+  func findUserByFiendId(_ friendId: UUID) -> User {
+    self.users.first(where: { $0.id.uuidString == friendId.uuidString })!
   }
 }
 
@@ -136,6 +144,6 @@ struct UserDetailView_Previews: PreviewProvider {
   )
 
   static var previews: some View {
-    UserDetailView(user: user)
+    UserDetailView(user: user, users: [user])
   }
 }
