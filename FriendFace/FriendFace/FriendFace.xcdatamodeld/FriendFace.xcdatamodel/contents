@@ -10,7 +10,7 @@
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserFriend" inverseName="users" inverseEntity="UserFriend"/>
         <uniquenessConstraints>
             <uniquenessConstraint>

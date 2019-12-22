@@ -25,18 +25,23 @@ struct User: Codable, Identifiable {
     return name.split(separator: " ").map { $0.prefix(1) }.joined(separator: "")
   }
 
-  var formattedRegistrationDate: String {
+  var registrationDate: Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
     dateFormatter.locale = Locale(identifier: "en_US_POSIX")
     dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
 
-    let date = dateFormatter.date(from: self.registered)
-    guard date != nil else { return "Unknown" }
+    return dateFormatter.date(from: self.registered) ?? Date()
+  }
+
+  var formattedRegistrationDate: String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
 
     dateFormatter.dateStyle = .long
     dateFormatter.timeStyle = .short
 
-    return dateFormatter.string(from: date!)
+    return dateFormatter.string(from: self.registrationDate)
   }
 }
