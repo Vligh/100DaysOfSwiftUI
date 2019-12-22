@@ -10,14 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
   @Environment(\.managedObjectContext) var moc
-  @State private var users: [User] = []
+  // @State private var users: [User] = []
   @FetchRequest(entity: UserMO.entity(), sortDescriptors: []) var managedUsers: FetchedResults<UserMO>
+
+  var decoratedUsers: [UserDecorator] {
+    self.managedUsers.map { UserDecorator(managedUser: $0) }
+  }
 
   var body: some View {
     NavigationView {
       List {
-        ForEach(users) { user in
-          NavigationLink(destination: UserDetailView(user: user, users: self.users)) {
+        ForEach(decoratedUsers, id: \.self.id) { user in
+          NavigationLink(destination: UserDetailView(user: user, users: self.decoratedUsers)) {
             HStack {
               Text(user.initials)
                 .bold()
@@ -33,7 +37,7 @@ struct ContentView: View {
 
                 HStack {
                   Image(systemName: "person.3")
-                  Text("\(user.friends.count)")
+                  Text("\(user.friendsCount)")
                     .padding(.trailing, 10)
 
                   Image(systemName: "envelope")
@@ -66,7 +70,7 @@ struct ContentView: View {
       }
 
       if let decodedUsers = try? JSONDecoder().decode([User].self, from: data) {
-        self.users = decodedUsers
+        // self.users = decodedUsers
         self.saveUsers(users: decodedUsers)
       } else {
         print("Cannot decode users")
