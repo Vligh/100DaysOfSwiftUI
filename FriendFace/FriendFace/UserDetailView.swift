@@ -43,7 +43,7 @@ struct Tag: View {
 
 struct UserDetailView: View {
   let user: UserDecorator
-  let users: [UserDecorator]
+
 
   var body: some View {
     GeometryReader { geometry in
@@ -92,10 +92,10 @@ struct UserDetailView: View {
               }
               .font(.headline)
 
-              ForEach(self.user.friends) { friend in
-                //NavigationLink(destination: UserDetailView(user: self.findUserByFiendId(friend.id), users: self.users)) {
+              FriendList(friendIds: self.user.friendIds) { (friend: UserMO) in
+                NavigationLink(destination: UserDetailView(user: UserDecorator(managedUser: friend))) {
                   HStack {
-                    Text(friend.initials)
+                    Text(UserDecorator(managedUser: friend).initials)
                       .font(.footnote)
                       .bold()
                       .frame(width: 30, height: 30)
@@ -105,11 +105,11 @@ struct UserDetailView: View {
                       .clipShape(Circle())
                       .shadow(color: Color.black, radius: 1)
 
-                    Text(friend.name)
+                    Text(UserDecorator(managedUser: friend).name)
                       .foregroundColor(.primary)
                   }
                   .padding(.bottom, 5)
-                //}
+                }
               }
             }
           }
@@ -119,31 +119,27 @@ struct UserDetailView: View {
     }
     .navigationBarTitle(Text(self.user.name), displayMode: .inline)
   }
-
-//  func findUserByFiendId(_ friendId: UUID) -> User {
-//    self.users.first(where: { $0.id.uuidString == friendId.uuidString })!
-//  }
 }
 
-//struct UserDetailView_Previews: PreviewProvider {
-//  static var user = User(
-//    isActive: false,
-//    name: "John Doe",
-//    age: 30,
-//    company: "N/A",
-//    email: "john@doe.com",
-//    address: "Unknown",
-//    about: "That is Joe",
-//    registered: "2015-11-10T01:47:18-00:00",
-//    tags: ["tag1", "tag2", "tag333", "tag4", "tag5555555", "tag6", "tag7"],
-//    friends: [
-//      Friend(name: "Bob Doe"),
-//      Friend(name: "Alice Undoe"),
-//      Friend(name: "Wyatt Ward")
-//    ]
-//  )
-//
-//  static var previews: some View {
-//    UserDetailView(user: user, users: [user])
-//  }
-//}
+struct UserDetailView_Previews: PreviewProvider {
+  @Environment(\.managedObjectContext) static var moc
+  static var user: UserMO {
+    let managedUser = UserMO(context: moc)
+    managedUser.isActive = false
+    managedUser.name = "John Doe"
+    managedUser.age = 30
+    managedUser.company = "N/A"
+    managedUser.email = "john@doe.com"
+    managedUser.address = "Unknown"
+    managedUser.about = "That is Joe"
+    managedUser.registered = Date()
+    managedUser.tags = ["tag1", "tag2", "tag333", "tag4", "tag5555555", "tag6", "tag7"]
+    managedUser.friendIds = []
+
+    return managedUser
+  }
+
+  static var previews: some View {
+    UserDetailView(user: UserDecorator(managedUser: self.user))
+  }
+}

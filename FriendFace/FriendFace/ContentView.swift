@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
   @Environment(\.managedObjectContext) var moc
-  // @State private var users: [User] = []
   @FetchRequest(entity: UserMO.entity(), sortDescriptors: []) var managedUsers: FetchedResults<UserMO>
 
   var decoratedUsers: [UserDecorator] {
@@ -21,7 +20,7 @@ struct ContentView: View {
     NavigationView {
       List {
         ForEach(decoratedUsers, id: \.self.id) { user in
-          NavigationLink(destination: UserDetailView(user: user, users: self.decoratedUsers)) {
+          NavigationLink(destination: UserDetailView(user: user)) {
             HStack {
               Text(user.initials)
                 .bold()
@@ -56,11 +55,7 @@ struct ContentView: View {
     .onAppear(perform: fetchAndSaveUsers)
   }
 
-  func fetchAndSaveUsers() {
-    print("users in DB: \(self.managedUsers.count)")
-    print("friendIds: \(self.managedUsers[0].friendIds)")
-
-    let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!
+  func fetchAndSaveUsers() {let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!
     var request = URLRequest(url: url)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "GET"
@@ -72,7 +67,6 @@ struct ContentView: View {
       }
 
       if let decodedUsers = try? JSONDecoder().decode([User].self, from: data) {
-        // self.users = decodedUsers
         self.saveUsers(users: decodedUsers)
       } else {
         print("Cannot decode users")

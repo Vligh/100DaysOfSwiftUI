@@ -16,6 +16,7 @@
 		342CA10F23A75B5100520375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342CA10D23A75B5100520375 /* LaunchScreen.storyboard */; };
 		342CA11723A75C3000520375 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA11623A75C3000520375 /* Friend.swift */; };
 		342CA11923A75D1B00520375 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CA11823A75D1B00520375 /* User.swift */; };
+		344AC3BB23B0BCF200BD2825 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344AC3BA23B0BCF200BD2825 /* FriendList.swift */; };
 		34896DD023A8B7C500C65B0D /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34896DCF23A8B7C500C65B0D /* UserDetailView.swift */; };
 		34DF3C5223AF76EE00A8721C /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF3C4E23AF76EE00A8721C /* UserMO+CoreDataClass.swift */; };
 		34DF3C5323AF76EE00A8721C /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF3C4F23AF76EE00A8721C /* UserMO+CoreDataProperties.swift */; };
@@ -34,6 +35,7 @@
 		342CA11023A75B5100520375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		342CA11623A75C3000520375 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		342CA11823A75D1B00520375 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		344AC3BA23B0BCF200BD2825 /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
 		34896DCF23A8B7C500C65B0D /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		34DF3C4E23AF76EE00A8721C /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		34DF3C4F23AF76EE00A8721C /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				342CA11823A75D1B00520375 /* User.swift */,
 				34896DCF23A8B7C500C65B0D /* UserDetailView.swift */,
 				34DF3C5423AF7A4100A8721C /* UserDecorator.swift */,
+				344AC3BA23B0BCF200BD2825 /* FriendList.swift */,
 			);
 			path = FriendFace;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344AC3BB23B0BCF200BD2825 /* FriendList.swift in Sources */,
 				342CA10523A75B4F00520375 /* FriendFace.xcdatamodeld in Sources */,
 				342CA10023A75B4F00520375 /* AppDelegate.swift in Sources */,
 				342CA11923A75D1B00520375 /* User.swift in Sources */,

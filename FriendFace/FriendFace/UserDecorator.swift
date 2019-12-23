@@ -55,12 +55,12 @@ struct UserDecorator: Identifiable {
     self.managedUser.tags ?? []
   }
 
-  public var friends: [Friend] {
-    []
+  public var friendIds: [UUID] {
+    self.managedUser.friendIds ?? []
   }
 
   public var friendsCount: Int {
-    return 0
+    return friendIds.count
   }
 
   var formattedRegistrationDate: String {
