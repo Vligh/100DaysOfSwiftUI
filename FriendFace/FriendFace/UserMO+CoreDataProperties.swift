@@ -2,7 +2,7 @@
 //  UserMO+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by Vitali Tatarintev on 22.12.19.
+//  Created by Vitali Tatarintev on 23.12.19.
 //  Copyright © 2019 Vitali Tatarintev. All rights reserved.
 //
 //
@@ -12,11 +12,11 @@ import CoreData
 
 
 extension UserMO {
-  
+
   @nonobjc public class func fetchRequest() -> NSFetchRequest<UserMO> {
     return NSFetchRequest<UserMO>(entityName: "User")
   }
-  
+
   @NSManaged public var about: String?
   @NSManaged public var address: String?
   @NSManaged public var age: Int16
@@ -27,6 +27,6 @@ extension UserMO {
   @NSManaged public var name: String?
   @NSManaged public var registered: Date?
   @NSManaged public var tags: [String]?
-  @NSManaged public var friends: UserFriend?
-  
+  @NSManaged public var friendIds: [UUID]?
+
 }

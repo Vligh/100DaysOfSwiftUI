@@ -58,6 +58,8 @@ struct ContentView: View {
 
   func fetchAndSaveUsers() {
     print("users in DB: \(self.managedUsers.count)")
+    print("friendIds: \(self.managedUsers[0].friendIds)")
+
     let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!
     var request = URLRequest(url: url)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -80,7 +82,6 @@ struct ContentView: View {
 
   func saveUsers(users: [User]) {
     var managedUsers: [UserMO] = []
-    var userFriends: [UserFriend] = []
 
     for user in users {
       let managedUser = UserMO(context: self.moc)
@@ -95,12 +96,13 @@ struct ContentView: View {
       managedUser.registered = user.registrationDate
       managedUser.tags = user.tags
 
+      var friendIds: [UUID] = []
+
       for friend in user.friends {
-        let userFriend = UserFriend(context: self.moc)
-        userFriend.userId = user.id
-        userFriend.friendId = friend.id
-        userFriends.append(userFriend)
+        friendIds.append(friend.id)
       }
+
+      managedUser.friendIds = friendIds
 
       managedUsers.append(managedUser)
     }
