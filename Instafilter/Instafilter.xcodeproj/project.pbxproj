@@ -14,6 +14,7 @@
 		345BF8C323B20D950037802B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 345BF8C223B20D950037802B /* Assets.xcassets */; };
 		345BF8C623B20D950037802B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 345BF8C523B20D950037802B /* Preview Assets.xcassets */; };
 		345BF8C923B20D950037802B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 345BF8C723B20D950037802B /* LaunchScreen.storyboard */; };
+		345BF8D123B2199D0037802B /* FilterExamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BF8D023B2199D0037802B /* FilterExamplesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		345BF8C523B20D950037802B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		345BF8C823B20D950037802B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		345BF8CA23B20D950037802B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345BF8D023B2199D0037802B /* FilterExamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExamplesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				345BF8CA23B20D950037802B /* Info.plist */,
 				345BF8BD23B20D930037802B /* Instafilter.xcdatamodeld */,
 				345BF8C423B20D950037802B /* Preview Content */,
+				345BF8D023B2199D0037802B /* FilterExamplesView.swift */,
 			);
 			path = Instafilter;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345BF8D123B2199D0037802B /* FilterExamplesView.swift in Sources */,
 				345BF8BF23B20D930037802B /* Instafilter.xcdatamodeld in Sources */,
 				345BF8BA23B20D930037802B /* AppDelegate.swift in Sources */,
 				345BF8C123B20D930037802B /* ContentView.swift in Sources */,
