@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		348E0E9723B4C0B20026B80A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E0E9623B4C0B20026B80A /* ImagePicker.swift */; };
+		348E0E9923B4CCBD0026B80A /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E0E9823B4CCBD0026B80A /* ImageSaver.swift */; };
 		34C1026A23B3784A007BA85F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1026923B3784A007BA85F /* AppDelegate.swift */; };
 		34C1026C23B3784A007BA85F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1026B23B3784A007BA85F /* SceneDelegate.swift */; };
 		34C1026F23B3784A007BA85F /* BetterInstafilter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34C1026D23B3784A007BA85F /* BetterInstafilter.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		348E0E9623B4C0B20026B80A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		348E0E9823B4CCBD0026B80A /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		34C1026623B3784A007BA85F /* BetterInstafilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterInstafilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C1026923B3784A007BA85F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34C1026B23B3784A007BA85F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				34C1026D23B3784A007BA85F /* BetterInstafilter.xcdatamodeld */,
 				34C1027423B3784C007BA85F /* Preview Content */,
 				348E0E9623B4C0B20026B80A /* ImagePicker.swift */,
+				348E0E9823B4CCBD0026B80A /* ImageSaver.swift */,
 			);
 			path = BetterInstafilter;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C1026F23B3784A007BA85F /* BetterInstafilter.xcdatamodeld in Sources */,
+				348E0E9923B4CCBD0026B80A /* ImageSaver.swift in Sources */,
 				34C1026A23B3784A007BA85F /* AppDelegate.swift in Sources */,
 				348E0E9723B4C0B20026B80A /* ImagePicker.swift in Sources */,
 				34C1027123B3784A007BA85F /* ContentView.swift in Sources */,
