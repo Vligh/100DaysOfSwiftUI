@@ -16,6 +16,7 @@ struct ContentView: View {
 
   @State private var showingFilterSheet = false
   @State private var showingImagePicker = false
+  @State private var showingSaveError = false
   @State private var inputImage: UIImage?
   @State private var processedImage: UIImage?
 
@@ -67,7 +68,10 @@ struct ContentView: View {
           Spacer()
 
           Button("Save") {
-            guard let processedImage = self.processedImage else { return }
+            guard let processedImage = self.processedImage else {
+              self.showingSaveError = true
+              return
+            }
 
             let imageSaver = ImageSaver()
 
@@ -85,6 +89,13 @@ struct ContentView: View {
       }
       .padding([.leading, .bottom, .trailing])
       .navigationBarTitle("Instafilter")
+      .alert(isPresented: $showingSaveError) {
+        Alert(
+          title: Text("Save error"),
+          message: Text("There is nothing to save yet. Select a picture first."),
+          dismissButton: .default(Text("OK"))
+        )
+      }
       .sheet(isPresented: $showingImagePicker) {
         ImagePicker(image: self.$inputImage, onDismiss: self.loadImage)
       }
