@@ -13,6 +13,7 @@ import SwiftUI
 struct ContentView: View {
   @State private var image: Image?
   @State private var filterIntensity = 0.5
+  @State private var currentFilterName = "No filter"
 
   @State private var showingFilterSheet = false
   @State private var showingImagePicker = false
@@ -52,6 +53,11 @@ struct ContentView: View {
         }
         .onTapGesture {
           self.showingImagePicker = true
+        }
+
+        HStack {
+          Text(currentFilterName)
+            .font(.subheadline)
         }
 
         HStack {
@@ -101,13 +107,13 @@ struct ContentView: View {
       }
       .actionSheet(isPresented: $showingFilterSheet) {
         ActionSheet(title: Text("Select a filter"), buttons: [
-          .default(Text("Crystallize")) { self.setFilter(CIFilter.crystallize()) },
-          .default(Text("Edges")) { self.setFilter(CIFilter.edges()) },
-          .default(Text("Gaussian Blur")) { self.setFilter(CIFilter.gaussianBlur()) },
-          .default(Text("Pixellate")) { self.setFilter(CIFilter.pixellate()) },
-          .default(Text("Sepia Tone")) { self.setFilter(CIFilter.sepiaTone()) },
-          .default(Text("Unsharp Mask")) { self.setFilter(CIFilter.unsharpMask() )},
-          .default(Text("Vignette")) { self.setFilter(CIFilter.vignette()) },
+          .default(Text("Crystallize")) { self.setFilter(CIFilter.crystallize(), "Crystallize") },
+          .default(Text("Edges")) { self.setFilter(CIFilter.edges(), "Edges") },
+          .default(Text("Gaussian Blur")) { self.setFilter(CIFilter.gaussianBlur(), "Gaussian Blur") },
+          .default(Text("Pixellate")) { self.setFilter(CIFilter.pixellate(), "Pixellate") },
+          .default(Text("Sepia Tone")) { self.setFilter(CIFilter.sepiaTone(), "Sepia Tone") },
+          .default(Text("Unsharp Mask")) { self.setFilter(CIFilter.unsharpMask(), "Unsharp Mask") },
+          .default(Text("Vignette")) { self.setFilter(CIFilter.vignette(), "Vignette") },
           .cancel()
         ])
       }
@@ -143,7 +149,8 @@ struct ContentView: View {
     }
   }
 
-  func setFilter(_ filter: CIFilter) {
+  func setFilter(_ filter: CIFilter, _ filterName: String) {
+    currentFilterName = filterName
     currentFilter = filter
     loadImage()
   }
