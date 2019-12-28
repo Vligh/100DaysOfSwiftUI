@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346049CB23B720C9004B52A4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346049CA23B720C9004B52A4 /* MapView.swift */; };
 		348E0EA723B5FC540026B80A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E0EA623B5FC540026B80A /* AppDelegate.swift */; };
 		348E0EA923B5FC540026B80A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E0EA823B5FC540026B80A /* SceneDelegate.swift */; };
 		348E0EAC23B5FC540026B80A /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 348E0EAA23B5FC540026B80A /* BucketList.xcdatamodeld */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		346049CA23B720C9004B52A4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		348E0EA323B5FC540026B80A /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		348E0EA623B5FC540026B80A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		348E0EA823B5FC540026B80A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				348E0EB723B5FC560026B80A /* Info.plist */,
 				348E0EAA23B5FC540026B80A /* BucketList.xcdatamodeld */,
 				348E0EB123B5FC560026B80A /* Preview Content */,
+				346049CA23B720C9004B52A4 /* MapView.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				348E0EA723B5FC540026B80A /* AppDelegate.swift in Sources */,
 				348E0EAC23B5FC540026B80A /* BucketList.xcdatamodeld in Sources */,
+				346049CB23B720C9004B52A4 /* MapView.swift in Sources */,
 				348E0EAE23B5FC540026B80A /* ContentView.swift in Sources */,
 				348E0EA923B5FC540026B80A /* SceneDelegate.swift in Sources */,
 			);
