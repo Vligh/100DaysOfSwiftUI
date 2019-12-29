@@ -20,4 +20,8 @@ struct Page: Codable {
   let pageid: Int
   let title: String
   let terms: [String: [String]]?
+
+  var description: String {
+    terms?["description"]?.first ?? "No further information"
+  }
 }
