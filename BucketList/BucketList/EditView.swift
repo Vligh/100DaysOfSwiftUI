@@ -20,6 +20,8 @@ struct EditView: View {
   @State private var loadingState = LoadingState.loading
   @State private var pages = [Page]()
 
+  var onSave: () -> Void
+
   var body: some View {
     NavigationView {
       Form {
@@ -42,6 +44,7 @@ struct EditView: View {
       }
       .navigationBarTitle("Edit place")
       .navigationBarItems(trailing: Button("Done") {
+        self.onSave()
         self.presentationMode.wrappedValue.dismiss()
       })
       .onAppear(perform: fetchNearbyPlaces)
@@ -74,6 +77,6 @@ struct EditView: View {
 
 struct EditView_Previews: PreviewProvider {
   static var previews: some View {
-    EditView(placemark: MKPointAnnotation.example)
+    EditView(placemark: MKPointAnnotation.example, onSave: {})
   }
 }
