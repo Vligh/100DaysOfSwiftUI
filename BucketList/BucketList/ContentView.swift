@@ -10,6 +10,45 @@ import LocalAuthentication
 import MapKit
 import SwiftUI
 
+struct MapCursor: View {
+  var body: some View {
+    Circle()
+      .fill(Color.blue)
+      .opacity(0.3)
+      .frame(width: 32, height: 32)
+  }
+}
+
+struct AddPlaceButton: View {
+  var action: () -> Void
+
+  var body: some View {
+    Button(action: self.action) {
+      Image(systemName: "plus")
+        .padding()
+        .background(Color.black.opacity(0.75))
+        .foregroundColor(.white)
+        .font(.title)
+        .clipShape(Circle())
+        .padding(.trailing)
+    }
+  }
+}
+
+struct LoginView: View {
+  var authenticate: () -> Void
+
+  var body: some View {
+    Button("Unlock Places") {
+      self.authenticate()
+    }
+    .padding()
+    .background(Color.blue)
+    .foregroundColor(.white)
+    .clipShape(Capsule())
+  }
+}
+
 struct ContentView: View {
   @State private var centerCoordinate = CLLocationCoordinate2D()
   @State private var locations = [CodableMKPointAnnotation]()
@@ -23,16 +62,13 @@ struct ContentView: View {
       if isUnlocked {
         MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
           .edgesIgnoringSafeArea(.all)
-        Circle()
-          .fill(Color.blue)
-          .opacity(0.3)
-          .frame(width: 32, height: 32)
+        MapCursor()
 
         VStack {
           Spacer()
           HStack {
             Spacer()
-            Button(action: {
+            AddPlaceButton(action: {
               let newLocation = CodableMKPointAnnotation()
               newLocation.coordinate = self.centerCoordinate
               newLocation.title = "Example location"
@@ -40,25 +76,11 @@ struct ContentView: View {
 
               self.selectedPlace = newLocation
               self.showingEditScreen = true
-            }) {
-              Image(systemName: "plus")
-                .padding()
-                .background(Color.black.opacity(0.75))
-                .foregroundColor(.white)
-                .font(.title)
-                .clipShape(Circle())
-                .padding(.trailing)
-            }
+            })
           }
         }
       } else {
-        Button("Unlock Places") {
-          self.authenticate()
-        }
-        .padding()
-        .background(Color.blue)
-        .foregroundColor(.white)
-        .clipShape(Capsule())
+        LoginView(authenticate: self.authenticate)
       }
     }
     .alert(isPresented: $showingPlaceDetails) {
