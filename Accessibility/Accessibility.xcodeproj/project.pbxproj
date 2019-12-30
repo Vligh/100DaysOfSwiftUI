@@ -14,6 +14,7 @@
 		346049EA23B9F0F0004B52A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346049E923B9F0F0004B52A4 /* Assets.xcassets */; };
 		346049ED23B9F0F0004B52A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346049EC23B9F0F0004B52A4 /* Preview Assets.xcassets */; };
 		346049F023B9F0F0004B52A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346049EE23B9F0F0004B52A4 /* LaunchScreen.storyboard */; };
+		346049F823B9F4C5004B52A4 /* ViewsWithLabelsExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346049F723B9F4C5004B52A4 /* ViewsWithLabelsExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		346049EC23B9F0F0004B52A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		346049EF23B9F0F0004B52A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		346049F123B9F0F0004B52A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		346049F723B9F4C5004B52A4 /* ViewsWithLabelsExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsWithLabelsExampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				346049F123B9F0F0004B52A4 /* Info.plist */,
 				346049E423B9F0EF004B52A4 /* Accessibility.xcdatamodeld */,
 				346049EB23B9F0F0004B52A4 /* Preview Content */,
+				346049F723B9F4C5004B52A4 /* ViewsWithLabelsExampleView.swift */,
 			);
 			path = Accessibility;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				346049E623B9F0EF004B52A4 /* Accessibility.xcdatamodeld in Sources */,
 				346049E823B9F0EF004B52A4 /* ContentView.swift in Sources */,
 				346049E323B9F0EF004B52A4 /* SceneDelegate.swift in Sources */,
+				346049F823B9F4C5004B52A4 /* ViewsWithLabelsExampleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
