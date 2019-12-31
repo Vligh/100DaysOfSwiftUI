@@ -13,6 +13,8 @@
 		34604A1023BB5B5D004B52A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34604A0F23BB5B5D004B52A4 /* Assets.xcassets */; };
 		34604A1323BB5B5D004B52A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34604A1223BB5B5D004B52A4 /* Preview Assets.xcassets */; };
 		34604A1623BB5B5D004B52A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34604A1423BB5B5D004B52A4 /* LaunchScreen.storyboard */; };
+		34604A1E23BB5CCB004B52A4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A1D23BB5CCB004B52A4 /* Photo.swift */; };
+		34604A2023BB5E6C004B52A4 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A1F23BB5E6C004B52A4 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		34604A1223BB5B5D004B52A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34604A1523BB5B5D004B52A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34604A1723BB5B5D004B52A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34604A1D23BB5CCB004B52A4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		34604A1F23BB5E6C004B52A4 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				34604A1423BB5B5D004B52A4 /* LaunchScreen.storyboard */,
 				34604A1723BB5B5D004B52A4 /* Info.plist */,
 				34604A1123BB5B5D004B52A4 /* Preview Content */,
+				34604A1D23BB5CCB004B52A4 /* Photo.swift */,
+				34604A1F23BB5E6C004B52A4 /* DetailsView.swift */,
 			);
 			path = NamedPhotos;
 			sourceTree = "<group>";
@@ -146,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34604A1E23BB5CCB004B52A4 /* Photo.swift in Sources */,
+				34604A2023BB5E6C004B52A4 /* DetailsView.swift in Sources */,
 				34604A0A23BB5B5C004B52A4 /* AppDelegate.swift in Sources */,
 				34604A0C23BB5B5C004B52A4 /* SceneDelegate.swift in Sources */,
 				34604A0E23BB5B5C004B52A4 /* ContentView.swift in Sources */,

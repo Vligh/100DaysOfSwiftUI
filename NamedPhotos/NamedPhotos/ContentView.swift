@@ -9,8 +9,26 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var photos: [Photo] = [
+    Photo(name: "The forest"),
+    Photo(name: "At night"),
+    Photo(name: "At the beach")
+  ]
+
   var body: some View {
-    Text("Hello World")
+    NavigationView {
+      List(photos, id: \.self.name) { photo in
+        NavigationLink(destination: DetailsView(photo: photo)) {
+          Text(photo.name)
+        }
+      }
+      .navigationBarTitle("Named Photos")
+      .navigationBarItems(trailing: Button(action: {
+        // add new photo
+      }) {
+        Image(systemName: "plus")
+      })
+    }
   }
 }
 
