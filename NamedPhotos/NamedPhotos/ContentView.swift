@@ -14,6 +14,9 @@ struct ContentView: View {
     Photo(name: "At night"),
     Photo(name: "At the beach")
   ]
+  @State private var showingImagePicker = false
+  @State private var inputImage: UIImage?
+  @State private var image: Image?
 
   var body: some View {
     NavigationView {
@@ -24,11 +27,21 @@ struct ContentView: View {
       }
       .navigationBarTitle("Named Photos")
       .navigationBarItems(trailing: Button(action: {
-        // add new photo
+        self.showingImagePicker = true
       }) {
         Image(systemName: "plus")
       })
     }
+    .sheet(isPresented: $showingImagePicker) {
+      ImagePicker(image: self.$inputImage, onDismiss: self.loadImage)
+    }
+  }
+
+  func loadImage() {
+    guard let inputImage = inputImage else { return }
+    image = Image(uiImage: inputImage)
+
+    print("The image has been loaded: \(String(describing: image))")
   }
 }
 

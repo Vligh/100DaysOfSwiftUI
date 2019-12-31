@@ -25,6 +25,10 @@ struct ImagePicker: UIViewControllerRepresentable {
         parent.image = uiImage
       }
 
+      if let fileUrl = info[.imageURL] as? URL {
+        print("Filename: \(fileUrl.lastPathComponent)")
+      }
+
       parent.presentationMode.wrappedValue.dismiss()
       parent.onDismiss()
     }
@@ -34,7 +38,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     Coordinator(self)
   }
 
-  func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIViewControllerType {
+  func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
     let picker = UIImagePickerController()
     picker.delegate = context.coordinator
     return picker
