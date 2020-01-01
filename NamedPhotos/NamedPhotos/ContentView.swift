@@ -20,15 +20,18 @@ struct ContentView: View {
 
   var body: some View {
     NavigationView {
-      List(photos) { photo in
-        NavigationLink(destination: DetailsView(photo: photo)) {
-          HStack {
-            photo.image
-              .resizable()
-              .frame(width: 50, height: 50)
-            Text(photo.name)
+      List {
+        ForEach(photos) { photo in
+          NavigationLink(destination: DetailsView(photo: photo)) {
+            HStack {
+              photo.image
+                .resizable()
+                .frame(width: 50, height: 50)
+              Text(photo.name)
+            }
           }
         }
+        .onDelete(perform: deletePhotos)
       }
       .navigationBarTitle("Named Photos")
       .navigationBarItems(trailing: Button(action: {
@@ -43,6 +46,10 @@ struct ContentView: View {
     .sheet(isPresented: $showingImagePicker) {
       ImagePicker(image: self.$inputImage, onDismiss: self.loadImage)
     }
+  }
+
+  func deletePhotos(at offsets: IndexSet) {
+    photos.remove(atOffsets: offsets)
   }
 
   func loadImage() {
