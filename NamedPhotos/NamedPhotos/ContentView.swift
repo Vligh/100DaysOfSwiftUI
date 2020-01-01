@@ -10,19 +10,22 @@ import SwiftUI
 
 struct ContentView: View {
   @State private var photos: [Photo] = [
-    Photo(name: "The forest"),
-    Photo(name: "At night"),
-    Photo(name: "At the beach")
-  ]
+    Photo(name: "A shield", image: Image(systemName: "shield")),
+    Photo(name: "Clock", image: Image(systemName: "clock"))
+  ].sorted()
   @State private var showingImagePicker = false
   @State private var inputImage: UIImage?
-  @State private var image: Image?
 
   var body: some View {
     NavigationView {
-      List(photos, id: \.self.name) { photo in
+      List(photos) { photo in
         NavigationLink(destination: DetailsView(photo: photo)) {
-          Text(photo.name)
+          HStack {
+            photo.image
+              .resizable()
+              .frame(width: 50, height: 50)
+            Text(photo.name)
+          }
         }
       }
       .navigationBarTitle("Named Photos")
@@ -39,9 +42,11 @@ struct ContentView: View {
 
   func loadImage() {
     guard let inputImage = inputImage else { return }
-    image = Image(uiImage: inputImage)
 
-    print("The image has been loaded: \(String(describing: image))")
+    let photo = Photo(name: "Some name", image: Image(uiImage: inputImage))
+    photos.append(photo)
+
+    print("The image has been loaded: \(String(describing: photo.image))")
   }
 }
 

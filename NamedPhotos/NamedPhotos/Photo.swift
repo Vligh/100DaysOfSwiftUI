@@ -6,10 +6,12 @@
 //  Copyright © 2019 Vitali Tatarintev. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-struct Photo: Comparable {
+struct Photo: Comparable, Identifiable {
+  let id = UUID()
   var name: String
+  var image: Image
 
   static func < (lhs: Photo, rhs: Photo) -> Bool {
     lhs.name < rhs.name

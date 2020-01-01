@@ -14,12 +14,15 @@ struct DetailsView: View {
   var body: some View {
     VStack {
       Text(self.photo.name)
+      photo.image
+        .resizable()
+        .scaledToFit()
     }
   }
 }
 
 struct DetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    DetailsView(photo: Photo(name: "The name of the photo"))
+    DetailsView(photo: Photo(name: "The name of the photo", image: Image(systemName: "shield")))
   }
 }

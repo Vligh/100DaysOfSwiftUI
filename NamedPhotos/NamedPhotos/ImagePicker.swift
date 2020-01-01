@@ -25,10 +25,6 @@ struct ImagePicker: UIViewControllerRepresentable {
         parent.image = uiImage
       }
 
-      if let fileUrl = info[.imageURL] as? URL {
-        print("Filename: \(fileUrl.lastPathComponent)")
-      }
-
       parent.presentationMode.wrappedValue.dismiss()
       parent.onDismiss()
     }
