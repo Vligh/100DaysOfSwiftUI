@@ -16,6 +16,7 @@
 		34604A1E23BB5CCB004B52A4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A1D23BB5CCB004B52A4 /* Photo.swift */; };
 		34604A2023BB5E6C004B52A4 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A1F23BB5E6C004B52A4 /* DetailsView.swift */; };
 		34604A2223BB5F43004B52A4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A2123BB5F43004B52A4 /* ImagePicker.swift */; };
+		34604A2423BCA15D004B52A4 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A2323BCA15D004B52A4 /* AddPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		34604A1D23BB5CCB004B52A4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		34604A1F23BB5E6C004B52A4 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		34604A2123BB5F43004B52A4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		34604A2323BCA15D004B52A4 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				34604A1D23BB5CCB004B52A4 /* Photo.swift */,
 				34604A1F23BB5E6C004B52A4 /* DetailsView.swift */,
 				34604A2123BB5F43004B52A4 /* ImagePicker.swift */,
+				34604A2323BCA15D004B52A4 /* AddPhotoView.swift */,
 			);
 			path = NamedPhotos;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			files = (
 				34604A1E23BB5CCB004B52A4 /* Photo.swift in Sources */,
 				34604A2023BB5E6C004B52A4 /* DetailsView.swift in Sources */,
+				34604A2423BCA15D004B52A4 /* AddPhotoView.swift in Sources */,
 				34604A0A23BB5B5C004B52A4 /* AppDelegate.swift in Sources */,
 				34604A2223BB5F43004B52A4 /* ImagePicker.swift in Sources */,
 				34604A0C23BB5B5C004B52A4 /* SceneDelegate.swift in Sources */,

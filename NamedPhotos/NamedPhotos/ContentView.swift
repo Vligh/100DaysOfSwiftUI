@@ -15,6 +15,8 @@ struct ContentView: View {
   ].sorted()
   @State private var showingImagePicker = false
   @State private var inputImage: UIImage?
+  @State private var image: Image?
+  @State private var showingAddImageScreen = false
 
   var body: some View {
     NavigationView {
@@ -34,6 +36,9 @@ struct ContentView: View {
       }) {
         Image(systemName: "plus")
       })
+      .sheet(isPresented: $showingAddImageScreen) {
+        AddPhotoView(photo: self.image!, onSuccess: self.addPhoto)
+      }
     }
     .sheet(isPresented: $showingImagePicker) {
       ImagePicker(image: self.$inputImage, onDismiss: self.loadImage)
@@ -43,10 +48,14 @@ struct ContentView: View {
   func loadImage() {
     guard let inputImage = inputImage else { return }
 
-    let photo = Photo(name: "Some name", image: Image(uiImage: inputImage))
-    photos.append(photo)
+    image = Image(uiImage: inputImage)
 
-    print("The image has been loaded: \(String(describing: photo.image))")
+    self.showingAddImageScreen = true
+  }
+
+  func addPhoto(_ name: String) {
+    let photo = Photo(name: name, image: self.image!)
+    photos.append(photo)
   }
 }
 
