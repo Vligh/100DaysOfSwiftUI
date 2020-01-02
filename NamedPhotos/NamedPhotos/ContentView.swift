@@ -9,10 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var photos: [Photo] = [
-    Photo(name: "A shield", uiImage: UIImage(systemName: "shield")!),
-    Photo(name: "Clock", uiImage: UIImage(systemName: "clock")!)
-  ].sorted()
+  @State private var photos: [Photo] = []
   @State private var showingImagePicker = false
   @State private var inputImage: UIImage?
   @State private var showingAddImageScreen = false
@@ -42,6 +39,7 @@ struct ContentView: View {
         AddPhotoView(photo: Image(uiImage: self.inputImage!), onSuccess: self.addPhoto)
       }
     }
+    .onAppear(perform: loadData)
     .sheet(isPresented: $showingImagePicker) {
       ImagePicker(image: self.$inputImage, onDismiss: self.loadImage)
     }
@@ -49,6 +47,7 @@ struct ContentView: View {
 
   func deletePhotos(at offsets: IndexSet) {
     photos.remove(atOffsets: offsets)
+    saveData()
   }
 
   func loadImage() {
@@ -60,6 +59,33 @@ struct ContentView: View {
   func addPhoto(_ name: String) {
     let photo = Photo(name: name, uiImage: self.inputImage!)
     photos.append(photo)
+    saveData()
+  }
+
+  func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+
+  func saveData() {
+    do {
+      let filename = getDocumentsDirectory().appendingPathComponent("NamedPictures")
+      let data = try JSONEncoder().encode(self.photos)
+      try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+    } catch {
+      print("Unable to save data.")
+    }
+  }
+
+  func loadData() {
+    let filename = getDocumentsDirectory().appendingPathComponent("NamedPictures")
+
+    do {
+      let data = try Data(contentsOf: filename)
+      photos = try JSONDecoder().decode([Photo].self, from: data)
+    } catch {
+      print("Unable to load saved data.")
+    }
   }
 }
 
