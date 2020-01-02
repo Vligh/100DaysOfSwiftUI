@@ -59,6 +59,7 @@ struct ContentView: View {
   func addPhoto(_ name: String) {
     let photo = Photo(name: name, uiImage: self.inputImage!)
     photos.append(photo)
+    photos = photos.sorted()
     saveData()
   }
 
@@ -82,7 +83,7 @@ struct ContentView: View {
 
     do {
       let data = try Data(contentsOf: filename)
-      photos = try JSONDecoder().decode([Photo].self, from: data)
+      photos = try JSONDecoder().decode([Photo].self, from: data).sorted()
     } catch {
       print("Unable to load saved data.")
     }
