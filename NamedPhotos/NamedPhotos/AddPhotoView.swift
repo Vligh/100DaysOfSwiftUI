@@ -20,8 +20,8 @@ struct AddPhotoView: View {
       Form {
         Section {
           photo
-          .resizable()
-          .scaledToFit()
+            .resizable()
+            .scaledToFit()
         }
 
         Section {

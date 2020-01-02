@@ -10,12 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
   @State private var photos: [Photo] = [
-    Photo(name: "A shield", image: Image(systemName: "shield")),
-    Photo(name: "Clock", image: Image(systemName: "clock"))
+    Photo(name: "A shield", uiImage: UIImage(systemName: "shield")!),
+    Photo(name: "Clock", uiImage: UIImage(systemName: "clock")!)
   ].sorted()
   @State private var showingImagePicker = false
   @State private var inputImage: UIImage?
-  @State private var image: Image?
   @State private var showingAddImageScreen = false
 
   var body: some View {
@@ -40,7 +39,7 @@ struct ContentView: View {
         Image(systemName: "plus")
       })
       .sheet(isPresented: $showingAddImageScreen) {
-        AddPhotoView(photo: self.image!, onSuccess: self.addPhoto)
+        AddPhotoView(photo: Image(uiImage: self.inputImage!), onSuccess: self.addPhoto)
       }
     }
     .sheet(isPresented: $showingImagePicker) {
@@ -53,15 +52,13 @@ struct ContentView: View {
   }
 
   func loadImage() {
-    guard let inputImage = inputImage else { return }
-
-    image = Image(uiImage: inputImage)
+    guard inputImage != nil else { return }
 
     self.showingAddImageScreen = true
   }
 
   func addPhoto(_ name: String) {
-    let photo = Photo(name: name, image: self.image!)
+    let photo = Photo(name: name, uiImage: self.inputImage!)
     photos.append(photo)
   }
 }

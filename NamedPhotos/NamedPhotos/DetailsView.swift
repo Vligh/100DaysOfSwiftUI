@@ -23,6 +23,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    DetailsView(photo: Photo(name: "The name of the photo", image: Image(systemName: "shield")))
+     DetailsView(photo: Photo(name: "The name of the photo", uiImage: UIImage(systemName: "shield")!))
   }
 }
