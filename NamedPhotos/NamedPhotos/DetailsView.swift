@@ -20,6 +20,7 @@ struct DetailsView: View {
 
       if self.photo.coordinate != nil {
         Text("Image coordinates: \(String(self.photo.coordinate!.latitude)) \(String(self.photo.coordinate!.longitude))")
+        MapView(centerCoodinate: self.photo.coordinate!)
       } else {
         Text("No coordinates")
       }

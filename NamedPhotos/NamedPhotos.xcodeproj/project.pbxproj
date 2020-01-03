@@ -18,6 +18,7 @@
 		34604A2223BB5F43004B52A4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A2123BB5F43004B52A4 /* ImagePicker.swift */; };
 		34604A2423BCA15D004B52A4 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34604A2323BCA15D004B52A4 /* AddPhotoView.swift */; };
 		34B5B52223BF35E800B6C2B1 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5B52123BF35E800B6C2B1 /* LocationFetcher.swift */; };
+		34B5B52423BF3F0300B6C2B1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5B52323BF3F0300B6C2B1 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		34604A2123BB5F43004B52A4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		34604A2323BCA15D004B52A4 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		34B5B52123BF35E800B6C2B1 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		34B5B52323BF3F0300B6C2B1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				34604A2123BB5F43004B52A4 /* ImagePicker.swift */,
 				34604A2323BCA15D004B52A4 /* AddPhotoView.swift */,
 				34B5B52123BF35E800B6C2B1 /* LocationFetcher.swift */,
+				34B5B52323BF3F0300B6C2B1 /* MapView.swift */,
 			);
 			path = NamedPhotos;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				34604A0A23BB5B5C004B52A4 /* AppDelegate.swift in Sources */,
 				34604A2223BB5F43004B52A4 /* ImagePicker.swift in Sources */,
 				34604A0C23BB5B5C004B52A4 /* SceneDelegate.swift in Sources */,
+				34B5B52423BF3F0300B6C2B1 /* MapView.swift in Sources */,
 				34604A0E23BB5B5C004B52A4 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
