@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
   @State private var photos: [Photo] = []
@@ -59,11 +60,16 @@ struct ContentView: View {
   }
 
   func addPhoto(_ name: String) {
+    var latitude: CLLocationDegrees? = nil
+    var longitude: CLLocationDegrees? = nil
+
     if let location = self.locationFetcher.lastKnownLocation {
       print("Your location is \(location)")
+      latitude = location.latitude
+      longitude = location.longitude
     }
 
-    let photo = Photo(name: name, uiImage: self.inputImage!)
+    let photo = Photo(name: name, uiImage: self.inputImage!, latitude: latitude, longitude: longitude)
     photos.append(photo)
     photos = photos.sorted()
     saveData()
