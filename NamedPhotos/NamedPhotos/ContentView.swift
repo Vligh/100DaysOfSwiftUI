@@ -14,6 +14,8 @@ struct ContentView: View {
   @State private var inputImage: UIImage?
   @State private var showingAddImageScreen = false
 
+  let locationFetcher = LocationFetcher()
+
   var body: some View {
     NavigationView {
       List {
@@ -57,6 +59,10 @@ struct ContentView: View {
   }
 
   func addPhoto(_ name: String) {
+    if let location = self.locationFetcher.lastKnownLocation {
+      print("Your location is \(location)")
+    }
+
     let photo = Photo(name: name, uiImage: self.inputImage!)
     photos.append(photo)
     photos = photos.sorted()
@@ -79,6 +85,8 @@ struct ContentView: View {
   }
 
   func loadData() {
+    self.locationFetcher.start() // request location permissions
+
     let filename = getDocumentsDirectory().appendingPathComponent("NamedPictures")
 
     do {
