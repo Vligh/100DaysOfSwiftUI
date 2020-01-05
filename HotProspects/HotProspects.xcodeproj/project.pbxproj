@@ -15,6 +15,7 @@
 		34B5B53E23C0590500B6C2B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B5B53C23C0590500B6C2B1 /* LaunchScreen.storyboard */; };
 		34B5B54923C1D25600B6C2B1 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5B54823C1D25600B6C2B1 /* ProspectsView.swift */; };
 		34B5B54B23C1D26A00B6C2B1 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5B54A23C1D26A00B6C2B1 /* MeView.swift */; };
+		34B5B54D23C1D4E400B6C2B1 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5B54C23C1D4E400B6C2B1 /* Prospect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		34B5B53F23C0590500B6C2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34B5B54823C1D25600B6C2B1 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		34B5B54A23C1D26A00B6C2B1 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		34B5B54C23C1D4E400B6C2B1 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				34B5B53923C0590500B6C2B1 /* Preview Content */,
 				34B5B54823C1D25600B6C2B1 /* ProspectsView.swift */,
 				34B5B54A23C1D26A00B6C2B1 /* MeView.swift */,
+				34B5B54C23C1D4E400B6C2B1 /* Prospect.swift */,
 			);
 			path = HotProspects;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B5B54923C1D25600B6C2B1 /* ProspectsView.swift in Sources */,
+				34B5B54D23C1D4E400B6C2B1 /* Prospect.swift in Sources */,
 				34B5B53223C0590300B6C2B1 /* AppDelegate.swift in Sources */,
 				34B5B53423C0590300B6C2B1 /* SceneDelegate.swift in Sources */,
 				34B5B53623C0590300B6C2B1 /* ContentView.swift in Sources */,
