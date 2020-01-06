@@ -52,6 +52,11 @@ struct ProspectsView: View {
             Text(prospect.emailAddress)
               .foregroundColor(.secondary)
           }
+          .contextMenu {
+            Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
+              self.prospects.toggle(prospect)
+            }
+          }
         }
       }
         .navigationBarTitle(title)
@@ -80,7 +85,7 @@ struct ProspectsView: View {
       person.emailAddress = details[1]
 
       self.prospects.people.append(person)
-    case .failure(let error):
+    case .failure( _): // let error
       print("Scanning failed")
     }
   }
