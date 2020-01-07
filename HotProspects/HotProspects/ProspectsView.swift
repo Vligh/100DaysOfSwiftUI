@@ -14,10 +14,14 @@ struct ProspectsView: View {
   enum FilterType {
     case none, contacted, uncontacted
   }
+  enum SortType {
+    case mostRecent, byName
+  }
 
   @EnvironmentObject var prospects: Prospects
 
   @State private var isShowingScanner = false
+  @State private var sortOrder: SortType = .mostRecent
 
   let filter: FilterType
 
@@ -42,11 +46,20 @@ struct ProspectsView: View {
       return prospects.people.filter { !$0.isContacted }
     }
   }
+
+  var sortedProspects: [Prospect] {
+    switch sortOrder {
+    case .mostRecent:
+      return filteredProspects.sorted(by: { $0.createdAt < $1.createdAt })
+    case .byName:
+      return filteredProspects.sorted(by: { $0.name < $1.name })
+    }
+  }
   
   var body: some View {
     NavigationView {
       List {
-        ForEach(filteredProspects) { prospect in
+        ForEach(sortedProspects) { prospect in
           HStack {
             if self.filter == .none {
               Image(systemName: prospect.isContacted ? "checkmark.circle" : "questionmark.diamond")
@@ -68,6 +81,11 @@ struct ProspectsView: View {
               Button("Remind Me") {
                 self.addNotification(for: prospect)
               }
+            }
+
+            Button(self.sortOrder == .mostRecent ? "Sort by name" : "Sort by recently added") {
+              self.sortOrder = self.sortOrder == .mostRecent ? .byName : .mostRecent
+              print("Sort order \(self.sortOrder)")
             }
           }
         }
