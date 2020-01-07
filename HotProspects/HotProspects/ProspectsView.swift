@@ -80,9 +80,19 @@ struct ProspectsView: View {
           Text("Scan")
         })
         .sheet(isPresented: $isShowingScanner) {
-          CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan)
-      }
+          CodeScannerView(codeTypes: [.qr], simulatedData: self.generateSimulatedData(), completion: self.handleScan)
+        }
     }
+  }
+
+  func generateSimulatedData() -> String {
+    let firstNames = ["John", "Bob", "Alice", "Paul", "Ralf", "Baba"]
+    let lastNames = ["Doe", "Voss", "Smith", "Gates", "Ampelmann"]
+    let firstName = firstNames[Int.random(in: 0..<firstNames.count)]
+    let lastName = lastNames[Int.random(in: 0..<lastNames.count)]
+    let email = "\(firstName.lowercased())@\(lastName.lowercased()).com"
+
+    return "\(firstName) \(lastName)\n\(email)"
   }
 
   func handleScan(result: Result<String, CodeScannerView.ScanError>) {
