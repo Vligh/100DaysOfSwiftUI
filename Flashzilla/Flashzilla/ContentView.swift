@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
   @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+  @Environment(\.accessibilityEnabled) var accessibilityEnabled
 
   @State private var cards = [Card](repeating: Card.example, count: 10)
   @State private var timeRemaining = 100
@@ -19,7 +20,7 @@ struct ContentView: View {
 
   var body: some View {
     ZStack {
-      Image("background")
+      Image(decorative: "background")
         .resizable()
         .scaledToFill()
         .edgesIgnoringSafeArea(.all)
@@ -45,6 +46,7 @@ struct ContentView: View {
             }
             .stacked(at: index, in: self.cards.count)
             .allowsHitTesting(index == self.cards.count - 1)
+            .accessibility(hidden: index < self.cards.count - 1)
           }
         }
         .allowsHitTesting(timeRemaining > 0)
@@ -58,20 +60,38 @@ struct ContentView: View {
         }
       }
 
-      if differentiateWithoutColor {
+      if differentiateWithoutColor || accessibilityEnabled {
         VStack {
           Spacer()
 
           HStack {
-            Image(systemName: "xmark.circle")
-              .padding()
-              .background(Color.black.opacity(0.7))
-              .clipShape(Circle())
+            Button(action: {
+              withAnimation {
+                self.removeCard(at: self.cards.count - 1)
+              }
+            }) {
+              Image(systemName: "xmark.circle")
+                .padding()
+                .background(Color.black.opacity(0.7))
+                .clipShape(Circle())
+            }
+            .accessibility(label: Text("Wrong"))
+            .accessibility(hint: Text("Mark your answer as being incorrect."))
+
             Spacer()
-            Image(systemName: "checkmark.circle")
-              .padding()
-              .background(Color.black.opacity(0.7))
-              .clipShape(Circle())
+
+            Button(action: {
+              withAnimation {
+                self.removeCard(at: self.cards.count - 1)
+              }
+            }) {
+              Image(systemName: "checkmark.circle")
+                .padding()
+                .background(Color.black.opacity(0.7))
+                .clipShape(Circle())
+            }
+            .accessibility(label: Text("Correct"))
+            .accessibility(hint: Text("Mark your answer as being correct."))
           }
           .foregroundColor(.white)
           .font(.largeTitle)
@@ -97,6 +117,8 @@ struct ContentView: View {
   }
 
   func removeCard(at index: Int) {
+    guard index >= 0 else { return }
+
     cards.remove(at: index)
 
     if cards.isEmpty {
