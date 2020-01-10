@@ -16,6 +16,7 @@
 		34B8C68C23C5B5E900C5A6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B8C68A23C5B5E900C5A6BA /* LaunchScreen.storyboard */; };
 		34B8C69423C5C3BA00C5A6BA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8C69323C5C3BA00C5A6BA /* Card.swift */; };
 		34B8C69623C5C52900C5A6BA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8C69523C5C52900C5A6BA /* CardView.swift */; };
+		34B8C69823C8666700C5A6BA /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8C69723C8666700C5A6BA /* EditCards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		34B8C68D23C5B5E900C5A6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34B8C69323C5C3BA00C5A6BA /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		34B8C69523C5C52900C5A6BA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		34B8C69723C8666700C5A6BA /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				34B8C68723C5B5E900C5A6BA /* Preview Content */,
 				34B8C69323C5C3BA00C5A6BA /* Card.swift */,
 				34B8C69523C5C52900C5A6BA /* CardView.swift */,
+				34B8C69723C8666700C5A6BA /* EditCards.swift */,
 			);
 			path = Flashzilla;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				34B8C68223C5B5E600C5A6BA /* Flashzilla.xcdatamodeld in Sources */,
 				34B8C67D23C5B5E600C5A6BA /* AppDelegate.swift in Sources */,
 				34B8C69423C5C3BA00C5A6BA /* Card.swift in Sources */,
+				34B8C69823C8666700C5A6BA /* EditCards.swift in Sources */,
 				34B8C68423C5B5E600C5A6BA /* ContentView.swift in Sources */,
 				34B8C69623C5C52900C5A6BA /* CardView.swift in Sources */,
 				34B8C67F23C5B5E600C5A6BA /* SceneDelegate.swift in Sources */,
