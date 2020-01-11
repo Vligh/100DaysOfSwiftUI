@@ -34,17 +34,45 @@ struct ContentView: View {
 //    .frame(width: 400, height: 400)
 //    .background(Color.blue)
 
-    // More on custom alignment
-    VStack(alignment: .leading) {
-      ForEach(0..<10) { position in
-        Text("Number \(position)")
-          .alignmentGuide(.leading) { _ in CGFloat(position) * -10 }
+//    // More on custom alignment
+//    VStack(alignment: .leading) {
+//      ForEach(0..<10) { position in
+//        Text("Number \(position)")
+//          .alignmentGuide(.leading) { _ in CGFloat(position) * -10 }
+//      }
+//    }
+//    .background(Color.red)
+//    .frame(width: 400, height: 400)
+//    .background(Color.blue)
+
+    // Custom alignment guide
+    HStack {
+      VStack {
+        Text("@twostraws")
+          .alignmentGuide(.midAccoutnAndName) { d in d[VerticalAlignment.center]}
+        Image("young")
+        .resizable()
+          .frame(width: 64, height: 64)
+      }
+
+      VStack {
+        Text("Full name:")
+        Text("PAUL HUDSON")
+          .alignmentGuide(.midAccoutnAndName) { d in d[VerticalAlignment.center] }
+          .font(.largeTitle)
       }
     }
-    .background(Color.red)
-    .frame(width: 400, height: 400)
-    .background(Color.blue)
   }
+}
+
+extension VerticalAlignment {
+  enum MidAccountAndName: AlignmentID {
+    static func defaultValue(in d: ViewDimensions) -> CGFloat {
+      d[.top]
+    }
+  }
+
+  static let midAccoutnAndName = VerticalAlignment(MidAccountAndName.self)
 }
 
 struct ContentView_Previews: PreviewProvider {
