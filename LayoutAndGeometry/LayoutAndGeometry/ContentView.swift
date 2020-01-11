@@ -46,22 +46,26 @@ struct ContentView: View {
 //    .background(Color.blue)
 
     // Custom alignment guide
-    HStack {
-      VStack {
-        Text("@twostraws")
-          .alignmentGuide(.midAccoutnAndName) { d in d[VerticalAlignment.center]}
-        Image("young")
-        .resizable()
-          .frame(width: 64, height: 64)
-      }
+//    HStack {
+//      VStack {
+//        Text("@twostraws")
+//          .alignmentGuide(.midAccoutnAndName) { d in d[VerticalAlignment.center]}
+//        Image("young")
+//        .resizable()
+//          .frame(width: 64, height: 64)
+//      }
+//
+//      VStack {
+//        Text("Full name:")
+//        Text("PAUL HUDSON")
+//          .alignmentGuide(.midAccoutnAndName) { d in d[VerticalAlignment.center] }
+//          .font(.largeTitle)
+//      }
+//    }
 
-      VStack {
-        Text("Full name:")
-        Text("PAUL HUDSON")
-          .alignmentGuide(.midAccoutnAndName) { d in d[VerticalAlignment.center] }
-          .font(.largeTitle)
-      }
-    }
+    Text("Hello, world!")
+      .offset(x: 100, y: 100)
+      .background(Color.red)
   }
 }
 
