@@ -14,6 +14,15 @@
 		3428986823C9D7EE00EBE2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3428986723C9D7EE00EBE2AA /* Assets.xcassets */; };
 		3428986B23C9D7EE00EBE2AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3428986A23C9D7EE00EBE2AA /* Preview Assets.xcassets */; };
 		3428986E23C9D7EE00EBE2AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3428986C23C9D7EE00EBE2AA /* LaunchScreen.storyboard */; };
+		3428987623CADEF000EBE2AA /* HeaderListButtonExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428987523CADEF000EBE2AA /* HeaderListButtonExample.swift */; };
+		3428987823CADF2300EBE2AA /* GeometryReaderCoordinatesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428987723CADF2300EBE2AA /* GeometryReaderCoordinatesExample.swift */; };
+		3428987A23CADF6000EBE2AA /* GeometryReaderFramesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428987923CADF6000EBE2AA /* GeometryReaderFramesExample.swift */; };
+		3428987C23CADF8800EBE2AA /* AbsolutePositioningExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428987B23CADF8800EBE2AA /* AbsolutePositioningExample.swift */; };
+		3428987E23CADFB100EBE2AA /* CustomAlignmentGuideExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428987D23CADFB100EBE2AA /* CustomAlignmentGuideExample.swift */; };
+		3428988023CADFE300EBE2AA /* MoreOnCustomAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428987F23CADFE300EBE2AA /* MoreOnCustomAlignmentExample.swift */; };
+		3428988223CAE00000EBE2AA /* CustomAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988123CAE00000EBE2AA /* CustomAlignmentExample.swift */; };
+		3428988423CAE02E00EBE2AA /* StackAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988323CAE02E00EBE2AA /* StackAlignmentExample.swift */; };
+		3428988623CAE04A00EBE2AA /* FrameAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988523CAE04A00EBE2AA /* FrameAlignmentExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,15 @@
 		3428986A23C9D7EE00EBE2AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3428986D23C9D7EE00EBE2AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3428986F23C9D7EE00EBE2AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3428987523CADEF000EBE2AA /* HeaderListButtonExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListButtonExample.swift; sourceTree = "<group>"; };
+		3428987723CADF2300EBE2AA /* GeometryReaderCoordinatesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderCoordinatesExample.swift; sourceTree = "<group>"; };
+		3428987923CADF6000EBE2AA /* GeometryReaderFramesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderFramesExample.swift; sourceTree = "<group>"; };
+		3428987B23CADF8800EBE2AA /* AbsolutePositioningExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsolutePositioningExample.swift; sourceTree = "<group>"; };
+		3428987D23CADFB100EBE2AA /* CustomAlignmentGuideExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlignmentGuideExample.swift; sourceTree = "<group>"; };
+		3428987F23CADFE300EBE2AA /* MoreOnCustomAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOnCustomAlignmentExample.swift; sourceTree = "<group>"; };
+		3428988123CAE00000EBE2AA /* CustomAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlignmentExample.swift; sourceTree = "<group>"; };
+		3428988323CAE02E00EBE2AA /* StackAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAlignmentExample.swift; sourceTree = "<group>"; };
+		3428988523CAE04A00EBE2AA /* FrameAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameAlignmentExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +84,15 @@
 				3428986F23C9D7EE00EBE2AA /* Info.plist */,
 				3428986223C9D7EC00EBE2AA /* LayoutAndGeometry.xcdatamodeld */,
 				3428986923C9D7EE00EBE2AA /* Preview Content */,
+				3428987523CADEF000EBE2AA /* HeaderListButtonExample.swift */,
+				3428987723CADF2300EBE2AA /* GeometryReaderCoordinatesExample.swift */,
+				3428987923CADF6000EBE2AA /* GeometryReaderFramesExample.swift */,
+				3428987B23CADF8800EBE2AA /* AbsolutePositioningExample.swift */,
+				3428987D23CADFB100EBE2AA /* CustomAlignmentGuideExample.swift */,
+				3428987F23CADFE300EBE2AA /* MoreOnCustomAlignmentExample.swift */,
+				3428988123CAE00000EBE2AA /* CustomAlignmentExample.swift */,
+				3428988323CAE02E00EBE2AA /* StackAlignmentExample.swift */,
+				3428988523CAE04A00EBE2AA /* FrameAlignmentExample.swift */,
 			);
 			path = LayoutAndGeometry;
 			sourceTree = "<group>";
@@ -149,8 +176,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3428988223CAE00000EBE2AA /* CustomAlignmentExample.swift in Sources */,
+				3428987A23CADF6000EBE2AA /* GeometryReaderFramesExample.swift in Sources */,
+				3428987623CADEF000EBE2AA /* HeaderListButtonExample.swift in Sources */,
+				3428987E23CADFB100EBE2AA /* CustomAlignmentGuideExample.swift in Sources */,
+				3428988023CADFE300EBE2AA /* MoreOnCustomAlignmentExample.swift in Sources */,
+				3428987C23CADF8800EBE2AA /* AbsolutePositioningExample.swift in Sources */,
 				3428986423C9D7EC00EBE2AA /* LayoutAndGeometry.xcdatamodeld in Sources */,
+				3428988623CAE04A00EBE2AA /* FrameAlignmentExample.swift in Sources */,
+				3428988423CAE02E00EBE2AA /* StackAlignmentExample.swift in Sources */,
 				3428985F23C9D7EC00EBE2AA /* AppDelegate.swift in Sources */,
+				3428987823CADF2300EBE2AA /* GeometryReaderCoordinatesExample.swift in Sources */,
 				3428986623C9D7EC00EBE2AA /* ContentView.swift in Sources */,
 				3428986123C9D7EC00EBE2AA /* SceneDelegate.swift in Sources */,
 			);
