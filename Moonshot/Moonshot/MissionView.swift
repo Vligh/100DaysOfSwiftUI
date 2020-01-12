@@ -16,11 +16,13 @@ struct MissionView: View {
     GeometryReader { geometry in
       ScrollView(.vertical) {
         VStack {
-          Image(self.mission.image)
-            .resizable()
-            .scaledToFit()
-            .frame(maxWidth: geometry.size.width * 0.7)
-            .padding(.top)
+          GeometryReader { imageGeometry in
+            Image(self.mission.image)
+              .resizable()
+              .scaledToFit()
+              .scaleEffect(self.calculateImageScale(imageGeometry, geometry))
+          }
+          .frame(width: geometry.size.width * 0.7, height: geometry.size.width * 0.7, alignment: .center)
 
           Text(self.mission.formattedLaunchDate)
             .padding()
@@ -56,6 +58,17 @@ struct MissionView: View {
         }
       }
     }
+  }
+
+  func calculateImageScale(_ imageGeometry: GeometryProxy, _ initialGeometry: GeometryProxy) -> CGFloat {
+    let currentMinY = imageGeometry.frame(in: .global).minY
+    let initialMinY = initialGeometry.frame(in: .global).minY
+
+    if currentMinY >= initialMinY {
+      return 1
+    }
+
+    return 0.8 + currentMinY / 700
   }
 }
 
