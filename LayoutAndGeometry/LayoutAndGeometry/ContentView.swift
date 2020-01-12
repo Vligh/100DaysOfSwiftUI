@@ -8,6 +8,40 @@
 
 import SwiftUI
 
+struct OuterView: View {
+  var body: some View {
+    VStack {
+      Text("Top")
+
+      InnerView()
+        .background(Color.green)
+
+      Text("Bottom")
+    }
+  }
+}
+
+struct InnerView: View {
+  var body: some View {
+    HStack {
+      Text("Left")
+
+      GeometryReader { geo in
+        Text("Center")
+          .background(Color.blue)
+          .onTapGesture {
+            print("Global center: \(geo.frame(in: .global).midX) x \(geo.frame(in: .global).midY)")
+            print("Custom center: \(geo.frame(in: .named("Custom")).midX) x \(geo.frame(in: .named("Custom")).midY)")
+            print("Local center: \(geo.frame(in: .local).midX) x \(geo.frame(in: .local).midY)")
+          }
+      }
+      .background(Color.orange)
+
+      Text("Right")
+    }
+  }
+}
+
 struct ContentView: View {
   var body: some View {
 
@@ -63,9 +97,53 @@ struct ContentView: View {
 //      }
 //    }
 
-    Text("Hello, world!")
-      .offset(x: 100, y: 100)
-      .background(Color.red)
+//    // Absolute positioning
+//    Text("Hello, world!")
+//      .offset(x: 100, y: 100)
+//      .background(Color.red)
+
+//    // Frames of GeometryReader
+//    VStack {
+//      GeometryReader { geo in
+//        Text("Hello, world!")
+//          .frame(width: geo.size.width * 0.9)
+//          .background(Color.red)
+//      }
+//      .background(Color.green)
+//
+//      Text("More text")
+//        .background(Color.blue)
+//    }
+
+//    // Coordinates of GeometryReader
+//    OuterView()
+//      .background(Color.red)
+//      .coordinateSpace(name: "Custom")
+
+    // Button below the list
+    VStack {
+      Text("Header")
+      .padding()
+
+      GeometryReader { geo in
+        List {
+          ForEach(0..<15) { index in
+            Text("Item #\(index)")
+          }
+        }
+      }
+
+      Button(action: {
+
+      }) {
+        Text("Button text")
+      }
+      .frame(width: 200)
+      .padding(20)
+      .background(Color.blue)
+      .foregroundColor(.white)
+      .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
   }
 }
 
