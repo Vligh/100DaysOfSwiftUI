@@ -23,6 +23,7 @@
 		3428988223CAE00000EBE2AA /* CustomAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988123CAE00000EBE2AA /* CustomAlignmentExample.swift */; };
 		3428988423CAE02E00EBE2AA /* StackAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988323CAE02E00EBE2AA /* StackAlignmentExample.swift */; };
 		3428988623CAE04A00EBE2AA /* FrameAlignmentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988523CAE04A00EBE2AA /* FrameAlignmentExample.swift */; };
+		3428988823CAE0D400EBE2AA /* ScrollViewEffectsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428988723CAE0D400EBE2AA /* ScrollViewEffectsExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3428988123CAE00000EBE2AA /* CustomAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlignmentExample.swift; sourceTree = "<group>"; };
 		3428988323CAE02E00EBE2AA /* StackAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAlignmentExample.swift; sourceTree = "<group>"; };
 		3428988523CAE04A00EBE2AA /* FrameAlignmentExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameAlignmentExample.swift; sourceTree = "<group>"; };
+		3428988723CAE0D400EBE2AA /* ScrollViewEffectsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewEffectsExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				3428988123CAE00000EBE2AA /* CustomAlignmentExample.swift */,
 				3428988323CAE02E00EBE2AA /* StackAlignmentExample.swift */,
 				3428988523CAE04A00EBE2AA /* FrameAlignmentExample.swift */,
+				3428988723CAE0D400EBE2AA /* ScrollViewEffectsExample.swift */,
 			);
 			path = LayoutAndGeometry;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				3428987823CADF2300EBE2AA /* GeometryReaderCoordinatesExample.swift in Sources */,
 				3428986623C9D7EC00EBE2AA /* ContentView.swift in Sources */,
 				3428986123C9D7EC00EBE2AA /* SceneDelegate.swift in Sources */,
+				3428988823CAE0D400EBE2AA /* ScrollViewEffectsExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

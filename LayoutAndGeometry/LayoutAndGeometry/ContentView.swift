@@ -11,7 +11,8 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    Text("Layout and Geometry examples")
+    // Text("Layout and Geometry examples")
+    ScrollViewEffectsExample2()
   }
 }
 
