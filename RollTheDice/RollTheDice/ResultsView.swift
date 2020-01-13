@@ -13,10 +13,14 @@ struct ResultsView: View {
 
   let imageSize: CGFloat = 64
 
+  var sortedRolls: [Roll] {
+    self.rolls.all.sorted(by: { $0.createdAt > $1.createdAt })
+  }
+
   var body: some View {
     NavigationView {
       List {
-        ForEach(rolls.all) { roll in
+        ForEach(self.sortedRolls) { roll in
           HStack {
             Image("inverted-dice-\(roll.firstDice)")
               .resizable()
