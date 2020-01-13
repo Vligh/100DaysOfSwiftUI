@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct RollView: View {
+  @EnvironmentObject var rolls: Rolls
+
   let diceSize: CGFloat = 150
 
   @State private var currentRoll = Roll(firstDice: 1, secondDice: 6)
@@ -47,6 +49,7 @@ struct RollView: View {
     let secondDice = Int.random(in: 1...6)
 
     self.currentRoll = Roll(firstDice: firstDice, secondDice: secondDice)
+    self.rolls.add(self.currentRoll)
   }
 }
 

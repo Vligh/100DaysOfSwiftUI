@@ -9,14 +9,14 @@
 import Foundation
 
 class Rolls: ObservableObject {
-  @Published var all: [Roll]
+  @Published private(set) var all: [Roll]
 
   init() {
-    self.all = [
-      Roll(firstDice: 1, secondDice: 2),
-      Roll(firstDice: 2, secondDice: 4),
-      Roll(firstDice: 6, secondDice: 6)
-    ]
+    self.all = []
+  }
+
+  func add(_ roll: Roll) {
+    all.append(roll)
   }
 }
 
