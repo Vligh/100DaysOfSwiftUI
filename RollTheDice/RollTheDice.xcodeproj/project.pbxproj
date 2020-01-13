@@ -14,6 +14,9 @@
 		342898A323CC56CF00EBE2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342898A223CC56CF00EBE2AA /* Assets.xcassets */; };
 		342898A623CC56CF00EBE2AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342898A523CC56CF00EBE2AA /* Preview Assets.xcassets */; };
 		342898A923CC56CF00EBE2AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342898A723CC56CF00EBE2AA /* LaunchScreen.storyboard */; };
+		342898B123CC58AB00EBE2AA /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898B023CC58AB00EBE2AA /* RollView.swift */; };
+		342898B323CC58C500EBE2AA /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898B223CC58C500EBE2AA /* ResultsView.swift */; };
+		342898B523CC5C4600EBE2AA /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898B423CC5C4600EBE2AA /* Roll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		342898A523CC56CF00EBE2AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		342898A823CC56CF00EBE2AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		342898AA23CC56CF00EBE2AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		342898B023CC58AB00EBE2AA /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
+		342898B223CC58C500EBE2AA /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		342898B423CC5C4600EBE2AA /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,9 @@
 				342898AA23CC56CF00EBE2AA /* Info.plist */,
 				3428989D23CC56CD00EBE2AA /* RollTheDice.xcdatamodeld */,
 				342898A423CC56CF00EBE2AA /* Preview Content */,
+				342898B023CC58AB00EBE2AA /* RollView.swift */,
+				342898B223CC58C500EBE2AA /* ResultsView.swift */,
+				342898B423CC5C4600EBE2AA /* Roll.swift */,
 			);
 			path = RollTheDice;
 			sourceTree = "<group>";
@@ -150,7 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3428989A23CC56CD00EBE2AA /* AppDelegate.swift in Sources */,
+				342898B523CC5C4600EBE2AA /* Roll.swift in Sources */,
+				342898B323CC58C500EBE2AA /* ResultsView.swift in Sources */,
 				3428989C23CC56CD00EBE2AA /* SceneDelegate.swift in Sources */,
+				342898B123CC58AB00EBE2AA /* RollView.swift in Sources */,
 				342898A123CC56CD00EBE2AA /* ContentView.swift in Sources */,
 				3428989F23CC56CD00EBE2AA /* RollTheDice.xcdatamodeld in Sources */,
 			);

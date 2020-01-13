@@ -9,8 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+  var rolls = Rolls()
+
   var body: some View {
-    Text("Hello, World!")
+    TabView {
+      RollView()
+        .tabItem {
+          Image("rolling-dices")
+      }
+
+      ResultsView()
+        .tabItem {
+          Image("rule-book")
+        }
+    }
+    .environmentObject(rolls)
   }
 }
 
