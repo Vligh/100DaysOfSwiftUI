@@ -13,6 +13,8 @@ struct ResultsView: View {
 
   let imageSize: CGFloat = 64
 
+  @State private var showingResetAlert = false
+
   var sortedRolls: [Roll] {
     self.rolls.all.sorted(by: { $0.createdAt > $1.createdAt })
   }
@@ -34,8 +36,27 @@ struct ResultsView: View {
           }
         }
       }
-      .navigationBarTitle("Results")
+      .navigationBarTitle("Recent rolls")
+      .navigationBarItems(trailing: Button(action: {
+          self.showingResetAlert = true
+        }) {
+          Image(systemName: "arrow.counterclockwise")
+        }
+        .disabled(self.sortedRolls.count == 0)
+      )
+      .alert(isPresented: $showingResetAlert) {
+        Alert(
+          title: Text("Reset recent rolls"),
+          message: Text("Are you sure you want to reset recent rolls?"),
+          primaryButton: .destructive(Text("Reset")) { self.resetRecentRolls() },
+          secondaryButton: .cancel()
+        )
+      }
     }
+  }
+
+  func resetRecentRolls() {
+    self.rolls.reset()
   }
 }
 

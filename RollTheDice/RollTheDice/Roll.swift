@@ -18,6 +18,10 @@ class Rolls: ObservableObject {
   func add(_ roll: Roll) {
     all.append(roll)
   }
+
+  func reset() {
+    self.all = []
+  }
 }
 
 struct Roll: Identifiable {
