@@ -16,14 +16,17 @@ struct ContentView: View {
       RollView()
         .tabItem {
           Image("rolling-dices")
+          Text("Roll")
       }
 
       ResultsView()
         .tabItem {
           Image("rule-book")
+          Text("Recent rolls")
         }
     }
     .environmentObject(rolls)
+    .accentColor(.blue)
   }
 }
 
