@@ -12,8 +12,11 @@ struct RollView: View {
   @EnvironmentObject var rolls: Rolls
 
   let diceSize: CGFloat = 150
+  let timer = Timer.publish(every: 0.15, on: .main, in: .common).autoconnect()
 
   @State private var currentRoll = Roll(firstDice: 1, secondDice: 6)
+  @State private var rollIsInProgress = false
+  @State private var animationRollTimes = 10
 
   var body: some View {
     VStack {
@@ -32,24 +35,34 @@ struct RollView: View {
       }
 
       Button("Roll") {
-        self.rollTheDice()
+        self.rollIsInProgress = true
       }
       .font(.title)
       .frame(width: 250)
       .padding(20)
-      .background(Color.blue)
+      .background(rollIsInProgress ? Color.gray : Color.blue)
       .foregroundColor(.white)
       .clipShape(RoundedRectangle(cornerRadius: 15))
       .padding(.bottom, 30)
+      .disabled(rollIsInProgress)
     }
-  }
+    .onReceive(timer) { time in
+      guard self.rollIsInProgress else { return }
 
-  func rollTheDice() {
-    let firstDice = Int.random(in: 1...6)
-    let secondDice = Int.random(in: 1...6)
+      if self.animationRollTimes > 0 {
+        let firstDice = Int.random(in: 1...6)
+        let secondDice = Int.random(in: 1...6)
 
-    self.currentRoll = Roll(firstDice: firstDice, secondDice: secondDice)
-    self.rolls.add(self.currentRoll)
+        withAnimation(.spring()) {
+          self.currentRoll = Roll(firstDice: firstDice, secondDice: secondDice)
+        }
+        self.animationRollTimes -= 1
+      } else {
+        self.rollIsInProgress = false
+        self.animationRollTimes = 10
+        self.rolls.add(self.currentRoll)
+      }
+    }
   }
 }
 
