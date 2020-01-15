@@ -14,6 +14,7 @@
 		342898CC23CEF03500EBE2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342898CB23CEF03500EBE2AA /* Assets.xcassets */; };
 		342898CF23CEF03500EBE2AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342898CE23CEF03500EBE2AA /* Preview Assets.xcassets */; };
 		342898D223CEF03500EBE2AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342898D023CEF03500EBE2AA /* LaunchScreen.storyboard */; };
+		342898DA23CEF78D00EBE2AA /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 342898D923CEF78D00EBE2AA /* resorts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		342898CE23CEF03500EBE2AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		342898D123CEF03500EBE2AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		342898D323CEF03500EBE2AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		342898D923CEF78D00EBE2AA /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				342898C423CEF03200EBE2AA /* SceneDelegate.swift */,
 				342898C923CEF03200EBE2AA /* ContentView.swift */,
 				342898CB23CEF03500EBE2AA /* Assets.xcassets */,
+				342898D923CEF78D00EBE2AA /* resorts.json */,
 				342898D023CEF03500EBE2AA /* LaunchScreen.storyboard */,
 				342898D323CEF03500EBE2AA /* Info.plist */,
 				342898C623CEF03200EBE2AA /* SnowSeeker.xcdatamodeld */,
@@ -138,6 +141,7 @@
 			files = (
 				342898D223CEF03500EBE2AA /* LaunchScreen.storyboard in Resources */,
 				342898CF23CEF03500EBE2AA /* Preview Assets.xcassets in Resources */,
+				342898DA23CEF78D00EBE2AA /* resorts.json in Resources */,
 				342898CC23CEF03500EBE2AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
