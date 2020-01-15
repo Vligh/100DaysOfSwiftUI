@@ -36,6 +36,20 @@ struct ContentView: View {
         }
       }
       .navigationBarTitle("Resorts")
+
+      WelcomeView()
+    }
+    // .phoneOnlyStackNavigationView()
+  }
+}
+
+// https://www.hackingwithswift.com/books/ios-swiftui/making-navigationview-work-in-landscape
+extension View {
+  func phoneOnlyStackNavigationView() -> some View {
+    if UIDevice.current.userInterfaceIdiom == .phone {
+      return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
+    } else {
+      return AnyView(self)
     }
   }
 }
