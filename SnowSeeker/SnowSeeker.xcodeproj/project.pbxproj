@@ -22,6 +22,7 @@
 		342898E423D04DC300EBE2AA /* SkiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E323D04DC300EBE2AA /* SkiDetailsView.swift */; };
 		342898E623D04E5100EBE2AA /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E523D04E5100EBE2AA /* ResortDetailsView.swift */; };
 		342898E823D053AB00EBE2AA /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E723D053AB00EBE2AA /* Facility.swift */; };
+		342898EA23D0591200EBE2AA /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E923D0591200EBE2AA /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		342898E323D04DC300EBE2AA /* SkiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkiDetailsView.swift; sourceTree = "<group>"; };
 		342898E523D04E5100EBE2AA /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 		342898E723D053AB00EBE2AA /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
+		342898E923D0591200EBE2AA /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				342898E323D04DC300EBE2AA /* SkiDetailsView.swift */,
 				342898E523D04E5100EBE2AA /* ResortDetailsView.swift */,
 				342898E723D053AB00EBE2AA /* Facility.swift */,
+				342898E923D0591200EBE2AA /* Favorites.swift */,
 			);
 			path = SnowSeeker;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				342898E423D04DC300EBE2AA /* SkiDetailsView.swift in Sources */,
 				342898C523CEF03200EBE2AA /* SceneDelegate.swift in Sources */,
 				342898E223D04C5F00EBE2AA /* ResortView.swift in Sources */,
+				342898EA23D0591200EBE2AA /* Favorites.swift in Sources */,
 				342898DE23CEFAE300EBE2AA /* Bundle-Decodable.swift in Sources */,
 				342898E023CEFE4100EBE2AA /* WelcomeView.swift in Sources */,
 			);
