@@ -20,6 +20,7 @@
 		342898E023CEFE4100EBE2AA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898DF23CEFE4100EBE2AA /* WelcomeView.swift */; };
 		342898E223D04C5F00EBE2AA /* ResortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E123D04C5E00EBE2AA /* ResortView.swift */; };
 		342898E423D04DC300EBE2AA /* SkiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E323D04DC300EBE2AA /* SkiDetailsView.swift */; };
+		342898E623D04E5100EBE2AA /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342898E523D04E5100EBE2AA /* ResortDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		342898DF23CEFE4100EBE2AA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		342898E123D04C5E00EBE2AA /* ResortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortView.swift; sourceTree = "<group>"; };
 		342898E323D04DC300EBE2AA /* SkiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkiDetailsView.swift; sourceTree = "<group>"; };
+		342898E523D04E5100EBE2AA /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				342898DF23CEFE4100EBE2AA /* WelcomeView.swift */,
 				342898E123D04C5E00EBE2AA /* ResortView.swift */,
 				342898E323D04DC300EBE2AA /* SkiDetailsView.swift */,
+				342898E523D04E5100EBE2AA /* ResortDetailsView.swift */,
 			);
 			path = SnowSeeker;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342898E623D04E5100EBE2AA /* ResortDetailsView.swift in Sources */,
 				342898DC23CEF86000EBE2AA /* Resort.swift in Sources */,
 				342898C323CEF03200EBE2AA /* AppDelegate.swift in Sources */,
 				342898C823CEF03200EBE2AA /* SnowSeeker.xcdatamodeld in Sources */,
