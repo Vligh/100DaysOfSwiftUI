@@ -10,12 +10,26 @@ import SwiftUI
 
 struct ContentView: View {
   @ObservedObject var favorites = Favorites()
+  @ObservedObject var filter = Filter()
 
   let resorts: [Resort] = Bundle.main.decode("resorts.json")
 
+  @State private var showingFilter = false
+
+  var sortedResorts: [Resort] {
+    switch filter.sortOrder {
+    case .none:
+      return resorts
+    case .name:
+      return resorts.sorted(by: { $0.name < $1.name })
+    case .country:
+      return resorts.sorted(by: { $0.country < $1.country })
+    }
+  }
+
   var body: some View {
     NavigationView {
-      List(resorts) { resort in
+      List(sortedResorts) { resort in
         NavigationLink(destination: ResortView(resort: resort)) {
           Image(resort.country)
             .resizable()
@@ -45,10 +59,19 @@ struct ContentView: View {
         }
       }
       .navigationBarTitle("Resorts")
+      .navigationBarItems(trailing: Button(action: {
+        self.showingFilter = true
+      }) {
+        Image(systemName: "slider.horizontal.below.rectangle")
+      })
 
       WelcomeView()
     }
     .environmentObject(favorites)
+    .sheet(isPresented: $showingFilter) {
+      FilterView()
+        .environmentObject(self.filter)
+    }
     // .phoneOnlyStackNavigationView()
   }
 }
