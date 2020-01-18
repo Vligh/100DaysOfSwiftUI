@@ -14,6 +14,9 @@ class Filter: ObservableObject {
   }
 
   var sortOrder: SortType = .none
+  var country = "None"
+  var size = "None"
+  var price = "None"
 
   func setSortOrder(_ newSortOrder: SortType) {
     objectWillChange.send()

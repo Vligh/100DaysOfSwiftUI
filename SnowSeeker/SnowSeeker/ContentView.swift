@@ -16,14 +16,32 @@ struct ContentView: View {
 
   @State private var showingFilter = false
 
+  var filteredResorts: [Resort] {
+    var result = resorts
+
+    if filter.country != "None" {
+      result = result.filter({ $0.country == filter.country })
+    }
+
+    if filter.size != "None" {
+      result = result.filter({ $0.wrappedSize == filter.size })
+    }
+
+    if filter.price != "None" {
+      result = result.filter({ $0.wrappedPrice == filter.price })
+    }
+
+    return result
+  }
+
   var sortedResorts: [Resort] {
     switch filter.sortOrder {
     case .none:
-      return resorts
+      return filteredResorts
     case .name:
-      return resorts.sorted(by: { $0.name < $1.name })
+      return filteredResorts.sorted(by: { $0.name < $1.name })
     case .country:
-      return resorts.sorted(by: { $0.country < $1.country })
+      return filteredResorts.sorted(by: { $0.country < $1.country })
     }
   }
 

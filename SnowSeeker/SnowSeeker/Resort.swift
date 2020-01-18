@@ -25,6 +25,31 @@ struct Resort: Codable, Identifiable {
     facilities.map(Facility.init)
   }
 
+  var wrappedSize: String {
+    switch size {
+    case 1:
+      return "Small"
+    case 2:
+      return "Average"
+    default:
+      return "Large"
+    }
+  }
+
+  var wrappedPrice: String {
+    String(repeating: "$", count: price)
+  }
+
   static let allResorts: [Resort] = Bundle.main.decode("resorts.json")
   static let example = allResorts[0]
+
+  static var countries: Set<String> {
+    Set(allResorts.map { $0.country })
+  }
+
+  static let wrappedSizes = ["Small", "Average", "Large"]
+
+  static var wrappedPrices: Set<String> {
+    Set(allResorts.map { $0.wrappedPrice })
+  }
 }
