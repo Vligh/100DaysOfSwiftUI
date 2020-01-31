@@ -33,8 +33,69 @@ struct Question {
   }
 }
 
+struct AnswerButtons: View {
+  @Environment(\.horizontalSizeClass) var sizeClass
+
+  var buttonColors: [Color]
+  let currentAnswerSuggestions: [(value: Int, isCorrect: Bool)]
+  let onTap: (_ index: Int) -> Void
+
+  var body: some View {
+    Group {
+      HStack {
+        Spacer()
+
+        Button("\(self.currentAnswerSuggestions[0].value)") {
+          self.onTap(0)
+        }
+        .modifier(AnswerButton())
+        .background(self.buttonColors[0])
+
+        Spacer()
+
+        Button("\(self.currentAnswerSuggestions[1].value)") {
+          self.onTap(1)
+        }
+        .modifier(AnswerButton())
+        .background(self.buttonColors[1])
+
+        if self.sizeClass == .compact {
+          Spacer()
+        }
+      }
+      .padding(.bottom, self.sizeClass == .compact ? 30 : 0)
+      .padding(.trailing, self.sizeClass == .compact ? 0 : 30)
+
+
+      HStack {
+        if self.sizeClass == .compact {
+          Spacer()
+        }
+
+        Button("\(self.currentAnswerSuggestions[2].value)") {
+          self.onTap(2)
+        }
+        .modifier(AnswerButton())
+        .background(self.buttonColors[2])
+
+        Spacer()
+
+        Button("\(self.currentAnswerSuggestions[3].value)") {
+          self.onTap(3)
+        }
+        .modifier(AnswerButton())
+        .background(self.buttonColors[3])
+
+        Spacer()
+      }
+      .padding(.leading, self.sizeClass == .compact ? 0 : 30)
+    }
+  }
+}
+
 struct PracticeView: View {
   @Environment(\.presentationMode) var presentationMode
+  @Environment(\.horizontalSizeClass) var sizeClass
 
   let questionsPerTable = 11
 
@@ -63,124 +124,101 @@ struct PracticeView: View {
   }
 
   var body: some View {
-    VStack {
-      HStack {
-        Text("\(self.questionsAnswered)/\(self.totalQuestions)")
-          .font(.headline)
+    GeometryReader { geo in
+      VStack {
+        HStack {
+          Text("\(self.questionsAnswered)/\(self.totalQuestions)")
+            .font(.headline)
+
+          Spacer()
+
+          Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+          }) {
+            Image(systemName: "xmark")
+              .resizable()
+              .scaledToFit()
+              .frame(width: 20)
+          }
+            .foregroundColor(.red)
+        }
+        .padding(20)
 
         Spacer()
 
-        Button(action: {
-          self.presentationMode.wrappedValue.dismiss()
-        }) {
-          Image(systemName: "xmark")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 20)
-        }
-          .foregroundColor(.red)
-      }
-      .padding(20)
-
-      Spacer()
-
-      Group {
         VStack {
           Text(self.currentQuestion.toString)
             .font(.largeTitle)
             .padding(.bottom, 50)
             .padding(.top, -10)
 
-          HStack {
-            Spacer()
-
-            Button("\(self.currentAnswerSuggestions[0].value)") {
-              self.tapAnswerButton(index: 0)
+          if self.sizeClass == .compact {
+            VStack {
+              AnswerButtons(
+                buttonColors: self.buttonColors,
+                currentAnswerSuggestions: self.currentAnswerSuggestions,
+                onTap: self.tapAnswerButton
+              )
             }
-            .modifier(AnswerButton())
-            .background(self.buttonColors[0])
-
-            Spacer()
-
-            Button("\(self.currentAnswerSuggestions[1].value)") {
-              self.tapAnswerButton(index: 1)
+          } else {
+            HStack {
+              AnswerButtons(
+                buttonColors: self.buttonColors,
+                currentAnswerSuggestions: self.currentAnswerSuggestions,
+                onTap: self.tapAnswerButton
+              )
             }
-            .modifier(AnswerButton())
-            .background(self.buttonColors[1])
-
-            Spacer()
-          }
-          .padding(.bottom, 50)
-
-          HStack {
-            Spacer()
-
-            Button("\(self.currentAnswerSuggestions[2].value)") {
-              self.tapAnswerButton(index: 2)
-            }
-            .modifier(AnswerButton())
-            .background(self.buttonColors[2])
-
-            Spacer()
-
-            Button("\(self.currentAnswerSuggestions[3].value)") {
-              self.tapAnswerButton(index: 3)
-            }
-            .modifier(AnswerButton())
-            .background(self.buttonColors[3])
-
-            Spacer()
           }
         }
-      }
 
-      Spacer()
+        Spacer()
 
-      VStack {
-        if !self.isPracticeFinished {
-          Button("Next") {
-            self.questionsAnswered += 1
+        VStack {
+          if !self.isPracticeFinished {
+            Button("Next") {
+              self.questionsAnswered += 1
 
-            if self.questionsAnswered < self.totalQuestions {
-              self.currentQuestion = self.pickNewQuestion()
-              self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
-              self.nextButtonDisabled = true
-              self.buttonDidTap = false
-              self.buttonColors = Array(repeating: Color.orange, count: 4)
-            } else {
-              self.isPracticeFinished = true
-            }
-          }
-          .frame(width: 330)
-          .padding(20)
-          .background(self.nextButtonDisabled ? Color.gray : Color.blue)
-          .foregroundColor(.white)
-          .clipShape(RoundedRectangle(cornerRadius: 15))
-          .disabled(self.nextButtonDisabled)
-        } else {
-          VStack {
-            Text("Good job!")
-              .font(.title)
-              .foregroundColor(.green)
-              .padding()
-
-            Button("Finish") {
-              self.presentationMode.wrappedValue.dismiss()
+              if self.questionsAnswered < self.totalQuestions {
+                self.currentQuestion = self.pickNewQuestion()
+                self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
+                self.nextButtonDisabled = true
+                self.buttonDidTap = false
+                self.buttonColors = Array(repeating: Color.orange, count: 4)
+              } else {
+                self.isPracticeFinished = true
+              }
             }
             .frame(width: 330)
             .padding(20)
-            .background(Color.green)
+            .background(self.nextButtonDisabled ? Color.gray : Color.blue)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 15))
+            .disabled(self.nextButtonDisabled)
+          } else {
+            VStack {
+              Text("Good job!")
+                .font(.title)
+                .foregroundColor(.green)
+                .padding()
+
+              Button("Finish") {
+                self.presentationMode.wrappedValue.dismiss()
+              }
+              .frame(width: 330)
+              .padding(20)
+              .background(Color.green)
+              .foregroundColor(.white)
+              .clipShape(RoundedRectangle(cornerRadius: 15))
+            }
           }
         }
       }
-    }
-    .onAppear(perform: {
-      self.generateQuestions()
-      self.currentQuestion = self.pickNewQuestion()
-      self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
+      .onAppear(perform: {
+        self.generateQuestions()
+        self.currentQuestion = self.pickNewQuestion()
+        self.currentAnswerSuggestions = self.generateAnswerSuggestions(question: self.currentQuestion)
     })
+    }
   }
 
   func pickNewQuestion() -> Question {

@@ -18,66 +18,68 @@ struct ContentView: View {
   @State private var isPracticeStarted = false
 
   var body: some View {
-    VStack {
-      Text("Two by Two")
-        .font(.largeTitle)
+    GeometryReader { geo in
+      VStack {
+        Text("Two by Two")
+          .font(.largeTitle)
 
-      Group {
-        Stepper("Practice up to ...", value: $practiceRange, in: 2...10)
-          .padding(20)
+        Group {
+          Stepper("Practice up to ...", value: self.$practiceRange, in: 2...10)
+            .padding(20)
 
-        HStack(alignment: .center) {
-          ForEach(2 ..< 11) { numbersRange in
-            Button("\(numbersRange)") {
-              self.practiceRange = numbersRange
-            }
-              .frame(width: 20)
-              .padding(7)
-              .background(numbersRange <= self.practiceRange ? Color.orange : Color.gray)
-              .foregroundColor(.white)
-              .clipShape(RoundedRectangle(cornerRadius: 5))
-              .animation(.easeInOut)
-          }
-        }
-      }
-
-      Group {
-        Text("Number of questions?")
-          .font(.headline)
-          .padding(10)
-          .padding(.top, 30)
-
-        HStack(alignment: .center) {
-          ForEach(numberOfQuestions, id: \.self) { questionNumber in
-            Button(questionNumber) {
-              self.selectedNumberOfQuestions = questionNumber
-            }
-            .frame(width: 50)
-            .padding(18)
-            .background(Color.green)
-            .foregroundColor(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .overlay(
-              withAnimation(.spring()) {
-                questionNumber == self.selectedNumberOfQuestions ? RoundedRectangle(cornerRadius: 15).stroke(Color.orange, lineWidth: 3) : nil
+          HStack(alignment: .center) {
+            ForEach(2 ..< 11) { numbersRange in
+              Button("\(numbersRange)") {
+                self.practiceRange = numbersRange
               }
-            )
+                .frame(width: 20)
+                .padding(7)
+                .background(numbersRange <= self.practiceRange ? Color.orange : Color.gray)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .animation(.easeInOut)
+            }
           }
         }
-      }
 
-      Spacer()
+        Group {
+          Text("Number of questions?")
+            .font(.headline)
+            .padding(10)
+            .padding(.top, 30)
 
-      Button("Start") {
-        self.isPracticeStarted = true
-        self.settings.practiceRange = self.practiceRange
-        self.settings.selectedNumberOfQuestions = self.selectedNumberOfQuestions
+          HStack(alignment: .center) {
+            ForEach(self.numberOfQuestions, id: \.self) { questionNumber in
+              Button(questionNumber) {
+                self.selectedNumberOfQuestions = questionNumber
+              }
+              .frame(width: 50)
+              .padding(18)
+              .background(Color.green)
+              .foregroundColor(.white)
+              .clipShape(RoundedRectangle(cornerRadius: 15))
+              .overlay(
+                withAnimation(.spring()) {
+                  questionNumber == self.selectedNumberOfQuestions ? RoundedRectangle(cornerRadius: 15).stroke(Color.orange, lineWidth: 3) : nil
+                }
+              )
+            }
+          }
+        }
+
+        Spacer()
+
+        Button("Start") {
+          self.isPracticeStarted = true
+          self.settings.practiceRange = self.practiceRange
+          self.settings.selectedNumberOfQuestions = self.selectedNumberOfQuestions
+        }
+        .frame(width: 330)
+        .padding(20)
+        .background(Color.blue)
+        .foregroundColor(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 15))
       }
-      .frame(width: 330)
-      .padding(20)
-      .background(Color.blue)
-      .foregroundColor(.white)
-      .clipShape(RoundedRectangle(cornerRadius: 15))
     }
     .onAppear(perform: {
       self.practiceRange = self.settings.practiceRange
