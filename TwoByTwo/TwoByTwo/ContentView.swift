@@ -86,7 +86,7 @@ struct ContentView: View {
       self.selectedNumberOfQuestions = self.settings.selectedNumberOfQuestions
     })
     .sheet(isPresented: $isPracticeStarted) {
-      PracticeView().environmentObject(self.settings)
+      NewPracticeView().environmentObject(self.settings)
     }
   }
 }
