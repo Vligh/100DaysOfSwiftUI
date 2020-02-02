@@ -1,6 +1,6 @@
 # 100 days of SwiftUI challenge
 
-![Progress](https://progress-bar.dev/98/?title=112h%2026m%20)
+![Progress](https://progress-bar.dev/99/?title=113h%2027m%20)
 
 
 I've decided to challenge myself and learn SwiftUI for the consecutive 100 days for at least an hour a day.
