@@ -30,14 +30,14 @@ struct NewAnswerButton: View {
   var body: some View {
     Button(action: self.action) {
       Text(self.label)
+        .font(.largeTitle)
+        .frame(width: self.width, height: 50)
+        .padding(35)
+        .foregroundColor(.white)
+        .background(self.backgroundColor)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .animation(.easeInOut)
     }
-    .font(.largeTitle)
-    .frame(width: self.width, height: 50)
-    .padding(35)
-    .foregroundColor(.white)
-    .background(self.backgroundColor)
-    .clipShape(RoundedRectangle(cornerRadius: 10))
-    .animation(.easeInOut)
   }
 }
 
@@ -148,12 +148,12 @@ struct PracticeView: View {
               }
             }) {
               Image(systemName: "forward.fill")
+                .padding(25)
+                .frame(width: self.screenWidth(geo))
+                .background(self.nextButtonDisabled ? Color.gray : Color.blue)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-            .padding(25)
-            .frame(width: self.screenWidth(geo))
-            .background(self.nextButtonDisabled ? Color.gray : Color.blue)
-            .foregroundColor(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
             .disabled(self.nextButtonDisabled)
           } else {
             VStack {
@@ -166,12 +166,12 @@ struct PracticeView: View {
                 self.presentationMode.wrappedValue.dismiss()
               }) {
                 Image(systemName: "stop.fill")
+                  .padding(25)
+                  .frame(width: self.screenWidth(geo))
+                  .background(Color.green)
+                  .foregroundColor(.white)
+                  .clipShape(RoundedRectangle(cornerRadius: 10))
               }
-              .padding(25)
-              .frame(width: self.screenWidth(geo))
-              .background(Color.green)
-              .foregroundColor(.white)
-              .clipShape(RoundedRectangle(cornerRadius: 10))
             }
           }
         }
