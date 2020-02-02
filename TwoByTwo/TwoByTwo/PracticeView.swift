@@ -41,7 +41,7 @@ struct NewAnswerButton: View {
   }
 }
 
-struct NewPracticeView: View {
+struct PracticeView: View {
   @Environment(\.presentationMode) var presentationMode
   @Environment(\.horizontalSizeClass) var sizeClass
 
@@ -241,6 +241,6 @@ struct NewPracticeView: View {
 
 struct NewPracticeView_Previews: PreviewProvider {
   static var previews: some View {
-    NewPracticeView().environmentObject(PracticeSettings())
+    PracticeView().environmentObject(PracticeSettings())
   }
 }
