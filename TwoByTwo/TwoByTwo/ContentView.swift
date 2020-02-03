@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+  @Environment(\.horizontalSizeClass) var sizeClass
+
   @EnvironmentObject var settings: PracticeSettings
 
   let numberOfQuestions = ["5", "10", "20", "All"]
@@ -22,63 +24,76 @@ struct ContentView: View {
       VStack {
         Text("Two by Two")
           .font(.largeTitle)
+          .padding(.top, self.sizeClass == .compact ? 20 : 10)
 
-        Group {
-          Stepper("Practice up to ...", value: self.$practiceRange, in: 2...10)
-            .padding(20)
+        GeometryReader { _ in
+          VStack {
+            Group {
+              Stepper("Practice up to \(self.practiceRange)x10", value: self.$practiceRange, in: 2...10)
+                .padding(.bottom, self.sizeClass == .compact ? 20 : 0)
+                .frame(width: self.screenWidth(geo))
 
-          HStack(alignment: .center) {
-            ForEach(2 ..< 11) { numbersRange in
-              Button("\(numbersRange)") {
-                self.practiceRange = numbersRange
-              }
-                .frame(width: 20)
-                .padding(7)
-                .background(numbersRange <= self.practiceRange ? Color.orange : Color.gray)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-                .animation(.easeInOut)
-            }
-          }
-        }
-
-        Group {
-          Text("Number of questions?")
-            .font(.headline)
-            .padding(10)
-            .padding(.top, 30)
-
-          HStack(alignment: .center) {
-            ForEach(self.numberOfQuestions, id: \.self) { questionNumber in
-              Button(questionNumber) {
-                self.selectedNumberOfQuestions = questionNumber
-              }
-              .frame(width: 50)
-              .padding(18)
-              .background(Color.green)
-              .foregroundColor(.white)
-              .clipShape(RoundedRectangle(cornerRadius: 15))
-              .overlay(
-                withAnimation(.spring()) {
-                  questionNumber == self.selectedNumberOfQuestions ? RoundedRectangle(cornerRadius: 15).stroke(Color.orange, lineWidth: 3) : nil
+              HStack(alignment: .center) {
+                ForEach(2 ..< 11) { numbersRange in
+                  Button(action: {
+                    self.practiceRange = numbersRange
+                  }) {
+                    Text("\(numbersRange)")
+                      .frame(width: self.sizeClass == .compact ? 20 : 42)
+                      .padding(7)
+                      .background(numbersRange <= self.practiceRange ? Color.orange : Color.gray)
+                      .foregroundColor(.white)
+                      .clipShape(RoundedRectangle(cornerRadius: 5))
+                      .animation(.easeInOut)
+                  }
                 }
-              )
+              }
             }
+
+            Group {
+              Text("Number of questions?")
+                .font(.headline)
+                .padding(10)
+                .padding(.top, self.sizeClass == .compact ? 20 : 10)
+
+              HStack(alignment: .center) {
+                ForEach(self.numberOfQuestions, id: \.self) { questionNumber in
+                  Button(action: {
+                    self.selectedNumberOfQuestions = questionNumber
+                  }) {
+                    Text(questionNumber)
+                      .frame(width: self.sizeClass == .compact ? 50 : 100)
+                      .padding(18)
+                      .background(Color.green)
+                      .foregroundColor(.white)
+                      .clipShape(RoundedRectangle(cornerRadius: 10))
+                      .overlay(
+                        withAnimation(.spring()) {
+                          questionNumber == self.selectedNumberOfQuestions ? RoundedRectangle(cornerRadius: 10).stroke(Color.orange, lineWidth: 3) : nil
+                        }
+                      )
+                  }
+                }
+              }
+            }
+
+            Spacer()
           }
         }
 
-        Spacer()
-
-        Button("Start") {
+        Button(action: {
           self.isPracticeStarted = true
           self.settings.practiceRange = self.practiceRange
           self.settings.selectedNumberOfQuestions = self.selectedNumberOfQuestions
+        }) {
+          Image(systemName: "play.fill")
+            .padding(25)
+            .frame(width: self.screenWidth(geo))
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
-        .frame(width: 330)
-        .padding(20)
-        .background(Color.blue)
-        .foregroundColor(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .padding(.bottom, 15)
       }
     }
     .onAppear(perform: {
@@ -88,6 +103,11 @@ struct ContentView: View {
     .sheet(isPresented: $isPracticeStarted) {
       PracticeView().environmentObject(self.settings)
     }
+  }
+
+  func screenWidth(_ geo: GeometryProxy) -> CGFloat {
+    let factor: CGFloat = sizeClass == .compact ? 0.9 : 0.7
+    return geo.size.width * factor
   }
 }
 
